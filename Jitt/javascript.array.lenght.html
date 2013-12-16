@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<script type="text/javascript">
+/* JavaScript Array */
+/* 奇怪的length属性 */
+(function() {
+
+var array = [];
+
+// 隐含渐进
+Function.prototype.method = function(methodname, fn) {
+    if (!this.prototype[methodname] && typeof fn === 'function')
+        this.prototype[methodname] = fn;
+    return this;
+};
+Function.method('rename', function(oldname, newname) { // 为方法重命名
+    if (this.prototype[oldname] && oldname && newname 
+        && typeof oldname === 'string' && typeof newname === 'string') {
+        this.prototype[newname] = this.prototype[oldname];
+        delete this.prototype[oldname];
+    }
+    console.log( this );
+    return this;
+});
+Array.method('increments', function( element ) { // 隐含渐进，这是一个类似push的方法
+    this[this.length] = element;
+    return this;
+});
+
+Array.rename('increments' , 'add');
+var array = new Array('1', 2, 3);
+// array.rename('increments', 'add'); // 注意，rename不是实例的方法，而是对象(Function.prototype)的方法
+// array.increments('good');    // 方法名已经更改，不可用
+array.add("good");
+
+console.log( array );
+
+})();
+</script>
+</head>
+<body>
+<div>
+
+</div>
+</body>
+</html>

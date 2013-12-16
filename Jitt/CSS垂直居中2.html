@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<title>CSS五种垂直局中方法 - 2</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<!--
+这个方法使用绝对定位的 div，把它的 top 设置为 50％，top margin 设置为负的 content 高度。这意味着对象必须在 CSS 中指定固定的高度。
+因为有固定高度，或许你想给 content 指定 overflow:auto，这样如果 content 太多的话，就会出现滚动条，以免content 溢出。
+优点：
+适用于所有浏览器
+不需要嵌套标签
+
+缺点：
+没有足够空间时，content 会消失(类似div 在 body 内，当用户缩小浏览器窗口，滚动条不出现的情况)
+-->
+<style type="text/css">
+.content { border: 1px solid #afafaf; position: absolute; top: 50%; height: 240px; margin-top: -120px; /* negative half of the heitht*/ }
+</style>
+<script type="text/javascript" src="jquery-1.7.1.js"></script>
+<script type="text/javascript">
+</script>
+</head>
+<body>
+<div class="content">http://10.232.1.5</div>
+</body>
+</html>

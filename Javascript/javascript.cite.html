@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<style type="text/css">
+
+</style>
+<script type="text/javascript">
+(function() {
+
+// cite [sai:t]vt.引用
+// 在javascript中所有的对象都是引用类型
+// 所有的引用类型都是对象
+// 
+var obj = new Object();
+
+console.log( obj );
+
+obj = null;     // 释放内存
+
+console.log( obj );
+
+var getInstance = function(klass) {
+    klass.$prototyping = true;
+    var proto = new klass;
+    delete klass.$prototyping;
+    return proto;
+};
+
+var oj = function() {
+    var sayHi = function() {}
+};
+oj.getName = function() { return "anshen"; }
+
+var o = new oj();
+console.log(o.getName());
+
+var n = getInstance(oj);
+console.log(n);
+
+})();
+</script>
+</head>
+<body>
+<div>
+
+</div>
+</body>
+</html>

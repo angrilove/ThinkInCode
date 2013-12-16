@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Anshen&trade;</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<link rel="stylesheet" type="text/css" href="css.css"></link>
+<script type="text/javascript" src="./jquery-1.7.1.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	var $article = $("#article");
+	$("button").click(function( e ) {
+		var params = {width: 100, height: 1320};
+		// .param(object, [traditional])
+		// - @param {Object} object 要序列化得对象或数组
+		// - @param {Boolean} traditional 规定是否使用传统的方式浅层进行序列化(参数序列化)
+		//   -- 可以通过jQuery.ajaxSettings.traditional = true 将禁用深度递归
+		var str = $.param( params );
+		$article.text(str);
+		var u = decodeURIComponent($.param( { name: "anshen"}));
+		$article.append( '&' + u );
+		console.log('%o', decodeURIComponent);
+	});
+});
+</script>
+</head>
+<body>
+<span class='title'>Anshen&trade; jQuery Ajax</span>
+<div class="divider"></div>
+<div id="article"></div>
+<div class="divider"></div>
+<button>Click Me</button>
+</body>
+</hTml>

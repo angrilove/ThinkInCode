@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>ADS</title>
+<link rel="stylesheet" type="text/css" href="core.css" media="screen, print">
+
+<script type="text/javascript" src="ADS.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+
+ADS.ajaxRequest("core.css", {
+	"method": "GET",
+	cache: false,
+	"completeListener": function() {
+		console.log("completeListener");
+		console.log(this);
+	},
+	"errorListener": function() {
+		console.log(this);
+	},
+	"catchallListener": function(xhr) {
+		console.log(this, xhr);
+	}
+});
+
+$.get("core.css", function() {});
+
+console.log(false && true);
+
+</script>
+</body>
+</html>

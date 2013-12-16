@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Just Think And Do It.</title>
+<script type="text/javascript" src="http://ajax.microsoft.com/ajax/jQuery/jquery-1.7.2.js"></script>
+</head>
+<body style="width: 1001px;height: 500px;">
+    <marquee behavior="alternate" direction="left">
+        <marquee behavior="alternate" direction="up" height="500">
+            <div>文字</div>
+        </marquee>
+    </marquee>
+    <script type="text/javascript">
+    var iframe = $('#jQuery_history')[0];
+    console.log(iframe.contentDocument, iframe.contentWindow.document);
+    $('button').click(function(e) {
+        iframe.contentDocument.location.hash = '#tabid';
+    });
+    </script>
+</body>
+</html>

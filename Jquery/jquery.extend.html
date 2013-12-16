@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Anshen&trade;</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<script type="text/javascript" src="./jquery-1.7.1.js"></script>
+<script type="text/javascript">
+jQuery(function($) {
+	var rs = {},
+		target = {},
+		src = {name: "anshen", age: 22};
+	rs = jQuery.extend(target, src);
+	console.log(rs, target, src);
+	console.log($.age);
+});
+
+jQuery(function($) {
+	var rs = {},
+		target = {},
+		src = {name: "anshen", age: 22};
+		rs = $.extend(true, target, src);
+	console.log(rs, target, src);
+});
+
+jQuery(function($) {
+	var rs = {},
+		target = {},
+		src = {name: "anshen", age: 22};
+	rs = $.fn.extend(target, src);
+	console.log(rs, target, src);
+	console.log($.age);
+});
+
+jQuery(function($) {
+	var rs = {},
+		target = {},
+		src = {name: "loton", age: 22, say: "WHAT?"};
+	rs = $.fn.extend(src);
+	console.log(rs);
+});
+
+jQuery(function($) {
+	var rs = {},
+		target = {},
+		src = {name: "loton", age: 22, say: "WHAT?"};
+	rs = $.extend(src);
+	console.dir(rs);
+});
+</script>
+</head>
+<body>
+</body>
+</hTml>

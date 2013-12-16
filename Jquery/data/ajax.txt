@@ -1,0 +1,8 @@
+{
+	statusCode: 200,
+	message: "处理完成",
+	rel: "dialogId_0001",
+	navTabId: "nvaTabId_12233000239",
+	callbackType: "closeCurrent",
+	forwardUrl: "http://www.anshen-loton.com/pd/?fwlink=baidu.com"
+}

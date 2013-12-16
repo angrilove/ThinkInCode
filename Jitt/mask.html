@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<style type="text/css">
+* {
+    margin: 0px;
+    padding: 0px;
+}
+html, body {
+    width: 100%;
+    height: 100%;
+}
+#mask {
+    position:absolute;
+    z-index:888;
+    background-color:#cccccc;
+    display:none;
+    top:0;
+    left:0;
+    filter:Alpha(opacity=50);/* IE */
+    -moz-opacity:0.5; /* FF */
+    opacity:0.5; /* FF New */
+}
+#view {
+    position:absolute;
+    width:450px;
+    height:450px;
+    z-index:999;/*視圖div的z-index要大於遮蓋層的*/
+    display:none;
+    top:0px;
+    left:50%;
+    background-color:#ffffff;
+    border:1px solid pink;
+    text-align: center;
+    vertical-align: middle;
+}
+</style>
+<script type="text/javascript" src="jquery-1.7.1.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	var $html = $("div#mask");
+	var $view = $("div#view");
+	var h = $(window).height();
+	var w = $(window).width();
+	var vh = $view.width();
+	var vw = $view.height();
+	$(":button.open").click(function() {
+		$html.css({width: w + "px", height: h + "px", display: "table"});
+		$view.css({left: (w - vw) / 2 + "px", top: (h - vh) / 2 + "px"});
+		$view.show();
+	});
+	$(":button.close").click(function() {
+		$html.hide();
+		$view.hide();
+	});
+	$(window).resize(function() {
+		h = $(window).height();
+		w = $(window).width();
+		$html.css({width: w + "px", height: h + "px", display: "table"});
+		$view.css({left: (w - vw) / 2 + "px", top: (h - vh) / 2 + "px"});
+	});
+});
+</script>
+</head>
+<body>
+	<div><button type="button" class="open">显示遮罩层</button></div>
+	<div id="view"><button type="button" class="close">关闭</button></div>
+	<div id='mask'></div>
+</body>
+</html>

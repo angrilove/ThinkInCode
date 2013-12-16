@@ -1,0 +1,111 @@
+@charset "utf-8";
+@import url("css/Museo500-stylesheet.css");
+@import url("css/Museo300-stylesheet.css");
+
+h1 {
+  font-family: "Museo300Regular","Times New Roman",Times,serif;
+  font-size: 20.5pt;
+  color: #000066;
+}
+
+h2.faq {
+  background-color: #e0e0ff;
+}
+
+body {
+  font-family: "Museo300Regular","Times New Roman",Times,serif;
+  font-style: normal;
+  font-size: 12pt;
+  background-color: #d4d9f7;
+  background: linear-gradient(to bottom, #d4d9f7 0%, #abafea 31%, #999ee8 93%, #d4d9f7 100%);
+  background: -moz-linear-gradient(top, #d4d9f7 0%, #abafea 31%, #999ee8 93%, #d4d9f7 100%);
+}
+
+td {
+  padding: 8px;
+}
+
+.maintable {
+border: 1px solid;
+border-color: #888888;
+text-align: left;
+width: 800px;
+-moz-box-shadow: 2px 2px 8px #333;
+box-shadow: 2px 2px 8px #333;
+-moz-border-radius: 9px;
+-webkit-border-radius: 9px;
+border-radius: 9px;
+padding: 3px;
+background-color: rgb(249, 249, 249);
+margin-left: auto;
+margin-right: auto;
+}
+
+.maintableheader {
+  -webkit-border-top-left-radius: 7px;
+  -webkit-border-top-right-radius: 7px;
+  -moz-border-radius-topleft: 7px;
+  -moz-border-radius-topright: 7px;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+  overflow: hidden;
+}
+
+.subpageheader {
+  -webkit-border-top-left-radius: 7px;
+  -webkit-border-top-right-radius: 7px;
+  -moz-border-radius-topleft: 7px;
+  -moz-border-radius-topright: 7px;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+  overflow: hidden;
+}
+
+.dltable_text {
+font-size: 12pt;
+vertical-align: top;
+}
+
+.topnews {
+  border: 1px solid rgb(51, 102, 255); 
+  text-align: left; 
+  font-family: "Museo500regular",Arial,Helvetica,sans-serif; 
+  width: 100%; 
+  background-color: rgb(255, 255, 204);
+}
+
+blockquote {
+  background-color: #ffffcc;
+  font-family: "Museo500Regular","Times New Roman",Times,serif;
+  -moz-box-shadow: 1px 1px 2px #000;
+  box-shadow: 1px 1px 2px #000;
+  margin: 16px;
+  padding: 4px;
+}
+
+pre {
+  font-family: "Courier New",Courier,monospace;
+  font-size: 11pt;
+  }
+  
+.dllink_green {
+border: 1px solid rgb(0, 153, 0); 
+padding: 14px; 
+background-color: rgb(153, 255, 153); 
+font-family: "Museo500Regular",Arial,Helvetica,sans-serif; 
+color: black; 
+text-decoration: none; 
+border-radius: 9px; 
+-moz-border-radius: 9px;
+}
+
+.dllink_blue {
+border: 1px solid rgb(0, 0, 153); 
+padding: 14px; 
+background-color: rgb(153, 153, 255); 
+font-family: "Museo500Regular",Arial,Helvetica,sans-serif; 
+color: black; 
+text-decoration: none; 
+border-radius: 9px; 
+-moz-border-radius: 9px;
+}

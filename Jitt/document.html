@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <!--[if IE 6]>
+    <script>
+        // alert("g");
+    </script>
+    <![endif]-->
+	<script type="application/javascript">
+	function load() {
+		// ******** DOM1 ********
+		// createAttribute( ATTR_NAME )
+		var attr = document.createAttribute("attrName");
+		console.log(typeof attr, attr);
+		
+		// createTextNode( text )
+		var text = document.createTextNode("this is text node");
+		console.log(typeof text, text);
+		
+		// createCDATASection( text ) - moz-only
+//		var cdataSection = document.createCDATASection(text); // error - Operation is not spported
+//		console.log(typeof cdataSection, cdataSection);
+
+		// createComment( text OR object )
+		var comment = document.createComment("THIS IS COMMENT TEXT");
+		console.log(typeof comment, comment);
+		
+		// createDocumentFragment()
+		var fragment = document.createDocumentFragment();
+		console.log(typeof fragment, fragment);
+		
+		// createElement( tagName )
+		
+		// createEntityReference( name ) - moz-only
+//		var entityReference = document.createEntityReference("list"); // error is not function
+//		console.log(typeof entityReference, entityReference);
+		
+		// createProcessingInstruction(target, data) - moz-only
+//		var pi = createProcessingInstruction("tg", {"name": "loton", "data": "die"}); // is not defined
+//		console.log(typeof pi, pi);
+
+		// ******** DOM2 ********
+		// NodeIterator Object
+		// .createNodeIterator(root, whatToShow, filter, entityReferenceExpansion)
+		// root - {Node} what's node start search from?
+		// filter - {NodeFilter} numeric
+		// entityReferenceExpansion - {Boolean}
+		var iterator = document.createNodeIterator(document, NodeFilter.SHOW_ALL, null ,false);
+		console.log(typeof iterator, iterator);
+		// nextNode(), previousNode()
+		var node = iterator.nextNode(); // document
+		console.log(typeof node, node);
+		node = iterator.nextNode();		// html
+		console.log(typeof node, node);
+		node = iterator.previousNode();	// html
+		console.log(typeof node, node);
+	}
+	</script>
+</head>
+<body onload="load()">
+	<div style="border:1px solid red; height: 768px; width: 960px; text-align: center; margin: 0px auto; vertical-align: bottom;">
+	THIS IS TEXT;
+	</div>
+	<div style="border: 1px solid red; position:absolute; left:50%; top:50%; height:590px; width:1024px; margin-left:-512px; margin-top:-295px;">
+	THIS IS JUST TEXT;
+	</div>
+</body>
+</html>

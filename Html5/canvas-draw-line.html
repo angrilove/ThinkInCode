@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<title>html 5 - web 2.0</title>
+</head>
+<body>
+<canvas id="icanvas"></canvas>
+<div style="border-top:solid 1px red;"></div>
+<script type="text/javascript">
+var canvas = document.getElementById("icanvas");
+var ctx = canvas.getContext("2d");
+ctx.lineTo(0, 0);
+ctx.lineTo(100.5, 0);
+setTimeout(function() {
+	ctx.closePath();
+	ctx.lineWidth = 1;
+	ctx.strokeStyle = 'red'
+	ctx.stroke();
+}, 1000);
+ctx.lineTo(100.5, 100.5);
+setTimeout(function() {
+	ctx.closePath();
+	ctx.lineWidth = 1;
+	ctx.strokeStyle = 'red'
+	ctx.stroke();
+}, 1000);
+ctx.lineTo(0, 100.5);
+setTimeout(function() {
+	ctx.closePath();
+	ctx.lineWidth = 1;
+	ctx.strokeStyle = 'red'
+	ctx.stroke();
+}, 1000);
+ctx.lineTo(0, 0);
+setTimeout(function() {
+	ctx.closePath();
+	ctx.lineWidth = 1;
+	ctx.strokeStyle = 'red'
+	ctx.stroke();
+}, 1000);
+</script>
+</body>
+</html>

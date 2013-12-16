@@ -1,0 +1,239 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<style type="text/css"></style>
+<script type="text/javascript">
+
+/* javascript create/define class or object */ //  $from http://www.w3school.com.cn$
+/*
+---
+
+1. 工厂方式创建对象(factory function create object)
+
+...
+*/
+(function() {
+
+/* <原始的方式> */
+// 原始方式的缺点是，当创建多个对象时无能为力
+var base = new Object();
+base.name = "anshen";
+base.age = 22;
+base.getName = function() {
+    console.log(this.name, this);
+};
+base.getAge = function() {
+    console.log(this.age, this);
+};
+/* </原始的方式> */
+
+// <工厂方式>
+function createObject() {
+    var o = new Object();
+    o.name = "duo";
+    o.age = 22;
+    o.getName = function() { // 方法在内部定义，会为每个对象生成独立的函数版本
+        console.log(this.name, this);
+    };
+    o.getAge = function() { // 函数无法共享
+        console.log(this.age, this);
+    };
+    return o; // return your object
+};
+// use createObject to create your object
+var b = createObject();
+var ba = createObject();
+console.log();
+
+// 为函数传递参数
+function createBaseObject( name, age ) {
+    var o = new Object();
+    o.name = name;
+    o.age = age;
+    o.getName = function() {
+        console.log(this.name, this);
+    };
+    o.getAge = function() {
+        console.log(this.age, this);
+    };
+    return o;
+};
+// use ...
+var b1 = createObject("duo", 21);
+
+// 在工厂函数外定义对象的方法
+// 但是这些函数看起来不像对象的方法，而且会污染全局变量
+// 不会再每个对象中重复生成方法
+function getName() {
+    console.log(this.name, this);
+};
+function getAge() {
+    console.log(this.age, this);
+};
+function createSuperObject( name, age ) {
+    var o = new Object();
+    o.name = name;
+    o.age = age;
+    o.getName = getName;
+    o.getAge = getAge;
+    return o;
+};
+
+});//();
+
+/*
+---
+
+2. 构造函数方式(constructor function way)
+
+...
+*/
+(function() {
+
+// define the constructor function
+function BaseClass( name, age ) {
+    this.name = name;
+    this.age = age;
+    this.getName = function() {
+        console.log(this.name, this);
+    };
+    // return this; // 在默认情况下，构造函数返回的是this，因此不必显示返回
+};
+
+// use constructor create your object
+var base = new BaseClass("loton", 22);
+
+});//();
+
+/*
+---
+
+3. 原型方式(prototype)
+
+...
+*/
+(function() {
+
+// 用空构造函数设置类型
+function BaseClass() {};
+// 属性和方法直接被赋予prototype属性
+BaseClass.prototype.name = "duo";
+BaseClass.prototype.age = 21;
+BaseClass.getName = function() {
+    console.log(this.name, this);
+};
+BaseClass.getAge = function() {
+    console.log(this.age, this);
+};
+
+// 当属性是对象时(由于采用这种方式时，属性和函数是共享的)将会引起错误的结果
+BaseClass.prototype.drivers = new Array("anshen");
+
+// use...
+var base = new BaseClass();
+var extend = new BaseClass();
+base.drivers.push("loton");     // 为属性添加值
+
+console.log(base.drivers);  // "anshen, loton"
+console.log(extend.drivers);// "anshen, loton" 但是按照逻辑此处应当输出anshen
+
+});//();
+
+/*
+---
+
+4. 混合方式(构造函数+原型方式)
+
+...
+*/
+(function() {
+
+// 用构造函数定义非函数(方法)属性
+function BaseClass( name, age ) {
+    this.name = name;
+    this.age = age;
+    
+    // the property is object
+    this.drivers = new Array("d");
+};
+// 用原型定义函数(方法)
+BaseClass.prototype.getName = function() {
+    console.log(this.name, this);
+};
+
+var base = new BaseClass("anshen", 22);
+var extend = new BaseClass("loton", 21);
+base.drivers.push("duo");
+
+console.log(base.drivers);  // d,duo
+console.log(extend.drivers);// d
+
+});//();
+
+/*
+---
+
+5. 动态原型方法
+
+...
+*/
+(function() {
+
+function BaseClass( name, age ) {
+    this.name = name;
+    this.age = age;
+    
+    if (typeof BaseClass._initialized == "undefined") { // 使用_initialized标志判断是否存在此方法，不存在则创建
+        Car.prototype.getName = function() {    // 动态创建原型方法，实现了方法共享，并且不会重复创建从而节省内存
+            console.log(this.name);
+        };
+        BaseClass._initialized = true;
+    }
+};
+});//();
+
+/*
+---
+
+6. 混合工厂方式
+
+原理：
+    创建假构造函数，只返回另一对象的新实例
+    
+...
+*/
+(function() {
+
+function BaseClass() {
+    var o = new Object();
+    o.name = "name";
+    o.age = 18;
+    o.getName = function() {
+        console.log(this.name, this);
+    };
+    return o;   // return you created object
+};
+
+// use new operator
+// 看起来像是构造函数
+var base = new BaseClass(); // 由于内部使用了new运算符，所以将忽略第二个new运算符，构造函数内部创建的对象被传递给变量
+
+// test logs
+console.log(base.name); // name
+console.log(base.age);  // 18
+base.name = "duo";
+base.getName();         // duo
+base.message = "msg";
+console.log(base.message); // msg
+
+})();
+</script>
+</head>
+<body>
+<div>
+
+</div>
+</body>
+</html>

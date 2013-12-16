@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<script type="text/javascript" src="./javascript.custom.global.js"></script>
+<script type="text/javascript">
+/* JavaScript Array */
+
+// 判断对象是不是数组
+(function() {
+
+/* 一个普通的写法 */
+var isArray = function( array ) {
+    return array && typeof array === 'object'
+        && array.constructor === Array;
+};
+
+// 可用于检查外部数组(从不同的window或frame创建的数组)
+var isArray = function( obj ) {
+    return (obj && typeof obj === 'object'
+        && typeof obj.length === 'number'
+        && typeof obj.splice === 'function'
+        && !(obj.propertyIsEnumerable('length'))); 
+};
+
+var a = [];
+console.log( a.constructor );
+console.log( Array );
+console.log( a );
+
+})();
+</script>
+</head>
+<body>
+<div>
+
+</div>
+</body>
+</html>

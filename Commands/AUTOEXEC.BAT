@@ -1,0 +1,2 @@
+TYPE AUTOEXEC
+pause

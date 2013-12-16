@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<script type="text/javascript">
+/* JavaScript Math 对象 */
+(function () {
+
+//  min, max, abs, 
+;(function () {
+    var i;
+    i = Math.max(3, 4, 6);      // 6
+    console.log(i);
+    i = Math.min(4, 8, 0, 9);   // 0
+    console.log(i);
+    i = Math.min([4, 6, "3"]);  // NaN
+    console.log(i);
+    i = Math.abs(-2);
+    console.log(i, this);
+    
+});//();
+
+// ceil, floor, round
+;(function () {
+    
+    /* 向上舍入 */
+    console.log(Math.ceil(25.5));   // 26
+    /* 向下舍入 */
+    console.log(Math.floor(25.5));   // 25
+    /* 四舍五入 */
+    console.log(Math.round(25.5));   // 26
+    
+});//();
+
+// 与指数相关的：exp, log, pow, sqrt
+;(function () {
+    /**
+     * E        - 值e，自然对数的底
+     * LN10     - 10的自然对数
+     * LN2      - 2的自然对数
+     * LOG2E    - 以2为底E的自然对数
+     * LOG10E   - 以10为底E的自然对数
+     * PI       - 值 pi
+     * SQRT1_2  - 1/2的平方根   - square root 开平方根
+     * SQRT2    - 2的平方根
+     */
+    /* exp和log本质上功能相反 */
+    console.log(Math.exp(10));  // E 提升Math.E到指定的幂
+    console.log(Math.log(10));  // 
+    
+    console.log(Math.log(Math.exp(10)));    // 10
+    console.log(Math.E);                    // 2.718281828459045
+    console.log(Math.PI);                   // 3.141592653589793
+    
+    /* pow, sqrt */
+    console.log(Math.pow(2, 10));   // 2的十次方
+    console.log(Math.sqrt(4));      // 2
+    
+});//();
+
+// 三角函数
+;(function () {
+    // acos, asin, atan, atan2
+    // x < 1
+    console.log(Math.acos(0.2));  // 反余弦值
+    // x < 1
+    console.log(Math.asin(0.3));  // 反正弦值
+    console.log(Math.atan(2));  // 反正切值
+    // atan(y, x) - y/x
+    console.log(Math.atan2(2, 3));  // 反y/x余弦值
+    
+    // cos, sin, tan
+    console.log(Math.cos(3));
+    console.log(Math.sin(4));   
+    console.log(Math.tan(5));   
+
+});//();
+
+// random
+console.log(Math.random()); // 0 <<< 1
+
+})();
+</script>
+</head>
+<body>
+<div>
+
+</div>
+</body>
+</html>

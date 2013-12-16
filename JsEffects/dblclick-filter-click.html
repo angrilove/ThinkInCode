@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <title>Just Think And Do It.</title>
+</head>
+<body>
+
+<!--
+    <script type="text/javascript" src="http://ajax.microsoft.com/ajax/jQuery/jquery-1.7.2.js"></script>
+-->
+    <script type="text/javascript" src="https://ajax.googleapis.com/libs/ajax/jquery-1.7.2.js"></script>
+    <script type="text/javascript">
+    // solution 1
+    var click_timer = null;
+    function do_click(event) {
+        clearTimeout(click_timer);
+
+        click_timer = setTimeout(function() {
+            // do click event.
+        }, 500);
+    }
+    function do_dblclick(event) {
+        clearTimeout(click_timer);
+        // do dblclick event
+    }
+    </script>
+</body>
+</html>

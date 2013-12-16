@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+</head>
+<body>
+<div id="did">
+    <p><img src="http://www.baidu.com/img/baidu_sylogo1.gif" ondragstart="handleDragDropEvent(event)" ondrag="handleDragDropEvent(event)" ondragend="handleDragDropEvent(event)" style="border:5px #AAFF00;margin:0px;padding:0px;" alt="IMAGE"/></p>
+    <p><textarea id="txt" readonly="readonly"></textarea></p><hr/>
+    <p><input type="text" value="dag this text" ondragstart="handleDragDropEvent(event)" ondrag="handleDragDropEvent(event)" ondragend="handleDragDropEvent(event)"/>
+       <input type="text" ondragenter="handleDragDropEvent(event)"
+        ondragover="handleDragDropEvent(event)"
+        ondragleave="handleDragDropEvent(event)"
+        ondrop="handleDragDropEvent(event)"/>
+       </p>
+</div>
+<div id="container" style="background-color:red;height:100px;width:100px;"
+    ondragenter="handleDragDropEvent(event)"
+    ondragover="handleDragDropEvent(event)"
+    ondragleave="handleDragDropEvent(event)"
+    ondrop="handleDragDropEvent(event)"></div>
+<script type="text/javascript">
+/* *********系统拖放*********** */
+/* Drag And Drop */
+(function() {
+// 1. 拖动项事件
+// dragstart
+// drag
+// dragend
+var COUNTER = 0;
+function handleDragDropEvent(event) { // IF, FF, Chrome, Safari
+    COUNTER++;
+    var txtbox = document.getElementById("txt");
+    var v = '';
+    v += event.type + '\n';
+    if (window.console)
+        console.log(COUNTER, v);
+    else txtbox.value += COUNTER + ' =>' +event.type + '\n';
+    if (event.type === 'dragend')
+        if (window.console)
+            console.log(COUNTER);
+        else alert(COUNTER);
+}
+
+this.handleDragDropEvent = handleDragDropEvent;
+});//();
+// ---------------------------------------------------------------------
+(function() {
+// 2. 放置目标事件
+// dragenter, dragover, dragleave
+var COUNTER = 0;
+function handleDragDropEvent(event) { // IE, FF, Google Chrome, Safari
+    COUNTER++;
+    var txtbox = document.getElementById("txt");
+    var v = '';
+    v += event.type + '\n';
+    if (window.console)
+        console.log(COUNTER, v);
+    else txtbox.value += COUNTER + ' =>' +event.type + '\n';
+    if (event.type === 'dragend')
+        if (window.console)
+            console.log(COUNTER);
+        else alert(COUNTER);
+    if (event.type === 'drop')  // 值得注意的是Safari不支持drop事件
+        alert('g');
+    // 兼容旧浏览器，使之支持目标事件
+    switch (event.type) {
+        case 'dragenter':
+        case 'dragover':
+            event.returnValue = false;
+    }
+}
+
+this.handleDragDropEvent = handleDragDropEvent;
+})();
+</script>
+</body>
+</html>

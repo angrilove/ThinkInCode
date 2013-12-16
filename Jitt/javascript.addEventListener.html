@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<script type="text/javascript">
+/* addEventListener(eventString, eventHandlerFunction, useCapture)*/
+(function() {
+
+window.addEventListener("click", function() {
+    console.log( "when the useCapture is false,", this );
+}, false);
+
+window.addEventListener("click", function() {
+    console.log( "when the useCapture is true,", this )
+}, true);
+
+/* remove event listener */
+// window.removeEventListener("click");
+})();
+</script>
+</head>
+<body>
+<a href="http://anshen.org">Anshen.org</a>
+<input type="text" name="password"/>
+<div>
+
+</div>
+</body>
+</html>

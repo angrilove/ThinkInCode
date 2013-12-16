@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Anshen&trade;</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<script type="text/javascript" src="./jquery-1.7.1.js"></script>
+<script type="text/javascript">
+(function(window, undefined) {
+	var person = (function() {
+	var person = function() {},
+		_person = window.person,
+		userAgent = navigator.userAgent;
+	person.fn = person.prototype = {
+		constructor: person,
+		name: "anshen"
+	}
+		
+	return person;
+	})();
+	window.person = person;
+})(window);
+
+// logs
+if (window.console)
+	console.log( person.fn );
+else alert( person.fn );
+
+// property
+// - construtor
+// - prototype
+// method
+// - hasOwnProperty(property) 
+// 判断对象是否有某个特定的属性。必须用字符串指定该属性
+// - isPrototypeOf(object) 
+// 判断该对象是否为另一个对象的原型。 
+// - propertyIsEnumerable(property) 
+// 判断给定的属性是否可以用 for...in 语句进行枚举。
+// - toString()
+// 返回对象的原始字符串表示。对于 Object 对象，ECMA-262 没有定义这个值，所以不同的 ECMAScript 实现具有不同的值。 
+// - valueOf()
+// 返回最适合该对象的原始值。对于许多对象，该方法返回的值都与 ToString() 的返回值相同。 
+// 注释：上面列出的每种属性和方法都会被其他对象覆盖。
+console.log( person.fn.constructor );
+
+console.log( person.fn.hasOwnProperty( "name" ) );
+console.log( Object.isPrototypeOf( person.fn ) );
+console.log( person.fn.propertyIsEnumerable() ); // undefined
+console.log( person.fn.toString() );
+console.log( person.fn.valueOf() );
+
+</script>
+</head>
+<body>
+	<a href="http://www.baidu.com/">baidu.com</a>
+</body>
+</hTml>

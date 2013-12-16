@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title>Ext - Ext.get</title>
+
+<style type="text/css">
+html, body {
+	font: 14px/1em "Microsoft YaHei", Arial, "宋体", Consolas;
+	font-style: normal;
+	font-weight: normal; /* bold */
+}
+.error {
+	color: red;
+}
+#myId {
+	width: 500px;
+	height: 500px;
+	background-color: #30F;
+}
+</style>
+
+<script type="text/javascript" src="ext-core-debug.js"></script>
+
+<script type="text/javascript">
+Ext.onReady(function() {
+	// 享元模式
+	var el = Ext.fly('foo');
+	Ext.fly('bar').frame();
+	el.addClass('error');
+	Ext.fly('myId').setOpacity(0.45, {duration: .5});
+	Ext.fly('myId').clearOpacity();
+	Ext.fly('myId').select('li:nth-child(2n+1)').addClass('error');
+});
+</script>
+</head>
+<body>
+	<div id="foo">汉语中国汉语中国汉语中国汉语中国汉语中国</div>
+	<div id="bar">国人崛起国人崛起国人崛起国人崛起国人崛起</div>
+	<div id="myId">
+		<ul>
+			<li>砖瓦上的</li>
+			<li>发生的地方</li>
+			<li>而厄尔</li>
+			<li>死对头太热</li>
+		</ul>
+		<ul>
+			<li>额外事故</li>
+			<li>力量时间</li>
+			<li>我该撕破</li>
+		</ul>
+	</div>
+</body>
+</html>

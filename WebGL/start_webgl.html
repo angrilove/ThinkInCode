@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WebGL</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <script type="text/javascript">
+    function start() {
+        var canvas = document.getElementById("glcanvas");
+        
+        initWebGL(canvas);
+        
+        if (gl) {
+            gl.clearColor(0.0, 0.0, 0.0, 1.0);
+            gl.enable(gl.DEPTH_TEST);
+            gl.depthFunc(gl.LEQUAL);
+            gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+        }
+    }
+    
+    function initWebGL(canvas) {
+        gl = null;
+        try {
+            gl = canvas.getContext("webgl") || canvas.getContext("experimental-webgl");
+        } catch (e) {
+            console.log( e );
+        }
+		console.log( gl );
+        if (! gl) {
+            alert( "Unable to initialize WebGL. Your browser may not support it." );
+        }
+    }
+    </script>
+</head>
+<body onload="start()">
+    <canvas id="glcanvas" width="640" height="480">
+    Error Start
+    </canvas>
+</body>
+</html>

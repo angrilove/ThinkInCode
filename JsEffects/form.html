@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<meta charset="utf-8">
+	<title>Form submit</title>
+
+</head>
+<body>
+	<form id="target" action="form.html" onsubmit="return vCall();">
+		<input type="text" name="myfile">
+		<button type="button" onclick="vSubmit();">提交</button>
+		<button type="button" onclick="vSubmit2();">会有两次提交吗？</button>
+		<button type="button" onclick="$('#target').submit();">Submit提交</button>
+		<button type="button" onclick="vCheck();">OnSubmit属性指定的函数变了吗？</button>
+
+		<button type="button" onclick="formSubmit();">使用原生的form.submit提交方式</button>
+
+		<button type="button" onclick="submitOnce();">绑定submit函数，仅执行一次</button>
+		
+	</form>
+
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js"></script>
+	<script type="text/javascript">
+		console.log("----最原始的onsubmit---" + $("#target").attr("onsubmit"));
+		
+		function formSubmit() {
+			$("#target").get(0).submit();
+		}
+
+		function submitOnce() {
+			$("#target").one("submit", function() {
+				console.log("Handler for submit called, just execute once.");
+				return false;
+			});
+
+			// $("#target").submit();
+		}
+
+		function vSubmit() {
+			function validateSubmit() {
+				console.log("Handler for .submit called.");
+				return false;
+			}
+			$("#target").submit(validateSubmit);
+
+			$("#target").submit();
+
+			$("#target").unbind("submit", validateSubmit);
+		}
+
+		function vSubmit2() {
+			function validateSubmit() {
+				console.log("Handler for .submit called second.");
+				return false;
+			}
+			$("#target").submit(validateSubmit);
+
+			$("#target").submit();
+
+			$("#target").unbind("submit", validateSubmit);
+		}
+
+		function vCheck() {
+			console.log($("#target").attr("onsubmit"));
+		}
+		
+		function vCall() {
+			console.log("Handler for onsubmit attr called.");
+			alert("Handler for onsubmit attr called.");
+			return false;
+		}
+		
+		function callback() {
+			console.log("Handler for onsubmit called.");
+			alert("Handler for onsubmit called.");
+			return false;
+		}
+
+		$("#target").attr("onsubmit", function() { return callback;});
+
+	</script>
+</body>
+</html>

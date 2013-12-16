@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Just Think And Do It.</title>
+</head>
+<body>
+	<script type="text/javascript" src="http://ajax.microsoft.com/ajax/jQuery/jquery-1.7.2.js"></script>
+	<script type="text/javascript">
+	var html = '<form id="iframe_callback_responsive" action="url/http/baidu" onsubmit="return validateCallback(this, ajaxDone);"><div id="pagerHeader" class="pageContent"></form>',
+		rsingleTag = /<form\s*(\w+|[\w\/\(\),;\"\"\'\'=])*\/?>|<\/form>/g;
+
+	console.log( html.replace(rsingleTag, "") );
+	console.log( rsingleTag.test(html) );
+	</script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+﻿
+<style type="text/css">
+.error{
+    color: red;
+}
+.success{
+	font-size: 14px;
+}
+</style>
+
+<script type="text/javascript" src="./ext-core-debug.js"></script>
+<script type="text/javascript">
+Ext.onReady(function() {
+
+Ext.fly('vid').radioClass('success');
+Ext.fly('sid').radioClass('success');
+
+});
+</script>
+<div id="vid" class="success error">Just Test.</div>
+<div id="sid" class="success">Just Test.</div>

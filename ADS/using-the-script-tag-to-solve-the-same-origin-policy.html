@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Using the script tag to solve the same origin policy.</title>
+
+<script type="text/javascript" src="promise.js"></script>
+<script type="text/javascript" src="ADS.js"></script>
+</head>
+<body id="b1" style="background-color:red">
+<button type="button">点击（解决同源策略）</button>
+<script type="text/javascript">
+
+ADS.addEvent(ADS.$$("button")[0], "click", function() {
+	// window.location.href += "#hasd";
+	ADS.xssRequest("responder.php", {
+		completeListener: function(args) {
+			console.log(this, args);
+			alert(this.responseJSON.message);
+		},
+		errorListener: function() {
+			console.log(this);
+		}
+	});
+});
+
+ADS.addEvent(ADS.$$("button")[0], "click", function() {
+	ADS.xssRequest("http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js", {
+		timeout: 10000,
+		completeListener: function(args) {
+			console.log("success--------", this, args);
+		},
+		errorListener: function() {
+			console.log("error-------", this, "error message---------", this.statusText);
+		}
+	});
+});
+
+ADS.$$("button")[0].trigger("click");
+
+var xhr = new XMLHttpRequest();
+xhr.onreadystatechange = function() {
+	console.log(this, arguments);
+}
+console.log(xhr);
+</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<script type="text/javascript" src="./eventutil.js"></script>
+</head>
+<body>
+<div onclick="fn(event)">TEST<div>
+<script type="text/javascript">
+
+function fn(event) {
+    if (event.preventDefault)
+        alert('has');
+    else alert('none');
+};
+// 阻止弹出右键上下文菜单
+function contextmenu(event) {
+    event = EventUtil.getEvent();
+    if (event.returnValue) { // IE
+        event = window.event;
+        event.returnValue = false;
+    } else event.preventDefault();
+}
+EventUtil.addEventHandler(document, 'contextmenu', contextmenu);
+// document.attachEvent('oncontextmenu', contextmenu); // 在ie下，只能使用document对象
+// document.addEventListener('contextmenu', contextmenu, true); // ff, window.addEv.. or document.addEv..
+</script>
+</body>
+</html>

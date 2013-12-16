@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Anshen&trade;</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<link rel="stylesheet" type="text/css" href="css.css"></link>
+<script type="text/javascript" src="./jquery-1.7.1.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	
+	$("button").click(function( e ) {
+		// .contents() - 从元素本身开始逐级向上级匹配，并返回最先匹配的祖先元素
+		// - @return {Object} parent 最先匹配的祖先元素
+		var $all = $('ul').contents();
+		
+		// logs
+		console.log('length: %o', $all.length);
+		console.log('all: %o', $all);
+	});
+});
+</script>
+</head>
+<body>
+	<span class='title'>Anshen&trade; jQuery Ajax</span>
+	<ul class="first">
+		<li>项目1</li>
+		<li>项目2</li>
+		<li class="third-item">项目3</li>
+		<li>项目4</li>
+		<li class="last">
+			<ul class="second">
+				<li>项目5</li>
+				<li>项目6</li>
+				<li>项目7</li>
+			</ul>
+		</li>
+	</ul>
+	
+	<button>Click Me</button>
+</body>
+</hTml>

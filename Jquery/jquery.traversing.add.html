@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Anshen&trade;</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<link rel="stylesheet" type="text/css" href="css.css"></link>
+<script type="text/javascript" src="./jquery-1.7.1.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	var $article = $("#article");
+	$("button").click(function( e ) {
+		// .add(selector) - 将jQuery对象或集合添加到现有集合中，并返回新的jQuery包装集
+		// - @param {Object} selector 要添加的jQuery对象或集合
+		// - @return {Object} Collections 新的jQuery包装集合
+		var $collections = $article.add( 'div' ).text('text').css('background-color', '#ff3489');
+		
+		// logs
+		console.log('article: %o', $article);
+		console.log('collections: %o', $collections);
+	});
+});
+</script>
+</head>
+<body>
+	<span class='title'>Anshen&trade; jQuery Ajax</span>
+	<div class="divider"></div>
+	<div id="article"></div>
+	<p id="pid">Added this ...</p>
+	<div class="divider"></div>
+	
+	<button>Click Me</button>
+</body>
+</hTml>

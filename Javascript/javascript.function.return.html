@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<style type="text/css"></style>
+<script type="text/javascript">
+/* 函数和方法总是有返回的 */ // $from javascript语言精粹$
+/*
+---
+
+1. 函数如果没有指定返回值，则返回undefined
+
+2. 如在函数前加new前缀调用(方法调用)，且返回值不是一个对象，则返回this(该新对象)
+ 
+....
+*/
+(function() {
+
+/* 函数调用 */
+function fn() {
+    
+};// return undefined
+
+/* 方法调用 */
+function method() {
+    
+};// if invoke by new keyword, return this
+
+/* test logs */
+var ret1 = fn();
+var ret2 = new method();
+console.log(ret1);
+console.log(ret2);
+
+})();
+</script>
+</head>
+<body>
+<div>
+</div>
+</body>
+</html>

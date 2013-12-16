@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>disabled</title>
+</head>
+<body>
+	<input type="checkbox" id="target">
+	<button id="tt" type="button">Test Disabled</button>
+	<script type="text/javascript" src="jquery-1.7.2.js"></script>
+	<script type="text/javascript">
+$("#tt").click(function() {
+	$("#target").attr("disabled", "disabled");
+});
+	</script>
+</body>
+</html>

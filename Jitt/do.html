@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <script type="text/javascript">
+    (function () {
+
+    function fn() {
+        console.log("fn", this);
+    };
+
+    fn.getName = function () {
+        console.log("getName", this);
+    };
+
+    // fn();
+    // fn.getName();
+
+
+    })();
+    </script>
+</head>
+<body>
+    <div>
+        <input type="text" readonly="readonly" value="只读"/>
+        <input type="text" disabled="true" value="禁用"/>
+        <input type="text" alt="提示信息" placeholder="提示"/>
+    </div>
+</body>
+</html>

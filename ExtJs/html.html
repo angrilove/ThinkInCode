@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title>Extjs - 3.0</title>
+
+<link rel="stylesheet" type="text/css" href="common.css"/>
+
+<script type="text/javascript" src="ext-core-debug.js"></script>
+
+<script type="text/javascript">
+
+Ext.onReady(function() {
+	Ext.DomHelper.append(document.body, {tag: 'p', class: 'class'}); // class / cls
+	Ext.select('p.class').update('Ext Core successfully injected.');
+});
+</script>
+</head>
+<body>
+</body>
+</html>

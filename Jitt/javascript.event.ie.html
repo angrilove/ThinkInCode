@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<style type="text/css">
+body {
+    width: 99%;
+    height: 768px;
+    border: 1px solid red;
+}
+div.class {
+    background-color: yellow;
+    width: 300px;
+    height: 300px;
+    position: absolute;
+}
+</style>
+</head>
+<body>
+<div class="class"></div>
+<script type="text/javascript">
+// For IE, attachEvent and detachEvent
+// [Object].attachEvent('on_..', fn);
+// [Object].detachEvent('on_..', fn);
+function fn() {
+    var event = window.event;
+    alert(event.type);
+}
+/*
+window.attachEvent('onclick', fn); // only ie6 supported it.
+document.attachEvent('onclick', fn);
+document.body.attachEvent('onclick', fn);
+document.body.firstChild.attachEvent('onclick', fn);
+*/
+
+
+</script>
+</body>
+</html>

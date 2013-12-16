@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<__PAGE__>
+	<__MSG__ name="msg1">消息1</__MSG__>
+	<__MSG__>消息2</__MSG__>
+	<__MSG__>消息3</__MSG__>
+	<__MSG__>消息4</__MSG__>
+	<__MSG__>消息5</__MSG__>
+	
+	<__BODY__>
+		<__SEND__>发送1</__SEND__>
+		<__SEND__>发送2</__SEND__>
+		
+		<__DATA__>数据1</__DATA__>
+		<__DATA__>数据2</__DATA__>
+		<__DATA__>数据3</__DATA__>
+	</__BODY__>
+</__PAGE__>

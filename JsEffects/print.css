@@ -1,0 +1,8 @@
+
+.pageContent1, .pageContent {
+    visibility: hidden;
+}
+
+#printBox {
+    visibility: visible;
+}

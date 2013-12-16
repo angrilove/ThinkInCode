@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>移除元素 - 只是把元素移动到dom之外？</title>
+</head>
+<body>
+    <div id="myele">这是元素</div>
+    <button type="button" onclick="fremove();">移出dom</button>
+    <button type="button" onclick="push();">拉回到dom</button>
+<script type="text/javascript">
+var ele = null, rele = { "name": "anshen"};
+function fremove() {
+    ele = document.getElementById("myele");
+    console.log(ele);
+    rele = ele.remove();
+    console.log(rele);
+}
+function push() {
+    var button = document.getElementsByTagName("button")[0];
+    button.parentNode.insertBefore(rele, button);
+}
+statusbar.visible = false;
+</script>
+</body>
+</html>

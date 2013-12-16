@@ -1,0 +1,10 @@
+﻿@charset "UTF-8";
+
+html, body {
+	font-family: "Microsoft Yahei", Arial, consolas;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	line-height: 1em;
+}

@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta http-equiv="Content-Type" content="urf-8"/>
+<title>Anshen&trade;</title>
+</head>
+<body>
+<div id="div">
+<canvas id="canvas">
+Your browser does not support Html5 Canvas.
+</canvas>
+</div>
+</body>
+</html>
+<script type="text/javascript">
+/* removeChild */
+(function() {
+
+document.createElement("canvas");
+var icanvas = document.getElementById("icanvas");
+var canvas = document.getElementsByTagName("canvas");
+console.log( canvas.length );
+document.body.removeChild( icanvas );
+canvas = document.getElementsByTagName("canvas");
+console.log( canvas );
+
+})();
+</script>

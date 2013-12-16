@@ -1,0 +1,25 @@
+﻿
+
+<style type="text/css">
+.error{
+    color: red;
+}
+</style>
+
+<script type="text/javascript" src="./ext-core-debug.js"></script>
+<script type="text/javascript">
+Ext.onReady(function() {
+// Ext.getDom(); 根据id查询dom节点
+var el = Ext.getDom('vid');
+
+console.log(el);
+console.dir(el);
+
+// 根据dom节点查询dom
+var ele = Ext.getDom(el);
+console.log(ele);
+console.dir(ele);
+});
+</script>
+<div id="vid">Just Test.</div>
+<div id="eid">Just Test.</div>

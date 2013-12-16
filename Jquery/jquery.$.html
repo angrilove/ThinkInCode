@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Anshen&trade;</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<link rel="stylesheet" type="text/css" href="css.css"></link>
+<script type="text/javascript" src="./jquery-1.7.1.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	
+	var $data = $("<p>你好</p>");
+	console.log('this: %o', $data);
+	
+	$("span").click(function( e ) {
+		var $span = $(this);
+		console.log('this: %o', this);
+		console.log('$span: %o', $span);
+		console.log('e: %o', e);
+		console.log('typeof e: %o', typeof e);
+	});
+});
+</script>
+</head>
+<body>
+<span class="title">Anshen&trade;jQuery.</span>
+</body>
+</hTml>

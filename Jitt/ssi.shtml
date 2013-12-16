@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gbk">
+<title>SSI指令</title>
+<!-- SSI指令区分大小写 -->
+</head>
+<body>
+<!-- #include 指令 -->
+<!--#include file="info.html" -->
+<!-- #echo指令:将环境变量插入到页面中 -->
+<!--#echo var="DOCUMENT_NAME" --><!-- 显示文档名称 -->
+<!--#echo var="DATE_LOCAL" --><!-- 显示现在时间 -->
+<!--#echo var="REMOTE_ADDR" --><!-- 显示你的IP地址 -->
+</body>
+</html>

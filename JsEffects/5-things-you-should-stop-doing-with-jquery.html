@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>http://flippinawesome.org/2013/05/06/5-things-you-should-stop-doing-with-jquery/</title>
+<script type="text/javascript" src="http://ajax.microsoft.com/ajax/jQuery/jquery-1.7.2.js"></script>
+</head>
+<body>
+    <div id="log"></div>
+    <script type="text/javascript">
+    (function($) {
+
+  var sbtb = {
+    log: function(message) {
+      $("#log").append("<hr>" + message);//.html();
+    },
+    cast: [
+      { firstName: "Zack", lastName: "Morris", soExcited: false },
+      { firstName: "Kelly", lastName: "Kapowski", soExcited: true },
+      { firstName: "Lisa", lastName: "Turtle", soExcited: true },
+      { firstName: "Screech", lastName: "Powers", soExcited: false },
+      { firstName: "A.C.", lastName: "Slater", soExcited: false },
+      { firstName: "Jessie", lastName: "Spano", soExcited: true },
+      { firstName: "Richard", lastName: "Belding", soExcited: false }
+    ],
+    soExcited: function() {
+      var that = this;
+
+    // use "this" to get a reference to the cast on this object
+    $.each(this.cast, function(idx, actor) {
+
+      // call the log function
+      that.log(actor.firstName + " " + actor.lastName); // BOOM! Splosions.
+      // "this" is now a cheesy actor, not the sbtb object anymore
+
+    });
+
+    }
+  };
+
+  sbtb.soExcited();
+
+}(jQuery));
+    </script>
+</body>
+</html>

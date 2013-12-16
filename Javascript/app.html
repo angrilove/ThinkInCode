@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+
+<script type="text/javascript">
+(function() {
+for (var i in window) {
+    if (typeof i === "function")
+        console.log(i, ",", typeof i, "'", i());
+    else console.log(i, ",", typeof i);
+}
+console.log(typeof console);
+console.log(typeof window);
+console.log(typeof document);
+
+});//();
+
+(function() {
+window.addEventListener("load", function() {alert("g");}, false);
+})();
+</script>
+<body style="height:100%;width:100%;">
+</body>

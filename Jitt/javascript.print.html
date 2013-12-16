@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<script type="text/javascript" src="./jquery-1.7.1.js"></script>
+<script type="text/javascript">
+(function($){
+	$.printBox = function(rel){
+		var _printBoxId = 'printBox';
+		var $contentBox = rel ? $('#'+rel) : $("body"),
+			$printBox = $('#'+_printBoxId);
+			
+		if ($printBox.size()==0){
+			$printBox = $('<div id="'+_printBoxId+'"></div>').appendTo("body");
+		}
+
+		$printBox.html($contentBox.html()).find("[layoutH]").height("auto");
+		window.print();
+
+	}
+
+
+})(jQuery);
+
+$(document).ready(function() {
+    // 打印
+    $("button").click(function() {
+        $.printBox("printBox");
+    });
+});
+</script>
+</head>
+<body>
+<div id="printBox"> TEST TEST</div>
+<button>打印</button>
+<input type="button" value="dddd" />
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<!-- <meta charset="utf-8"/> -->
+<title>drag and drop - html 5 - web 2.0</title>
+
+<script type="text/javascript">
+function init() {
+	var src = document.getElementById("dragme");
+	var dest = document.getElementById("show");
+	src.addEventListener("dragstart", function(e) {
+		// 向dataTransfer对象追加数据
+		var dt = e.dataTransfer;
+		dt.effectAllowed = 'copylink'; // all, move, copy, link, copylink
+		// 
+		dt.setData("text/plain", this.id);
+		console.log("dragstart");
+	}, false);
+
+	dest.addEventListener("dragend", function(e) {
+		console.log("dragend");
+		e.preventDefault();
+	}, false);
+	dest.addEventListener("drop", function(e) {
+		var dt = e.dataTransfer;
+		var text = dt.getData("text/plain");
+		dest.textContent += text;
+		e.preventDefault();
+		e.stopPropagation();
+		console.log("drop");
+	}, false);
+
+	dest.addEventListener("dragover" ,function(e) {
+		console.log("dragover");
+	}, false);
+}
+
+// 阻止浏览器默认的行为
+document.ondragover = function(e) {
+	console.log("ondragover");
+	e.preventDefault();
+}
+document.ondrop = function(e) {
+	console.log("ondrop");
+	e.preventDefault();
+}
+</script>
+</head>
+<body onload="init();">
+	<div id="dragme" draggable="true" style="width:200px; border:solid 1px gray;">拖放文字</div>
+	<div id="show" style="width:200px; height:200px; border:solid 1px red;"></div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<title>Anshen&trade;</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<link rel="stylesheet" type="text/css" href="css.css"></link>
+<script type="text/javascript" src="./jquery-1.7.1.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$("button").click(function() {
+		$.getJSON("./data/json.json", function(data) {
+			console.log( "data" );
+			var msg = "";
+			$.each(data, function(i, ent) {
+				msg += i + "-" + ent[i];
+			});
+			$("#contain").text(msg);
+		});
+	});
+});
+</script>
+</head>
+<body>
+<h1>Anshen&trade; jQuery Ajax</h1>
+<div id="divider"></div>
+<div id="contain"></div>
+<button>Click Me</button>
+</body>

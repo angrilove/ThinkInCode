@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<title>CSS五种垂直局中方法 - 3</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<!--
+这种方法，在 content 元素外插入一个 div。设置此 div height:50%; margin-bottom:-contentheight;。
+content 清除浮动，并显示在中间。
+优点：
+适用于所有浏览器
+没有足够空间时(例如：窗口缩小) content 不会被截断，滚动条出现
+
+缺点：
+唯一我能想到的就是需要额外的空元素了(也没那么糟，又是另外一个话题)
+-->
+<style type="text/css">
+html, body { height: 100%; background-color: #F1F1F2;}
+#floater {float: left; height:50%; margin-bottom:-120px; width:100%; background-color:#DDF879;}
+#content { clear: both; height:240px; /*z-index:32;*/ position:relative; background-color: #AADDFF;}
+</style>
+<script type="text/javascript" src="jquery-1.7.1.js"></script>
+<script type="text/javascript">
+</script>
+</head>
+<body>
+	<div id="floater"></div>
+	<div id="content">http://10.232.1.5</div>
+</body>
+</html>

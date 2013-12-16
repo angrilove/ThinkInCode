@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+</head>
+<body>
+    <script type="text/javascript">
+var o = Object.create({
+    "say": function () {
+        alert(this.name);
+    },
+    "name": "Beibei"
+});
+console.log("%o", o);
+
+function CreateObject() {
+    // this.name = "Beibei";
+}
+CreateObject.prototype.name = "Beibei";
+CreateObject.prototype.say = function() {
+    alert(this.name);
+};
+var obj = new CreateObject();
+console.log("%o", obj);
+    </script>
+</body>
+</html>

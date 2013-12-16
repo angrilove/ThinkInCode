@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Just do it.</title>
+<script type="text/javascript" src="http://ajax.microsoft.com/ajax/jQuery/jquery-1.7.2.js"></script>
+</head>
+<body>
+    <form action="http://localhost/">
+        <input type="hidden" name="id" value="A201303290001"><br>
+        username:<input type="text" name="username"><br>
+        password:<input type="text" name="password"><br>
+        lover[0].name:<input type="text" name="lover[0].name"><br>
+        lover[0].age:<input type="text" name="lover[0].age"><br>
+        lover[1].name:<input type="text" name="lover[1].name"><br>
+        lover[1].age:<input type="text" name="lover[1].age"><br>
+        <label>checkbox1:<input type="checkbox" name="package" value="c1"></label><label>checkbox2:<input type="checkbox" name="package" value="c2"></label><label>checkbox3:<input type="checkbox" name="package" value="c3"></label>
+        <br>
+        <button type="button">Submit</button>
+        <input type="file" name="file1">
+    </form>
+    <script type="text/javascript">
+    $('button').click(function() {
+        // http://localhost/?id=A201303290001&username=%E5%BC%A0%E6%A0%87&password=123456&lover[0].name=%E6%9C%B5%E6%9C%B5&lover[0].age=22&lover[1].name=%E7%8F%8A%E7%8F%8A&lover[1].age=23&package=c1&package=c3
+        // $('form').submit(function() {return false;});
+        
+        $.post('http://localhost', $('form').serializeArray(), function(data, textStatus, jqXhr) {
+            console.log(data, textStatus, jqXhr);
+        });
+    });
+    </script>
+</body>
+</html>

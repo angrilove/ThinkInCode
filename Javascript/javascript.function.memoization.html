@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<script type="text/javascript" src="./javascript.custom.global.js"></script>
+<script type="text/javascript">
+/* JavaScript Function */
+
+// 记忆
+(function() {
+
+var total = 0;
+var fibonacci = function ( n ) {
+    total += 1;
+    return n < 2 ? n : fibonacci(n - 1) + fibonacci(n - 2);
+};
+
+/* 优化fibonacci */
+var fibon = function() {
+    var memory = [0, 1]; // 记忆体
+    var fib = function( n ) {
+        var r = memory[n];
+        if (typeof r !== 'number') {
+            r = fib(n - 1) + fib(n - 2);
+            memory[n] = r;
+        }
+        total += 1;
+        return r;
+    };
+   return fib;
+}();
+
+// test logs
+
+for (var i = 0; i <= 10; i++) {
+    console.log(i, ':', fibon( i ));
+}
+console.log( total );
+
+// 构造记忆(存储器)
+var memorizer = function(memory, fundamental) {
+    var shell = function( n ) {
+        var r = memory[n];
+        if (typeof r !== 'number') {
+            r = fundamental(shell, n);
+            memory[n] = r;
+        }
+        return r; /* return */
+    };
+    /* return */
+    return shell;
+};
+// 构造斐波那契数列函数
+var fib = memorizer([0, 1], function(shell, n) {
+    return shell(n - 1) + shell(n - 2);
+});
+
+})();
+</script>
+</head>
+<body>
+<div>
+
+</div>
+</body>
+</html>

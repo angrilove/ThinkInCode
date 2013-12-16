@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Anshen&trade;</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="css.css" />
+<script type="text/javascript" src="./jquery-1.7.1.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	var $article = $("#article");
+	$("button").click(function( e ) {
+		// get method
+		// .get(url, [data], [callback], [dataType])
+		//  - @param {Function} callback(response, status, xhr)
+		//  - @param {String} dataType 返回的数据类型，可选的有 - json, xml, html, text, script, jsonp -- 默认智能判断
+		//  - @return {Object}
+		// 等价于
+		//  - $.ajax(url: url, data: data, success: success, dataType: dataType);
+		var data = $.get("./data/ajax.get.txt", function(response, status, xhr) {
+			$article.html(response);
+			// logs
+			console.info("response: %o", response);
+			console.info("status: %o", status);
+			console.info("xhr: %o", xhr);
+		}, "text");
+		console.log("%o", data);
+	});
+});
+</script>
+</head>
+<body>
+<span class='title'>Anshen&trade; jQuery Ajax load method</span>
+<div class="divider"></div>
+<div id="article"></div>
+<div class="divider"></div>
+<button>Click Me</button>
+</body>
+</hTml>

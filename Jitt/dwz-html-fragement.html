@@ -1,0 +1,1726 @@
+<!doctype html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>DWZ-ALL-HTML-FRAGEMENT</title>
+	<link rel="stylesheet" type="text/css" href="themes/default/style.css"/>
+	<link rel="stylesheet" type="text/css" href="themes/css/core.css"/>
+</head>
+<body>
+	<div style="display:block;width:99%;overflow:auto;height:600px;position:relative;left:8px;top:8px;">
+		<div class="panel collapse">
+			<div class="panelHeader">
+				<div class="panelHeaderContent">
+					<h1>折叠面板</h1>
+					<a href="#" class="collapsable">&times;</a>
+				</div>
+			</div>
+
+			<div class="panelContent" style="height:50px;">
+				<p>面板内容</p>
+			</div>
+			<div class="panelFooter">
+				<div class="panelFooterContent"></div>
+			</div>
+		</div>
+
+		<div class="divider"></div>
+
+		<div class="tabs">
+			<div class="tabsHeader">
+				<div class="tabsHeaderContent">
+					<ul>
+						<li class="selected"><a href="javascript:;"><span>选项卡面板1</span></a></li>
+						<li><a href="javascript:;"><span>选项卡面板2</span></a></li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="tabsContent" style="height:50px;">
+				<div style="display:block;">内容1</div>
+				<div style="display:none;">内容2</div>
+			</div>
+
+			<div class="tabsFooter">
+				<div class="tabsFooterContent"></div>
+			</div>
+		</div>
+
+		<div class="divider"></div>
+
+<div style="position:relative;height:50px;">
+
+		<div class="dialog" style="width:100%;">
+			<div class="dialogHeader">
+				<div class="dialogHeader_r">
+					<div class="dialogHeader_c">
+						<a href="#close" class="close">&times;</a>
+						<a href="#maximize" class="maximize">maximize</a>
+						<a href="#restore" class="restore">restore</a>
+						<a href="#minimize" class="minimize">minimize</a>
+						<h1>弹出窗口[标题可自定义]</h1>
+					</div>
+				</div>
+			</div>
+
+			<div class="dialogContent">
+				内容&#9;&#10;&#13;
+			</div>
+
+			<div class="dialogFooter">
+				<div class="dialogFooter_r">
+					<div class="dialogFooter_c"></div>
+				</div>
+			</div>
+			<div class="resizable_h_l" tar="nw"></div>
+			<div class="resizable_h_r" tar="ne"></div>
+			<div class="resizable_h_c" tar="n"></div>
+			<div class="resizable_c_l" tar="w" style="height:50px;"></div>
+			<div class="resizable_c_r" tar="e" style="height:50px;"></div>
+			<div class="resizable_f_l" tar="sw"></div>
+			<div class="resizable_f_r" tar="se"></div>
+			<div class="resizable_f_c" tar="s"></div>
+		</div>
+
+</div>
+
+		<div class="divider"></div>
+<div style="position:relative;height:150px;overflow:auto;border:dashed 1px #8899FF;">
+
+		<div id="alertMsgBox" class="alert" style="left:150px;">
+			<div class="alertContent">
+				<div class="confirm">
+					<div class="alertInner">
+						<h1>确认提示</h1>
+						<div class="msg">确认？</div>
+					</div>
+
+					<div class="toolBar">
+						<ul>
+							<li><a class="button" href="javascript:;" rel="callback"><span>确定</span></a></li>
+							<li><a class="button" href="javascript:;" rel=""><span>取消</span></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<div class="alertFooter">
+				<div class="alertFooter_r">
+					<div class="alertFooter_c"></div>
+				</div>
+			</div>
+		</div>
+
+		<div id="alertMsgBox" class="alert" style="left:450px;">
+			<div class="alertContent">
+				<div class="error">
+					<div class="alertInner">
+						<h1>错误</h1>
+						<div class="msg">出错啦！</div>
+					</div>
+
+					<div class="toolBar">
+						<ul>
+							<li><a class="button" href="javascript:;" onclick="alertMsg.close();" rel=""><span>取消</span></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<div class="alertFooter">
+				<div class="alertFooter_r">
+					<div class="alertFooter_c"></div>
+				</div>
+			</div>
+		</div>
+
+		<div id="alertMsgBox" class="alert" style="left:750px;">
+			<div class="alertContent">
+				<div class="info">
+					<div class="alertInner">
+						<h1>信息</h1>
+						<div class="msg">信息提示！</div>
+					</div>
+
+					<div class="toolBar">
+						<ul>
+							<li><a class="button" href="javascript:;" onclick="alertMsg.close();" rel=""><span>关闭</span></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<div class="alertFooter">
+				<div class="alertFooter_r">
+					<div class="alertFooter_c"></div>
+				</div>
+			</div>
+		</div>
+
+		<div id="alertMsgBox" class="alert" style="left:1050px;">
+			<div class="alertContent">
+				<div class="warn">
+					<div class="alertInner">
+						<h1>警告</h1>
+						<div class="msg">警告！！</div>
+					</div>
+
+					<div class="toolBar">
+						<ul>
+							<li><a class="button" href="javascript:;" onclick="alertMsg.close();" rel=""><span>关闭</span></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<div class="alertFooter">
+				<div class="alertFooter_r">
+					<div class="alertFooter_c"></div>
+				</div>
+			</div>
+		</div>
+
+		<div id="alertMsgBox" class="alert" style="left:1350px;">
+			<div class="alertContent">
+				<div class="correct">
+					<div class="alertInner">
+						<h1>成功</h1>
+						<div class="msg">成功！！</div>
+					</div>
+
+					<div class="toolBar">
+						<ul>
+							<li><a class="button" href="javascript:;" onclick="alertMsg.close();" rel=""><span>关闭</span></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<div class="alertFooter">
+				<div class="alertFooter_r">
+					<div class="alertFooter_c"></div>
+				</div>
+			</div>
+		</div>
+</div>
+
+		<div class="divider"></div>
+
+<div style="position:relative;height:300px;overflow:auto;border:dashed 1px #89F;">
+		<table class="list" width="98%" targetType="navTab" asc="asc" desc="desc">
+			<thead>
+				<tr>
+					<th colspan="2">客户信息</th>
+					<th colspan="2">基本信息</th>
+					<th colspan="3">资料信息</th>
+				</tr>
+				<tr>
+					<th width="80" orderField="name" class="asc">客户号</th>
+					<th width="100" orderField="num" class="desc">客户名称</th>
+					<th width="100">客户划分</th>
+					<th>证件号码</th>
+					<th align="right" width="100">信用等级</th>
+					<th width="100">企业性质</th>
+					<th width="100">建档日期</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr target="sid_user" rel="1">
+					<td>iso127309</td>
+					<td>北京市政府咿呀哟</td>
+					<td>政府单位</td>
+					<td>0-0001027766351528</td>
+					<td>四等级</td>
+					<td>政府单位</td>
+					<td>2009-05-21</td>
+				</tr>
+				<tr target="sid_user" rel="2">
+					<td>iso127309</td>
+					<td>北京市政府咿呀哟</td>
+					<td>政府单位</td>
+					<td>0-0001027766351528</td>
+					<td>四等级</td>
+					<td>政府单位</td>
+					<td>2009-05-21</td>
+				</tr>
+				<tr target="sid_user" rel="3">
+					<td>iso127309</td>
+					<td>北京市政府咿呀哟</td>
+					<td>政府单位</td>
+					<td>0-0001027766351528</td>
+					<td>四等级</td>
+					<td>政府单位</td>
+					<td>2009-05-21</td>
+				</tr>
+				<tr target="sid_user" rel="4">
+					<td>iso127309</td>
+					<td>北京市政府咿呀哟</td>
+					<td>政府单位</td>
+					<td>0-0001027766351528</td>
+					<td>四等级</td>
+					<td>政府单位</td>
+					<td>2009-05-21</td>
+				</tr>
+				<tr target="sid_user" rel="5">
+					<td>iso127309</td>
+					<td>北京市政府咿呀哟</td>
+					<td>政府单位</td>
+					<td>0-0001027766351528</td>
+					<td>四等级</td>
+					<td>政府单位</td>
+					<td>2009-05-21</td>
+				</tr>
+				<tr target="sid_user" rel="6">
+					<td>iso127309</td>
+					<td>北京市政府咿呀哟</td>
+					<td>政府单位</td>
+					<td>0-0001027766351528</td>
+					<td>四等级</td>
+					<td>政府单位</td>
+					<td>2009-05-21</td>
+				</tr>
+				<tr target="sid_user" rel="7">
+					<td>iso127309</td>
+					<td>北京市政府咿呀哟</td>
+					<td>政府单位</td>
+					<td>0-0001027766351528</td>
+					<td>四等级</td>
+					<td>政府单位</td>
+					<td>2009-05-21</td>
+				</tr>
+				<tr target="sid_user" rel="8">
+					<td>iso127309</td>
+					<td>北京市政府咿呀哟</td>
+					<td>政府单位</td>
+					<td>0-0001027766351528</td>
+					<td>四等级</td>
+					<td>政府单位</td>
+					<td>2009-05-21</td>
+				</tr>
+				<tr target="sid_user" rel="9">
+					<td>iso127309</td>
+					<td>北京市政府咿呀哟</td>
+					<td>政府单位</td>
+					<td>0-0001027766351528</td>
+					<td>四等级</td>
+					<td>政府单位</td>
+					<td>2009-05-21</td>
+				</tr>
+				<tr target="sid_user" rel="10">
+					<td>iso127309</td>
+					<td>北京市政府咿呀哟</td>
+					<td>政府单位</td>
+					<td>0-0001027766351528</td>
+					<td>四等级</td>
+					<td>政府单位</td>
+					<td>2009-05-21</td>
+				</tr>
+				<tr target="sid_user" rel="11">
+					<td>iso127309</td>
+					<td>北京市政府咿呀哟</td>
+					<td>政府单位</td>
+					<td>0-0001027766351528</td>
+					<td>四等级</td>
+					<td>政府单位</td>
+					<td>2009-05-21</td>
+				</tr>
+				<tr target="sid_user" rel="12">
+					<td>iso127309</td>
+					<td>北京市政府咿呀哟</td>
+					<td>政府单位</td>
+					<td>0-0001027766351528</td>
+					<td>四等级</td>
+					<td>政府单位</td>
+					<td>2009-05-21</td>
+				</tr>
+				<tr target="sid_user" rel="13">
+					<td>iso127309</td>
+					<td>北京市政府咿呀哟</td>
+					<td>政府单位</td>
+					<td>0-0001027766351528</td>
+					<td>四等级</td>
+					<td>政府单位</td>
+					<td>2009-05-21</td>
+				</tr>
+				<tr target="sid_user" rel="14">
+					<td>iso127309</td>
+					<td>北京市政府咿呀哟</td>
+					<td>政府单位</td>
+					<td>0-0001027766351528</td>
+					<td>四等级</td>
+					<td>政府单位</td>
+					<td>2009-05-21</td>
+				</tr>
+				<tr target="sid_user" rel="15">
+					<td>iso127309</td>
+					<td>北京市政府咿呀哟</td>
+					<td>政府单位</td>
+					<td>0-0001027766351528</td>
+					<td>四等级</td>
+					<td>政府单位</td>
+					<td>2009-05-21</td>
+				</tr>
+				<tr target="sid_user" rel="16">
+					<td>iso127309</td>
+					<td>北京市政府咿呀哟</td>
+					<td>政府单位</td>
+					<td>0-0001027766351528</td>
+					<td>四等级</td>
+					<td>政府单位</td>
+					<td>2009-05-21</td>
+				</tr>
+				<tr target="sid_user" rel="17">
+					<td>iso127309</td>
+					<td>北京市政府咿呀哟</td>
+					<td>政府单位</td>
+					<td>0-0001027766351528</td>
+					<td>四等级</td>
+					<td>政府单位</td>
+					<td>2009-05-21</td>
+				</tr>
+				<tr target="sid_user" rel="18">
+					<td>iso127309</td>
+					<td>北京市政府咿呀哟</td>
+					<td>政府单位</td>
+					<td>0-0001027766351528</td>
+					<td>四等级</td>
+					<td>政府单位</td>
+					<td>2009-05-21</td>
+				</tr>
+				<tr target="sid_user" rel="19">
+					<td>iso127309</td>
+					<td>北京市政府咿呀哟</td>
+					<td>政府单位</td>
+					<td>0-0001027766351528</td>
+					<td>四等级</td>
+					<td>政府单位</td>
+					<td>2009-05-21</td>
+				</tr>
+				<tr target="sid_user" rel="20">
+					<td>iso127309</td>
+					<td>北京市政府咿呀哟</td>
+					<td>政府单位</td>
+					<td>0-0001027766351528</td>
+					<td>四等级</td>
+					<td>政府单位</td>
+					<td>2009-05-21</td>
+				</tr>
+				<tr target="sid_user" rel="21">
+					<td>iso127309</td>
+					<td>北京市政府咿呀哟</td>
+					<td>政府单位</td>
+					<td>0-0001027766351528</td>
+					<td>四等级</td>
+					<td>政府单位</td>
+					<td>2009-05-21</td>
+				</tr>
+				<tr target="sid_user" rel="22">
+					<td>iso127309</td>
+					<td>北京市政府咿呀哟</td>
+					<td>政府单位</td>
+					<td>0-0001027766351528</td>
+					<td>四等级</td>
+					<td>政府单位</td>
+					<td>2009-05-21</td>
+				</tr>
+				<tr target="sid_user" rel="23">
+					<td>iso127309</td>
+					<td>北京市政府咿呀哟</td>
+					<td>政府单位</td>
+					<td>0-0001027766351528</td>
+					<td>四等级</td>
+					<td>政府单位</td>
+					<td>2009-05-21</td>
+				</tr>
+				<tr target="sid_user" rel="24">
+					<td>iso127309</td>
+					<td>北京市政府咿呀哟</td>
+					<td>政府单位</td>
+					<td>0-0001027766351528</td>
+					<td>四等级</td>
+					<td>政府单位</td>
+					<td>2009-05-21</td>
+				</tr>
+				<tr target="sid_user" rel="25">
+					<td>iso127309</td>
+					<td>北京市政府咿呀哟</td>
+					<td>政府单位</td>
+					<td>0-0001027766351528</td>
+					<td>四等级</td>
+					<td>政府单位</td>
+					<td>2009-05-21</td>
+				</tr>
+			</tbody>
+		</table>
+</div>
+		<div class="divider"></div>
+
+<div style="position:relative;height:300px;overflow:auto;border:dashed 1px #89F;">
+		<div class="grid">
+			<div class="gridHeader">
+				<div class="gridThead" style="position:relative;left:0;">
+					<table style="width:98%;">
+						<thead>
+							<tr>
+								<th style="width:70px;" class="asc"><div class="gridCol"></div></th>
+								<th class="hover"><div class="gridCol" title="客户号">客户号</div></th>
+								<th><div class="gridCol" title="客户名称">客户名称</div></th>
+								<th><div class="gridCol" title="客户类型">客户类型</div></th>
+								<th><div class="gridCol" title="证件号码">证件号码</div></th>
+								<th><div class="gridCol" title="信用等级">信用等级</div></th>
+								<th><div class="gridCol" title="所属行业">所属行业</div></th>
+								<th><div class="gridCol" title="建档日期">建档日期</div></th>
+							</tr>
+						</thead>
+					</table>
+				</div>
+			</div>
+
+			<div class="gridScroller" style="height:250px;overflow:auto;">
+				<div class="gridTbody">
+					<table style="width:98%;">
+						<tbody>
+							<tr>
+								<td style="width:70px;"><div>天津农信社</div></td>
+								<td><div>A120113196309052434</div></td>
+								<td><div>天津市华建装饰工程有限公司</div></td>
+								<td><div>联社营业部</div></td>
+								<td><div>29385739203816293</div></td>
+								<td><div>5级</div></td>
+								<td><div>政府机构</div></td>
+								<td><div>2009-05-21</div></td>
+							</tr>
+							<tr class="selected">
+								<td style="width:70px;"><div>天津农信社</div></td>
+								<td><div>A120113196309052434</div></td>
+								<td><div>天津市华建装饰工程有限公司</div></td>
+								<td><div>联社营业部</div></td>
+								<td><div>29385739203816293</div></td>
+								<td><div>5级</div></td>
+								<td><div>政府机构</div></td>
+								<td><div>2009-05-21</div></td>
+							</tr>
+							<tr>
+								<td style="width:70px;"><div>天津农信社</div></td>
+								<td><div>A120113196309052434</div></td>
+								<td><div>天津市华建装饰工程有限公司</div></td>
+								<td><div>联社营业部</div></td>
+								<td><div>29385739203816293</div></td>
+								<td><div>5级</div></td>
+								<td><div>政府机构</div></td>
+								<td><div>2009-05-21</div></td>
+							</tr>
+							<tr>
+								<td style="width:70px;"><div>天津农信社</div></td>
+								<td><div>A120113196309052434</div></td>
+								<td><div>天津市华建装饰工程有限公司</div></td>
+								<td><div>联社营业部</div></td>
+								<td><div>29385739203816293</div></td>
+								<td><div>5级</div></td>
+								<td><div>政府机构</div></td>
+								<td><div>2009-05-21</div></td>
+							</tr>
+							<tr>
+								<td style="width:70px;"><div>天津农信社</div></td>
+								<td><div>A120113196309052434</div></td>
+								<td><div>天津市华建装饰工程有限公司</div></td>
+								<td><div>联社营业部</div></td>
+								<td><div>29385739203816293</div></td>
+								<td><div>5级</div></td>
+								<td><div>政府机构</div></td>
+								<td><div>2009-05-21</div></td>
+							</tr>
+							<tr>
+								<td style="width:70px;"><div>天津农信社</div></td>
+								<td><div>A120113196309052434</div></td>
+								<td><div>天津市华建装饰工程有限公司</div></td>
+								<td><div>联社营业部</div></td>
+								<td><div>29385739203816293</div></td>
+								<td><div>5级</div></td>
+								<td><div>政府机构</div></td>
+								<td><div>2009-05-21</div></td>
+							</tr>
+							<tr>
+								<td style="width:70px;"><div>天津农信社</div></td>
+								<td><div>A120113196309052434</div></td>
+								<td><div>天津市华建装饰工程有限公司</div></td>
+								<td><div>联社营业部</div></td>
+								<td><div>29385739203816293</div></td>
+								<td><div>5级</div></td>
+								<td><div>政府机构</div></td>
+								<td><div>2009-05-21</div></td>
+							</tr>
+							<tr>
+								<td style="width:70px;"><div>天津农信社</div></td>
+								<td><div>A120113196309052434</div></td>
+								<td><div>天津市华建装饰工程有限公司</div></td>
+								<td><div>联社营业部</div></td>
+								<td><div>29385739203816293</div></td>
+								<td><div>5级</div></td>
+								<td><div>政府机构</div></td>
+								<td><div>2009-05-21</div></td>
+							</tr>
+							<tr>
+								<td style="width:70px;"><div>天津农信社</div></td>
+								<td><div>A120113196309052434</div></td>
+								<td><div>天津市华建装饰工程有限公司</div></td>
+								<td><div>联社营业部</div></td>
+								<td><div>29385739203816293</div></td>
+								<td><div>5级</div></td>
+								<td><div>政府机构</div></td>
+								<td><div>2009-05-21</div></td>
+							</tr>
+							<tr>
+								<td style="width:70px;"><div>天津农信社</div></td>
+								<td><div>A120113196309052434</div></td>
+								<td><div>天津市华建装饰工程有限公司</div></td>
+								<td><div>联社营业部</div></td>
+								<td><div>29385739203816293</div></td>
+								<td><div>5级</div></td>
+								<td><div>政府机构</div></td>
+								<td><div>2009-05-21</div></td>
+							</tr>
+							<tr>
+								<td style="width:70px;"><div>天津农信社</div></td>
+								<td><div>A120113196309052434</div></td>
+								<td><div>天津市华建装饰工程有限公司</div></td>
+								<td><div>联社营业部</div></td>
+								<td><div>29385739203816293</div></td>
+								<td><div>5级</div></td>
+								<td><div>政府机构</div></td>
+								<td><div>2009-05-21</div></td>
+							</tr>
+							<tr>
+								<td style="width:70px;"><div>天津农信社</div></td>
+								<td><div>A120113196309052434</div></td>
+								<td><div>天津市华建装饰工程有限公司</div></td>
+								<td><div>联社营业部</div></td>
+								<td><div>29385739203816293</div></td>
+								<td><div>5级</div></td>
+								<td><div>政府机构</div></td>
+								<td><div>2009-05-21</div></td>
+							</tr>
+							<tr>
+								<td style="width:70px;"><div>天津农信社</div></td>
+								<td><div>A120113196309052434</div></td>
+								<td><div>天津市华建装饰工程有限公司</div></td>
+								<td><div>联社营业部</div></td>
+								<td><div>29385739203816293</div></td>
+								<td><div>5级</div></td>
+								<td><div>政府机构</div></td>
+								<td><div>2009-05-21</div></td>
+							</tr>
+							<tr>
+								<td style="width:70px;"><div>天津农信社</div></td>
+								<td><div>A120113196309052434</div></td>
+								<td><div>天津市华建装饰工程有限公司</div></td>
+								<td><div>联社营业部</div></td>
+								<td><div>29385739203816293</div></td>
+								<td><div>5级</div></td>
+								<td><div>政府机构</div></td>
+								<td><div>2009-05-21</div></td>
+							</tr>
+							<tr>
+								<td style="width:70px;"><div>天津农信社</div></td>
+								<td><div>A120113196309052434</div></td>
+								<td><div>天津市华建装饰工程有限公司</div></td>
+								<td><div>联社营业部</div></td>
+								<td><div>29385739203816293</div></td>
+								<td><div>5级</div></td>
+								<td><div>政府机构</div></td>
+								<td><div>2009-05-21</div></td>
+							</tr>
+							<tr>
+								<td style="width:70px;"><div>天津农信社</div></td>
+								<td><div>A120113196309052434</div></td>
+								<td><div>天津市华建装饰工程有限公司</div></td>
+								<td><div>联社营业部</div></td>
+								<td><div>29385739203816293</div></td>
+								<td><div>5级</div></td>
+								<td><div>政府机构</div></td>
+								<td><div>2009-05-21</div></td>
+							</tr>
+							<tr>
+								<td style="width:70px;"><div>天津农信社</div></td>
+								<td><div>A120113196309052434</div></td>
+								<td><div>天津市华建装饰工程有限公司</div></td>
+								<td><div>联社营业部</div></td>
+								<td><div>29385739203816293</div></td>
+								<td><div>5级</div></td>
+								<td><div>政府机构</div></td>
+								<td><div>2009-05-21</div></td>
+							</tr>
+							<tr>
+								<td style="width:70px;"><div>天津农信社</div></td>
+								<td><div>A120113196309052434</div></td>
+								<td><div>天津市华建装饰工程有限公司</div></td>
+								<td><div>联社营业部</div></td>
+								<td><div>29385739203816293</div></td>
+								<td><div>5级</div></td>
+								<td><div>政府机构</div></td>
+								<td><div>2009-05-21</div></td>
+							</tr>
+							<tr>
+								<td style="width:70px;"><div>天津农信社</div></td>
+								<td><div>A120113196309052434</div></td>
+								<td><div>天津市华建装饰工程有限公司</div></td>
+								<td><div>联社营业部</div></td>
+								<td><div>29385739203816293</div></td>
+								<td><div>5级</div></td>
+								<td><div>政府机构</div></td>
+								<td><div>2009-05-21</div></td>
+							</tr>
+							<tr>
+								<td style="width:70px;"><div>天津农信社</div></td>
+								<td><div>A120113196309052434</div></td>
+								<td><div>天津市华建装饰工程有限公司</div></td>
+								<td><div>联社营业部</div></td>
+								<td><div>29385739203816293</div></td>
+								<td><div>5级</div></td>
+								<td><div>政府机构</div></td>
+								<td><div>2009-05-21</div></td>
+							</tr>
+							<tr>
+								<td style="width:70px;"><div>天津农信社</div></td>
+								<td><div>A120113196309052434</div></td>
+								<td><div>天津市华建装饰工程有限公司</div></td>
+								<td><div>联社营业部</div></td>
+								<td><div>29385739203816293</div></td>
+								<td><div>5级</div></td>
+								<td><div>政府机构</div></td>
+								<td><div>2009-05-21</div></td>
+							</tr>
+							<tr>
+								<td style="width:70px;"><div>天津农信社</div></td>
+								<td><div>A120113196309052434</div></td>
+								<td><div>天津市华建装饰工程有限公司</div></td>
+								<td><div>联社营业部</div></td>
+								<td><div>29385739203816293</div></td>
+								<td><div>5级</div></td>
+								<td><div>政府机构</div></td>
+								<td><div>2009-05-21</div></td>
+							</tr>
+							<tr>
+								<td style="width:70px;"><div>天津农信社</div></td>
+								<td><div>A120113196309052434</div></td>
+								<td><div>天津市华建装饰工程有限公司</div></td>
+								<td><div>联社营业部</div></td>
+								<td><div>29385739203816293</div></td>
+								<td><div>5级</div></td>
+								<td><div>政府机构</div></td>
+								<td><div>2009-05-21</div></td>
+							</tr>
+							<tr>
+								<td style="width:70px;"><div>天津农信社</div></td>
+								<td><div>A120113196309052434</div></td>
+								<td><div>天津市华建装饰工程有限公司</div></td>
+								<td><div>联社营业部</div></td>
+								<td><div>29385739203816293</div></td>
+								<td><div>5级</div></td>
+								<td><div>政府机构</div></td>
+								<td><div>2009-05-21</div></td>
+							</tr>
+							<tr>
+								<td style="width:70px;"><div>天津农信社</div></td>
+								<td><div>A120113196309052434</div></td>
+								<td><div>天津市华建装饰工程有限公司</div></td>
+								<td><div>联社营业部</div></td>
+								<td><div>29385739203816293</div></td>
+								<td><div>5级</div></td>
+								<td><div>政府机构</div></td>
+								<td><div>2009-05-21</div></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+
+</div>
+		<div class="divider"></div>
+
+<div style="position:relative;height:auto;overflow:auto;border:dashed 1px #89F;text-align:left;">
+
+	<div style="float:left; display:block; margin:10px; overflow:auto; width:200px; height:300px; border:solid 1px #CCC; line-height:21px; background:#FFF;">
+		
+		<ul class="tree">
+			<li>
+				<div class="hover">
+					<div class="first_collapsable"></div>
+					<a href="tabsPage.html" target="navTab">框架面板</a>
+				</div>
+				<ul>
+					<li>
+						<div>
+							<div class="line"></div>
+							<div class="node"></div>
+							<a href="main.html" target="navTab" rel="main">我的主页</a>
+						</div>
+					</li>
+					<li>
+						<div>
+							<div class="line"></div>
+							<div class="node"></div>
+							<a href="newPage1.html" target="navTab" rel="page1">页面一</a>
+						</div>
+					</li>
+					<li>
+						<div>
+							<div class="line"></div>
+							<div class="node"></div>
+							<a href="newPage2.html" target="navTab" rel="page1">替换页面一</a>
+						</div>
+					</li>
+					<li>
+						<div>
+							<div class="line"></div>
+							<div class="node"></div>
+							<a href="newPage2.html" target="navTab" rel="page2">页面二</a>
+						</div>
+					</li>
+					<li class="last">
+						<div class="">
+							<div class="line"></div>
+							<div class="node"></div>
+							<a href="newPage3.html" target="navTab" rel="page3" title="页面三（自定义标签名）">页面三</a>
+						</div>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<div>
+					<div class="node"></div>
+					<a href="w_panel.html" target="navTab" rel="w_panel">面板</a>
+				</div>
+			</li>
+			<li>
+				<div>
+					<div class="node"></div>
+					<a href="w_tabs.html" target="navTab" rel="w_tabs">选项卡面板</a>
+				</div>
+			</li>
+			<li>
+				<div>
+					<div class="node"></div>
+					<a href="w_dialog.html" target="navTab" rel="w_dialog">弹出窗口</a>
+				</div>
+			</li>
+			<li>
+				<div>
+					<div class="node"></div>
+					<a href="w_alert.html" target="navTab" rel="w_alert">提示窗口</a>
+				</div>
+			</li>
+			<li>
+				<div>
+					<div class="node"></div>
+					<a href="w_table.html" target="navTab" rel="w_table">表格容器</a>
+				</div>
+			</li>
+			<li>
+				<div>
+					<div class="node"></div>
+					<a href="w_tree.html" target="navTab" rel="w_tree">树形菜单</a>
+				</div>
+			</li>
+			<li class="last">
+				<div>
+					<div class="node"></div>
+					<a href="w_editor.html" target="navTab" rel="w_editor">编辑器</a>
+				</div>
+			</li>
+		</ul>
+	</div>
+
+	<div style="float:left; display:block; margin:10px; overflow:auto; width:200px; height:300px; border:solid 1px #CCC; line-height:21px;">
+		<ul class="tree treeFolder collapse">
+			<li>
+				<div class="hover">
+					<div class="first_collapsable"></div>
+					<div class="folder_collapsable"></div>
+					<a href="tabsPage.html" target="navTab">框架面板</a>
+				</div>
+				<ul>
+					<li>
+						<div>
+							<div class="line"></div>
+							<div class="node"></div>
+							<div class="file"></div>
+							<a href="main.html" target="navTab" rel="main">我的主页</a>
+						</div>
+					</li>
+					<li>
+						<div>
+							<div class="line"></div>
+							<div class="node"></div>
+							<div class="file"></div>
+							<a href="newPage1.html" target="navTab" rel="page1">页面一</a>
+						</div>
+					</li>
+					<li>
+						<div>
+							<div class="line"></div>
+							<div class="node"></div>
+							<div class="file"></div>
+							<a href="newPage2.html" target="navTab" rel="page1">替换页面一</a>
+						</div>
+					</li>
+					<li>
+						<div>
+							<div class="line"></div>
+							<div class="node"></div>
+							<div class="file"></div>
+							<a href="newPage2.html" target="navTab" rel="page2">页面二</a>
+						</div>
+					</li>
+					<li class="last">
+						<div class="">
+							<div class="line"></div>
+							<div class="node"></div>
+							<div class="file"></div>
+							<a href="newPage3.html" target="navTab" rel="page3" title="页面三（自定义标签名）">页面三</a>
+						</div>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<div>
+					<div class="node"></div>
+					<div class="file"></div>
+					<a href="w_panel.html" target="navTab" rel="w_panel">面板</a>
+				</div>
+			</li>
+			<li>
+				<div>
+					<div class="node"></div>
+					<div class="file"></div>
+					<a href="w_tabs.html" target="navTab" rel="w_tabs">选项卡面板</a>
+				</div>
+			</li>
+			<li>
+				<div>
+					<div class="node"></div>
+					<div class="file"></div>
+					<a href="w_dialog.html" target="navTab" rel="w_dialog">弹出窗口</a>
+				</div>
+			</li>
+			<li>
+				<div>
+					<div class="node"></div>
+					<div class="file"></div>
+					<a href="w_alert.html" target="navTab" rel="w_alert">提示窗口</a>
+				</div>
+			</li>
+			<li>
+				<div>
+					<div class="node"></div>
+					<div class="file"></div>
+					<a href="w_table.html" target="navTab" rel="w_table">表格容器</a>
+				</div>
+			</li>
+			<li>
+				<div>
+					<div class="node"></div>
+					<div class="file"></div>
+					<a href="w_tree.html" target="navTab" rel="w_tree">树形菜单</a>
+				</div>
+			</li>
+			<li class="last">
+				<div>
+					<div class="node"></div>
+					<div class="file"></div>
+					<a href="w_editor.html" target="navTab" rel="w_editor">编辑器</a>
+				</div>
+			</li>
+		</ul>
+	</div>
+
+	<div style="float:left; display:block; margin:10px; overflow:auto; width:200px; height:300px; border:solid 1px #CCC; line-height:21px; background:#FFF;">
+		
+		<ul class="tree treeCheck">
+			<li>
+				<div>
+					<div class="first_collapsable"></div>
+					<div class="ckbox indeterminate">
+						<input type="checkbox" name="name" value="value" style="display:none;" text=""/>
+					</div>
+					<a href="tabsPage.html" target="navTab" tname="tname" tvalue="">框架面板</a>
+				</div>
+				<ul>
+					<li>
+						<div class="hover">
+							<div class="line"></div>
+							<div class="node"></div>
+							<div class="ckbox checked">
+								<input type="checkbox" name="name" value="value" style="display:none;" text=""/>
+							</div>
+							<a href="main.html" target="navTab" rel="main">我的主页</a>
+						</div>
+					</li>
+					<li>
+						<div>
+							<div class="line"></div>
+							<div class="node"></div>
+							<div class="ckbox unchecked">
+								<input type="checkbox" name="name" value="value" style="display:none;" text=""/>
+							</div>
+							<a href="newPage1.html" target="navTab" rel="page1">页面一</a>
+						</div>
+					</li>
+					<li>
+						<div>
+							<div class="line"></div>
+							<div class="node"></div>
+							<div class="ckbox unchecked">
+								<input type="checkbox" name="name" value="value" style="display:none;" text=""/>
+							</div>
+							<a href="newPage2.html" target="navTab" rel="page1">替换页面一</a>
+						</div>
+					</li>
+					<li>
+						<div>
+							<div class="line"></div>
+							<div class="node"></div>
+							<div class="ckbox unchecked">
+								<input type="checkbox" name="name" value="value" style="display:none;" text=""/>
+							</div>
+							<a href="newPage2.html" target="navTab" rel="page2">页面二</a>
+						</div>
+					</li>
+					<li class="last">
+						<div class="">
+							<div class="line"></div>
+							<div class="node"></div>
+							<div class="ckbox unchecked">
+								<input type="checkbox" name="name" value="value" style="display:none;" text=""/>
+							</div>
+							<a href="newPage3.html" target="navTab" rel="page3" title="页面三（自定义标签名）">页面三</a>
+						</div>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<div>
+					<div class="node"></div>
+					<div class="ckbox checked">
+						<input type="checkbox" name="name" value="value" style="display:none;" text=""/>
+					</div>
+					<a href="w_panel.html" target="navTab" rel="w_panel">面板</a>
+				</div>
+			</li>
+			<li>
+				<div>
+					<div class="node"></div>
+					<div class="ckbox unchecked">
+						<input type="checkbox" name="name" value="value" style="display:none;" text=""/>
+					</div>
+					<a href="w_tabs.html" target="navTab" rel="w_tabs">选项卡面板</a>
+				</div>
+			</li>
+			<li>
+				<div>
+					<div class="node"></div>
+					<div class="ckbox unchecked">
+						<input type="checkbox" name="name" value="value" style="display:none;" text=""/>
+					</div>
+					<a href="w_dialog.html" target="navTab" rel="w_dialog">弹出窗口</a>
+				</div>
+			</li>
+			<li>
+				<div>
+					<div class="node"></div>
+					<div class="ckbox unchecked">
+						<input type="checkbox" name="name" value="value" style="display:none;" text=""/>
+					</div>
+					<a href="w_alert.html" target="navTab" rel="w_alert">提示窗口</a>
+				</div>
+			</li>
+			<li>
+				<div>
+					<div class="node"></div>
+					<div class="ckbox unchecked">
+						<input type="checkbox" name="name" value="value" style="display:none;" text=""/>
+					</div>
+					<a href="w_table.html" target="navTab" rel="w_table">表格容器</a>
+				</div>
+			</li>
+			<li>
+				<div>
+					<div class="node"></div>
+					<div class="ckbox unchecked">
+						<input type="checkbox" name="name" value="value" style="display:none;" text=""/>
+					</div>
+					<a href="w_tree.html" target="navTab" rel="w_tree">树形菜单</a>
+				</div>
+			</li>
+			<li class="last">
+				<div>
+					<div class="node"></div>
+					<div class="ckbox unchecked">
+						<input type="checkbox" name="name" value="value" style="display:none;" text=""/>
+					</div>
+					<a href="w_editor.html" target="navTab" rel="w_editor">编辑器</a>
+				</div>
+			</li>
+		</ul>
+	</div>
+
+	<div style="float:left; display:block; margin:10px; overflow:auto; width:200px; height:300px; border:solid 1px #CCC; line-height:21px; background:#FFF;">
+		
+		<ul class="tree treeFolder treeCheck">
+			<li>
+				<div>
+					<div class="first_collapsable"></div>
+					<div class="ckbox indeterminate">
+						<input type="checkbox" name="name" value="value" style="display:none;" text=""/>
+					</div>
+					<div class="folder_collapsable"></div>
+					<a href="tabsPage.html" target="navTab" tname="tname" tvalue="">框架面板</a>
+				</div>
+				<ul>
+					<li>
+						<div class="hover">
+							<div class="line"></div>
+							<div class="node"></div>
+							<div class="ckbox checked">
+								<input type="checkbox" name="name" value="value" style="display:none;" text=""/>
+							</div>
+							<div class="file"></div>
+							<a href="main.html" target="navTab" rel="main">我的主页</a>
+						</div>
+					</li>
+					<li>
+						<div>
+							<div class="line"></div>
+							<div class="node"></div>
+							<div class="ckbox unchecked">
+								<input type="checkbox" name="name" value="value" style="display:none;" text=""/>
+							</div>
+							<div class="file"></div>
+							<a href="newPage1.html" target="navTab" rel="page1">页面一</a>
+						</div>
+					</li>
+					<li>
+						<div>
+							<div class="line"></div>
+							<div class="node"></div>
+							<div class="ckbox unchecked">
+								<input type="checkbox" name="name" value="value" style="display:none;" text=""/>
+							</div>
+							<div class="file"></div>
+							<a href="newPage2.html" target="navTab" rel="page1">替换页面一</a>
+						</div>
+					</li>
+					<li>
+						<div>
+							<div class="line"></div>
+							<div class="node"></div>
+							<div class="ckbox unchecked">
+								<input type="checkbox" name="name" value="value" style="display:none;" text=""/>
+							</div>
+							<div class="file"></div>
+							<a href="newPage2.html" target="navTab" rel="page2">页面二</a>
+						</div>
+					</li>
+					<li class="last">
+						<div class="">
+							<div class="line"></div>
+							<div class="node"></div>
+							<div class="ckbox unchecked">
+								<input type="checkbox" name="name" value="value" style="display:none;" text=""/>
+							</div>
+							<div class="file"></div>
+							<a href="newPage3.html" target="navTab" rel="page3" title="页面三（自定义标签名）">页面三</a>
+						</div>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<div>
+					<div class="node"></div>
+					<div class="ckbox checked">
+						<input type="checkbox" name="name" value="value" style="display:none;" text=""/>
+					</div>
+					<div class="file"></div>
+					<a href="w_panel.html" target="navTab" rel="w_panel">面板</a>
+				</div>
+			</li>
+			<li>
+				<div>
+					<div class="node"></div>
+					<div class="ckbox unchecked">
+						<input type="checkbox" name="name" value="value" style="display:none;" text=""/>
+					</div>
+					<div class="file"></div>
+					<a href="w_tabs.html" target="navTab" rel="w_tabs">选项卡面板</a>
+				</div>
+			</li>
+			<li>
+				<div>
+					<div class="node"></div>
+					<div class="ckbox unchecked">
+						<input type="checkbox" name="name" value="value" style="display:none;" text=""/>
+					</div>
+					<div class="file"></div>
+					<a href="w_dialog.html" target="navTab" rel="w_dialog">弹出窗口</a>
+				</div>
+			</li>
+			<li>
+				<div>
+					<div class="node"></div>
+					<div class="ckbox unchecked">
+						<input type="checkbox" name="name" value="value" style="display:none;" text=""/>
+					</div>
+					<div class="file"></div>
+					<a href="w_alert.html" target="navTab" rel="w_alert">提示窗口</a>
+				</div>
+			</li>
+			<li>
+				<div>
+					<div class="node"></div>
+					<div class="ckbox unchecked">
+						<input type="checkbox" name="name" value="value" style="display:none;" text=""/>
+					</div>
+					<div class="file"></div>
+					<a href="w_table.html" target="navTab" rel="w_table">表格容器</a>
+				</div>
+			</li>
+			<li>
+				<div>
+					<div class="node"></div>
+					<div class="ckbox unchecked">
+						<input type="checkbox" name="name" value="value" style="display:none;" text=""/>
+					</div>
+					<div class="file"></div>
+					<a href="w_tree.html" target="navTab" rel="w_tree">树形菜单</a>
+				</div>
+			</li>
+			<li class="last">
+				<div>
+					<div class="node"></div>
+					<div class="ckbox unchecked">
+						<input type="checkbox" name="name" value="value" style="display:none;" text=""/>
+					</div>
+					<div class="file"></div>
+					<a href="w_editor.html" target="navTab" rel="w_editor">编辑器</a>
+				</div>
+			</li>
+		</ul>
+	</div>
+
+	<div style="float:left; display:block; margin:10px; overflow:auto; width:200px; height:300px; border:solid 1px #CCC; line-height:21px; background:#FFF;">
+		
+		<ul class="tree treeFolder treeCheck">
+			<li>
+				<div>
+					<div class="first_collapsable"></div>
+					<div class="ckbox indeterminate">
+						<input type="checkbox" name="name" value="value" style="display:none;" text=""/>
+					</div>
+					<div class="folder_collapsable"></div>
+					<a href="tabsPage.html" target="navTab" tname="tname" tvalue="">框架面板</a>
+				</div>
+				<ul>
+					<li>
+						<div>
+							<div class="line"></div>
+							<div class="collapsable"></div>
+							<div class="ckbox indeterminate">
+								<input type="checkbox" name="name" value="value" style="display:none;" text=""/>
+							</div>
+							<div class="folder_collapsable"></div>
+							<a href="main.html" target="navTab" rel="main">我的主页</a>
+						</div>
+						<ul class="tree treeFolder treeCheck">
+							<li>
+								<div>
+									<div class="line"></div>
+									<div class="line"></div>
+									<div class="expandable"></div>
+									<div class="ckbox checked">
+										<input type="checkbox" name="name" value="value" style="display:none;" text=""/>
+									</div>
+									<div class="folder_expandable"></div>
+									<a href="tabsPage.html" target="navTab" tname="tname" tvalue="">框架面板</a>
+								</div>
+								<ul style="display:none;">
+									<li>
+										<div class="hover">
+											<div class="line"></div>
+											<div class="line"></div>
+											<div class="line"></div>
+											<div class="node"></div>
+											<div class="ckbox checked">
+												<input type="checkbox" name="name" value="value" style="display:none;" text=""/>
+											</div>
+											<div class="file"></div>
+											<a href="main.html" target="navTab" rel="main">我的主页</a>
+										</div>
+									</li>
+									<li>
+										<div>
+											<div class="line"></div>
+											<div class="line"></div>
+											<div class="line"></div>
+											<div class="node"></div>
+											<div class="ckbox unchecked">
+												<input type="checkbox" name="name" value="value" style="display:none;" text=""/>
+											</div>
+											<div class="file"></div>
+											<a href="newPage1.html" target="navTab" rel="page1">页面一</a>
+										</div>
+									</li>
+									<li>
+										<div>
+											<div class="line"></div>
+											<div class="line"></div>
+											<div class="line"></div>
+											<div class="node"></div>
+											<div class="ckbox unchecked">
+												<input type="checkbox" name="name" value="value" style="display:none;" text=""/>
+											</div>
+											<div class="file"></div>
+											<a href="newPage2.html" target="navTab" rel="page1">替换页面一</a>
+										</div>
+									</li>
+									<li>
+										<div>
+											<div class="line"></div>
+											<div class="line"></div>
+											<div class="line"></div>
+											<div class="node"></div>
+											<div class="ckbox unchecked">
+												<input type="checkbox" name="name" value="value" style="display:none;" text=""/>
+											</div>
+											<div class="file"></div>
+											<a href="newPage2.html" target="navTab" rel="page2">页面二</a>
+										</div>
+									</li>
+									<li class="last">
+										<div class="">
+											<div class="line"></div>
+											<div class="line"></div>
+											<div class="line"></div>
+											<div class="node"></div>
+											<div class="ckbox unchecked">
+												<input type="checkbox" name="name" value="value" style="display:none;" text=""/>
+											</div>
+											<div class="file"></div>
+											<a href="newPage3.html" target="navTab" rel="page3" title="页面三（自定义标签名）">页面三</a>
+										</div>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<div>
+									<div class="line"></div>
+									<div class="line"></div>
+									<div class="node"></div>
+									<div class="ckbox checked">
+										<input type="checkbox" name="name" value="value" style="display:none;" text=""/>
+									</div>
+									<div class="file"></div>
+									<a href="w_panel.html" target="navTab" rel="w_panel">面板</a>
+								</div>
+							</li>
+							<li>
+								<div>
+									<div class="line"></div>
+									<div class="line"></div>
+									<div class="node"></div>
+									<div class="ckbox unchecked">
+										<input type="checkbox" name="name" value="value" style="display:none;" text=""/>
+									</div>
+									<div class="file"></div>
+									<a href="w_tabs.html" target="navTab" rel="w_tabs">选项卡面板</a>
+								</div>
+							</li>
+							<li>
+								<div>
+									<div class="line"></div>
+									<div class="line"></div>
+									<div class="node"></div>
+									<div class="ckbox unchecked">
+										<input type="checkbox" name="name" value="value" style="display:none;" text=""/>
+									</div>
+									<div class="file"></div>
+									<a href="w_dialog.html" target="navTab" rel="w_dialog">弹出窗口</a>
+								</div>
+							</li>
+							<li>
+								<div>
+									<div class="line"></div>
+									<div class="line"></div>
+									<div class="node"></div>
+									<div class="ckbox unchecked">
+										<input type="checkbox" name="name" value="value" style="display:none;" text=""/>
+									</div>
+									<div class="file"></div>
+									<a href="w_alert.html" target="navTab" rel="w_alert">提示窗口</a>
+								</div>
+							</li>
+							<li>
+								<div>
+									<div class="line"></div>
+									<div class="line"></div>
+									<div class="node"></div>
+									<div class="ckbox unchecked">
+										<input type="checkbox" name="name" value="value" style="display:none;" text=""/>
+									</div>
+									<div class="file"></div>
+									<a href="w_table.html" target="navTab" rel="w_table">表格容器</a>
+								</div>
+							</li>
+							<li>
+								<div>
+									<div class="line"></div>
+									<div class="line"></div>
+									<div class="node"></div>
+									<div class="ckbox unchecked">
+										<input type="checkbox" name="name" value="value" style="display:none;" text=""/>
+									</div>
+									<div class="file"></div>
+									<a href="w_tree.html" target="navTab" rel="w_tree">树形菜单</a>
+								</div>
+							</li>
+							<li class="last">
+								<div>
+									<div class="line"></div>
+									<div class="line"></div>
+									<div class="node"></div>
+									<div class="ckbox unchecked">
+										<input type="checkbox" name="name" value="value" style="display:none;" text=""/>
+									</div>
+									<div class="file"></div>
+									<a href="w_editor.html" target="navTab" rel="w_editor">编辑器</a>
+								</div>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<div>
+							<div class="line"></div>
+							<div class="node"></div>
+							<div class="ckbox unchecked">
+								<input type="checkbox" name="name" value="value" style="display:none;" text=""/>
+							</div>
+							<div class="file"></div>
+							<a href="newPage1.html" target="navTab" rel="page1">页面一</a>
+						</div>
+					</li>
+					<li>
+						<div>
+							<div class="line"></div>
+							<div class="node"></div>
+							<div class="ckbox unchecked">
+								<input type="checkbox" name="name" value="value" style="display:none;" text=""/>
+							</div>
+							<div class="file"></div>
+							<a href="newPage2.html" target="navTab" rel="page1">替换页面一</a>
+						</div>
+					</li>
+					<li>
+						<div>
+							<div class="line"></div>
+							<div class="node"></div>
+							<div class="ckbox unchecked">
+								<input type="checkbox" name="name" value="value" style="display:none;" text=""/>
+							</div>
+							<div class="file"></div>
+							<a href="newPage2.html" target="navTab" rel="page2">页面二</a>
+						</div>
+					</li>
+					<li class="last">
+						<div class="">
+							<div class="line"></div>
+							<div class="node"></div>
+							<div class="ckbox unchecked">
+								<input type="checkbox" name="name" value="value" style="display:none;" text=""/>
+							</div>
+							<div class="file"></div>
+							<a href="newPage3.html" target="navTab" rel="page3" title="页面三（自定义标签名）">页面三</a>
+						</div>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<div>
+					<div class="node"></div>
+					<div class="ckbox checked">
+						<input type="checkbox" name="name" value="value" style="display:none;" text=""/>
+					</div>
+					<div class="file"></div>
+					<a href="w_panel.html" target="navTab" rel="w_panel">面板</a>
+				</div>
+			</li>
+			<li>
+				<div>
+					<div class="node"></div>
+					<div class="ckbox unchecked">
+						<input type="checkbox" name="name" value="value" style="display:none;" text=""/>
+					</div>
+					<div class="file"></div>
+					<a href="w_tabs.html" target="navTab" rel="w_tabs">选项卡面板</a>
+				</div>
+			</li>
+			<li>
+				<div>
+					<div class="node"></div>
+					<div class="ckbox unchecked">
+						<input type="checkbox" name="name" value="value" style="display:none;" text=""/>
+					</div>
+					<div class="file"></div>
+					<a href="w_dialog.html" target="navTab" rel="w_dialog">弹出窗口</a>
+				</div>
+			</li>
+			<li>
+				<div>
+					<div class="node"></div>
+					<div class="ckbox unchecked">
+						<input type="checkbox" name="name" value="value" style="display:none;" text=""/>
+					</div>
+					<div class="file"></div>
+					<a href="w_alert.html" target="navTab" rel="w_alert">提示窗口</a>
+				</div>
+			</li>
+			<li>
+				<div>
+					<div class="node"></div>
+					<div class="ckbox unchecked">
+						<input type="checkbox" name="name" value="value" style="display:none;" text=""/>
+					</div>
+					<div class="file"></div>
+					<a href="w_table.html" target="navTab" rel="w_table">表格容器</a>
+				</div>
+			</li>
+			<li>
+				<div>
+					<div class="node"></div>
+					<div class="ckbox unchecked">
+						<input type="checkbox" name="name" value="value" style="display:none;" text=""/>
+					</div>
+					<div class="file"></div>
+					<a href="w_tree.html" target="navTab" rel="w_tree">树形菜单</a>
+				</div>
+			</li>
+			<li class="last">
+				<div>
+					<div class="node"></div>
+					<div class="ckbox unchecked">
+						<input type="checkbox" name="name" value="value" style="display:none;" text=""/>
+					</div>
+					<div class="file"></div>
+					<a href="w_editor.html" target="navTab" rel="w_editor">编辑器</a>
+				</div>
+			</li>
+		</ul>
+	</div>
+
+</div>
+
+		<div class="divider"></div>
+
+<div style="position:relative;height:auto;overflow:auto;border:dashed 1px #89F;text-align:left;">
+		<div class="accordion" style="margin:5px;">
+			<div class="accordionHeader hover">
+				<h2 class="collapsable">折叠面板【滑动菜单】</h2>
+			</div>
+			<div class="accordionContent" style="height:201px;overflow:auto;">
+<pre>
+内容1
+</pre>
+			</div>
+			<div class="accordionHeader">
+				<h2><span>icon</span>折叠面板【滑动菜单】</h2>
+			</div>
+			<div class="accordionContent" style="height:201px;overflow:auto;display:none;">
+<pre>
+内容2
+</pre>
+			</div>
+		</div>
+</div>
+
+		<div class="divider"></div>
+
+<div style="position:relative;height:200px;overflow:auto;border:dashed 1px #89F;text-align:left;">
+		<div id="calendar" style="display:block;">
+			<div class="main">
+				<div class="head">
+					<table width="100%" cellspacing="2" cellpadding="0" border="0">
+						<tbody>
+							<tr>
+								<td>
+									<select name="year">
+										<option value="2012">2012</option>
+										<option value="2013" selected>2013</option>
+										<option value="2014">2014</option>
+									</select>
+								</td>
+								<td>
+									<select name="month"><option value="1" selected="selected">一月</option><option value="2">二月</option><option value="3">三月</option><option value="4">四月</option><option value="5">五月</option><option value="6">六月</option><option value="7">七月</option><option value="8">八月</option><option value="9">九月</option><option value="10">十月</option><option value="11">十一月</option><option value="12">十二月</option></select>
+								</td>
+								<td width="20">
+									<span class="close">&times;</span>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<div class="body">
+					<dl class="dayNames">
+						<dt></dt>
+					</dl>
+					<dl class="days"></dl>
+				</div>
+
+				<div class="foot">
+					<table class="time" style="display:table;">
+						<tbody>
+							<tr></tr>
+						</tbody>
+					</table>
+					<button class="clearBut" type="button">清除</button>
+					<button class="okBut" type="button">确定</button>
+				</div>
+			</div>
+		</div>
+
+		<div style="left:346px;top:8px;display:block;" id="calendar">
+			<div class="main">
+				<div class="head">
+					<table border="0" cellpadding="0" cellspacing="2" width="100%">
+					<tbody><tr>
+						<td><select name="year"><option value="2003">2003</option><option value="2004">2004</option><option value="2005">2005</option><option value="2006">2006</option><option value="2007">2007</option><option value="2008">2008</option><option value="2009">2009</option><option value="2010">2010</option><option value="2011">2011</option><option value="2012">2012</option><option value="2013" selected="selected">2013</option><option value="2014">2014</option><option value="2015">2015</option><option value="2016">2016</option><option value="2017">2017</option><option value="2018">2018</option><option value="2019">2019</option><option value="2020">2020</option><option value="2021">2021</option><option value="2022">2022</option><option value="2023">2023</option></select></td>
+						<td><select name="month"><option value="1" selected="selected">一月</option><option value="2">二月</option><option value="3">三月</option><option value="4">四月</option><option value="5">五月</option><option value="6">六月</option><option value="7">七月</option><option value="8">八月</option><option value="9">九月</option><option value="10">十月</option><option value="11">十一月</option><option value="12">十二月</option></select></td>
+						<td width="20"><span class="close">×</span></td>
+					</tr>
+					</tbody></table>
+				</div>
+				<div class="body">
+					<dl class="dayNames"><dt>日</dt><dt>一</dt><dt>二</dt><dt>三</dt><dt>四</dt><dt>五</dt><dt>六</dt></dl>
+					<dl class="days"><dd class="other" chmonth="-1" day="30">30</dd><dd class="other" chmonth="-1" day="31">31</dd><dd day="1">1</dd><dd day="2">2</dd><dd day="3">3</dd><dd day="4">4</dd><dd class="slt" day="5">5</dd><dd day="6">6</dd><dd day="7">7</dd><dd day="8">8</dd><dd day="9">9</dd><dd day="10">10</dd><dd day="11">11</dd><dd day="12">12</dd><dd day="13">13</dd><dd day="14">14</dd><dd day="15">15</dd><dd day="16">16</dd><dd day="17">17</dd><dd day="18">18</dd><dd day="19">19</dd><dd day="20">20</dd><dd day="21">21</dd><dd day="22">22</dd><dd day="23">23</dd><dd day="24">24</dd><dd day="25">25</dd><dd day="26">26</dd><dd day="27">27</dd><dd day="28">28</dd><dd day="29">29</dd><dd day="30">30</dd><dd day="31">31</dd><dd class="other" chmonth="1" day="1">1</dd><dd class="other" chmonth="1" day="2">2</dd><dd class="other" chmonth="1" day="3">3</dd><dd class="other" chmonth="1" day="4">4</dd><dd class="other" chmonth="1" day="5">5</dd><dd class="other" chmonth="1" day="6">6</dd><dd class="other" chmonth="1" day="7">7</dd><dd class="other" chmonth="1" day="8">8</dd><dd class="other" chmonth="1" day="9">9</dd></dl>
+					<div style="clear:both;height:0;line-height:0"></div>
+					<div class="tm">
+						<ul class="hh">
+							<li>0</li>
+							<li>1</li>
+							<li>2</li>
+							<li>3</li>
+							<li>4</li>
+							<li>5</li>
+							<li>6</li>
+							<li>7</li>
+							<li>8</li>
+							<li>9</li>
+							<li>10</li>
+							<li>11</li>
+							<li>12</li>
+							<li>13</li>
+							<li>14</li>
+							<li>15</li>
+							<li>16</li>
+							<li>17</li>
+							<li>18</li>
+							<li>19</li>
+							<li>20</li>
+							<li>21</li>
+							<li>22</li>
+							<li>23</li>
+						</ul>
+						<ul class="mm">
+							<li>0</li>
+							<li>5</li>
+							<li>10</li>
+							<li>15</li>
+							<li>20</li>
+							<li>25</li>
+							<li>30</li>
+							<li>35</li>
+							<li>40</li>
+							<li>45</li>
+							<li>50</li>
+							<li>55</li>
+						</ul>
+						<ul class="ss">
+							<li>0</li>
+							<li>10</li>
+							<li>20</li>
+							<li>30</li>
+							<li>40</li>
+							<li>50</li>
+						</ul>
+					</div>
+				</div>
+				<div class="foot">
+					<table style="display: table;" class="time">
+						<tbody><tr>
+							<td>
+								<input class="hh" maxlength="2" start="0" end="23" type="text">:
+								<input class="mm" maxlength="2" start="0" end="59" type="text">:
+								<input class="ss" maxlength="2" start="0" end="59" type="text">
+							</td>
+							<td><ul><li class="up">∧</li><li class="down">∨</li></ul></td>
+						</tr>
+					</tbody></table>
+					<button type="button" class="clearBut">清空</button>
+					<button type="button" class="okBut">确定</button>
+				</div>
+			</div>
+		</div>
+
+</div>
+
+		<div class="divider"></div>
+
+<div style="position:relative;height:200px;overflow:auto;border:dashed 1px #89F;text-align:left;">
+		<div class="sortDrag" style="width:48%;border:1px solid #e66;margin:5px;float:left;min-height:100px">
+			<div style="border:1px solid #B8D0D6;padding:5px;margin:5px">A1</div>
+			<div style="border:1px solid #B8D0D6;padding:5px;margin:5px">A2</div>
+			
+			<div style="border:1px solid #B8D0D6;padding:5px;margin:5px">B3</div><div style="border:1px solid #B8D0D6;padding:5px;margin:5px">A4</div>
+			<div style="border:1px solid #B8D0D6;padding:5px;margin:5px">A5</div>
+		</div>
+
+		<div class="sortDrag" style="width:48%;border:1px solid #e66;margin:5px;float:left;min-height:100px">
+			<div style="border:1px solid #B8D0D6;padding:5px;margin:5px">B1</div>
+			<div style="border:1px solid #B8D0D6;padding:5px;margin:5px">B2</div>
+			<div style="border: 1px solid rgb(184, 208, 214); padding: 5px; margin: 5px; display: block;">A3</div>
+			<div style="border:1px solid #B8D0D6;padding:5px;margin:5px">B4</div>
+			<div style="border:1px solid #B8D0D6;padding:5px;margin:5px">B5</div>
+		</div>
+</div>
+
+		<div class="divider"></div><span style="color:#B8D0D6">#B8D0D6;</span>
+
+<div style="position:relative;height:200px;overflow:auto;border:dashed 1px #89F;text-align:left;">
+	<div style="margin:22px 22px;">
+		<div class="combox">
+			<div class="select">
+				<a href="javascript:;">安徽</a>
+				<select name="" style="">
+					<option value="1">安徽</option>
+				</select>
+			</div>
+		</div>
+	</div>
+</div>
+
+		<div class="divider"></div><span style="color:#B8D0D6">#B8D0D6;</span>
+
+<div style="position:relative;height:200px;overflow:auto;border:dashed 1px #89F;text-align:left;">
+	<a href="#" class="btnAdd">添加</a>
+	<a href="#" class="btnDel">删除</a>
+	<a href="#" class="btnInfo">信息</a>
+	<a href="#" class="btnAssign">指派</a>
+	<a href="#" class="btnView">查看</a>
+	<a href="#" class="btnEdit">编辑</a>
+	<a href="#" class="btnSelect">选择</a>
+	<a href="#" class="btnLook">查找</a>
+	<a href="#" class="btnAttach">附加</a>
+</div>
+
+	</div>
+</body>
+</html>

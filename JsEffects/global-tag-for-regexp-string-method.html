@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Global Tagart Ragular Express, String - split - search - match - replace, ExpExp - exec - test</title>
+</head>
+<body>
+    <script type="text/javascript">
+(function() {
+    var p = /(ab!=c|abc)/,
+        pg = /ab/g,
+        str = 'abcabcabc';
+    a = str.match(p);
+    console.log(a);
+    console.log(a[0], a[1], a[2], a[3]);
+    console.log(p.lastIndex, a.index, a.input);
+
+    b = str.match(pg);
+    console.log(b);
+    console.log(pg.lastIndex);
+})();
+
+console.log(a, b);
+    </script>
+</body>
+</html>

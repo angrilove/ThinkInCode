@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Just Think And Do It.</title>
+	<script type="text/javascript" src="http://ajax.microsoft.com/ajax/jQuery/jquery-1.7.2.js"></script>
+</head>
+<body>
+
+	<style type="text/css">
+		.table-grid {
+			border-spacing: 0;
+			border-collapse: collapse;
+			border: 1px solid #ABC;
+			min-width: 500px;
+		}
+		.table-grid tbody tr:nth-child(even) {
+			background-color:#DAC;
+		}
+		.table-grid tbody tr:hover {
+			font-weight: bold;
+
+		}
+
+	</style>
+
+	<table class="table-grid">
+		<thead>
+			<tr>
+				<th>序号</th>
+				<th>KeyCode</th>
+				<th>charCode</th>
+				<th>截图</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<tr>
+				<td>1</td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+		</tbody>
+	</table>
+
+	<script type="text/javascript">
+		var index = 1;
+		function keyCode(e) {
+			console.log(e);
+			if (window.console) {
+				console.log("keyCode->" + e.which);
+			} else {
+				alert("keyCode->" + e.which);
+			}
+			var table = $(".table-grid");
+			var tbody = table.find("tbody");
+			var html = '<tr><td>' + (++index) + '</td><td>' + e.which + '</td><td>' + e.charCode + '</td><td></td></tr>';
+			tbody.append(html);
+		}
+		$(document).keyup(keyCode);
+	</script>
+</body>
+</html>

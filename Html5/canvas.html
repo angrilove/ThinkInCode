@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<title>html 5 - web 2.0</title>
+<style type="text/css">
+html, body {
+	font-family: "Microsoft Yahei", Arial, consolas;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	line-height: 1em;
+}
+</style>
+</head>
+<body>
+<canvas id="cv" style="border:solid 1px red; display:block;"></canvas> style="display:block; width:100%; height:500px; border:solid 1px red; margin:0 auto;"
+
+<script type="text/javascript">
+var canvas = document.getElementById("cv");
+var context = cxt = canvas.getContext("2d");
+(function() {
+
+	context.fillStyle="#EEEEFF";
+	context.fillRect(10, 10, 100, 100);
+
+	context.fillStyle = "red";
+	context.strokeStyle = "blue";
+	context.lineWidth = 1;
+	context.fillRect(50, 50, 100, 100);
+	context.strokeRect(100, 100, 100, 100);
+});//();
+
+(function() {
+	cxt.fillStyle = "#EEEEFF";
+	cxt.fillRect(0, 0, 400, 300);
+	var n = 0;
+	for (var i = 0; i < 10; i++) {
+		cxt.beginPath();
+		cxt.arc(i * 25, i * 25, i * 10, 0, Math.PI * 2, true);
+		cxt.closePath();
+		cxt.fillStyle = "rgba(255, 0, 0, 0.25)";
+		cxt.fill();
+	}
+})();
+</script>
+</body>
+</html>

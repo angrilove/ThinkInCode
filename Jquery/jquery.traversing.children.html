@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Anshen&trade;</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<link rel="stylesheet" type="text/css" href="css.css"></link>
+<script type="text/javascript" src="./jquery-1.7.1.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	
+	$("button").click(function( e ) {
+		// .children(selector) - 获取给定元素的所有子元素，但它不进行深度遍历(只遍历第一层级)
+		// - @param {String} selector
+		// - @return {Object} 
+		var $all = $('body').children();
+		
+		// logs
+		console.log('all: %o', $all);
+	});
+});
+</script>
+</head>
+<body>
+	<span class='title'>Anshen&trade; jQuery Ajax</span>
+	<ul>
+		<li>项目1</li>
+		<li>项目2</li>
+		<li class="third-item">项目3</li>
+		<li>项目4</li>
+		<li>
+			<ul>
+				<li>项目5</li>
+				<li>项目6</li>
+				<li>项目7</li>
+			</ul>
+		</li>
+	</ul>
+	
+	<button>Click Me</button>
+</body>
+</hTml>

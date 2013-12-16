@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<style type="text/css"></style>
+<script type="text/javascript">
+(function() {
+
+/*
+---
+
+arguments是属于function的
+    是类似(array-like)数组的对象
+    并非真正的数组
+    因为他缺少所有数组的方法
+    拥有一个length属性
+...
+*/
+function msg(arg1, arg2, arg3) {
+    console.log( arguments, this );
+    console.log( arguments.length, this );
+    var array = new Array(1, 2, 3, 4, 5, 6);
+    console.log( array, this );
+};
+
+msg(1, 2, 3, 4, 5, 6);
+})();
+</script>
+</head>
+<body>
+<div>
+</div>
+</body>
+</html>

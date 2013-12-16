@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Anshen&trade;</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<link rel="stylesheet" type="text/css" href="css.css"></link>
+<script type="text/javascript" src="./jquery-1.7.1.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	var $article = $("#article");
+	$("#post").click(function( e ) {
+		// post method
+		// .post(url, [data], [callback], [dataType])
+		//  - @param {Object} data 映射或字符串值
+		//  - @param {Function} callback(response, status, xhr)
+		//  - @param {String} dataType 返回的数据类型，可选的有 - json, xml, html, text, script, jsonp -- 默认智能判断
+		//  - @return {Object} jqXhr jQuery 对象，是XMLHttpRequest的超集
+		// 等价于
+		//  - $.ajax(type: 'POST', url: url, data: data, success: success, dataType: dataType);
+		$.post("./data/ajax.post.txt", {'name': 'anshen', 'age': '22'}, function(response, status, xhr) {
+			$article.html(response);
+			// logs
+			console.info("response: %o", response);
+			console.info("status: %o", status);
+			console.info("xhr: %o", xhr);
+		}, "text");
+	});
+	
+	$("#jqxhr").click(function() {
+		var jqXhr = $.post('./data/ajax.post.txt', function(data) {
+			$article.html(data);
+			// logs
+			console.info("response: %o", data);
+		}, 'text').success(function() {
+			console.info("sucess");
+		}).error(function() {
+			console.error("error");
+		}).complete(function() {
+			console.log("complete");
+		});
+		
+		jqXhr.complete(function() {
+			console.log('another function');
+		});
+	});
+	
+	$("#xml").click(function() {
+		$.post('./data/ajax.post.xml', function( response, status, xhr ) {
+			// process(data);
+			var elements = response.firstChild.children;
+			$.each(elements, function(i, ele) {
+				$article.append(i + ' - ' + ele.tagName + ' - ' + ele.textContent + '<br/>');
+			});
+			
+			// logs
+			console.log('response: %o', response);
+			console.log('status: %o', status);
+			console.log('xhr: %o', xhr);
+		}, 'xml');
+	});
+});
+</script>
+</head>
+<body>
+<span class='title'>Anshen&trade; jQuery Ajax post method</span>
+<div class="divider"></div>
+<div id="article"></div>
+<div class="divider"></div>
+<button id="post">点击我</button><button id="jqxhr">返回jqXhr请求</button><button id="xml">使用process处理内容</button>
+</body>
+</hTml>

@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Anshen&trade;</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<link rel="stylesheet" type="text/css" href="css.css"></link>
+<script type="text/javascript" src="./jquery-1.7.1.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	var $article = $("#article");
+	$("button").click(function( e ) {
+		// .is(selector)
+		// - @return {Boolean} 
+		// .is(function() {return Boolean;})
+		// - @return {Boolean}
+		var isDivChild = $article.children().is('span[id=content]');
+		var is = $().is(function() {
+			return true;
+		});
+		
+		// logs
+		console.log("rs: %o", isDivChild);
+		console.log("function: %o", is);
+	});
+});
+</script>
+</head>
+<body>
+	<span class='title'>Anshen&trade; jQuery Ajax</span>
+	<div class="divider"></div>
+	<div id="article">
+		<div></div>
+		<div>
+		<span id="content">这是文章内容...</span>
+		</div>
+	</div>
+	<div class="divider"></div>
+	
+	<button>Click Me</button>
+</body>
+</hTml>

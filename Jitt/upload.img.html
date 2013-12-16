@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Anshen&trade;</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<link rel="stylesheet" type="text/css" href="css.css"></link>
+<script type="text/javascript" src="./jquery-1.7.1.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+
+	$(":file").change(function() {
+		var filename = this.value;
+		var type = filename.slice(filename.lastIndexOf('.'), filename.length).toLocaleLowerCase(); // 文件类型
+		if (type != ".png" && type != '.jpg') {
+			alert('请选择图片(.jpg/.png/gif/.jpeg等格式)！');
+		}
+		
+		var path = "";
+		if (window.ActiveXObject) // IE
+			path = this.value;
+		//else if ($.support.browser)// if (document.getBoxObjectFor) // FF
+			//path = window.URL.createObjectURL(this.files[0]);
+		else path = this.value; // fakepath
+		
+		$("img").attr("src", path);
+		
+		alert(path);
+		
+		// logs
+		// console.log(navigator.userAgent);
+		if (window.console)
+			console.log(navigator.userAgent);
+		else alert(navigator.userAgent);
+	});
+});
+</script>
+</head>
+<body>
+	<span class='title'>Anshen&trade; jQuery Ajax</span><br/>
+	<div class="divider"></div>
+	<img src="./images/one.jpg" id="image" name="image" width="300" height="300"/>
+	<form name="form" action="#" method="post" enctype="multipart/form-data">
+		<input type="file" id="file" name="file"/>
+	</form>
+</body>
+</hTml>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<title>html 5 - web 2.0</title>
+
+<link rel="stylesheet" type="text/css" href="common.css"/>
+
+</head>
+<body>
+<script type="text/javascript">
+var db = openDatabase('logs_db', 'v0.0.1.0001', 'Introdution the logs_db.', 1024 * 1024);
+
+db.transaction(function(tx) {
+	tx.executeSql('CREATE TABLE IF NOT EXISTS LOGS (id, log) ', function(tx, rs) {
+		console.log("create LOGS table success:"+tx+"=>"+rs);
+	}, function(tx, error) {
+		console.log("create LOGS table error:"+tx+"=>"+error);
+	});
+}, function(error) {
+	console.log("transaction execute error:");
+	console.dir( error );
+}, function() {
+	console.log("transaction execute success!");
+});
+
+db.transaction(function(tx) {
+	var sql = 'INSERT INTO LOGS VALUES(?, ?)';
+	console.log( sql );
+	tx.executeSql(sql, ['1', "I love you, d and l."], function(tx, rs) {
+		console.log("insert data to LOGS success:"+tx+"=>"+rs);
+	}, function(tx, error) {
+		console.log("insert data to LOGS error:"+tx+"=>"+error);
+	});
+	console.log( tx );
+});
+
+</script>
+</body>
+</html>

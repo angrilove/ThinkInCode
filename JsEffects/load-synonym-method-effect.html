@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Ajax载入同名函数产生的影响</title>
+</head>
+<body>
+	<button type="button" onclick="load1();">Load Method From Fragment1</button>
+	<button type="button" onclick="load2();">Load Method From Fragment1</button>
+	<button type="button" onclick="theSynonymMethod();">点击我，查看效果</button>
+<script type="text/javascript" src="../Jquery/jquery-1.7.2.js"></script>
+<script type="text/javascript">
+	function load1() {
+		$.get("lmff/lmff1.html", function(res) {
+			$(document.body).append(res);
+		});
+	}
+	function load2() {
+		$.get("lmff/lmff2.html", function(res) {
+			$(document.body).append(res);
+		})
+	}
+</script>
+</body>
+</html>

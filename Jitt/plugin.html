@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Web Browser Plugin Detection</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<script type="text/javascript">
+!(function() {
+	console.log(navigator.plugins.length);
+	var pluginCounter;
+	for (pluginCounter = 0; pluginCounter < navigator.plugins.length; pluginCounter++) {
+		console.log(navigator.plugins[pluginCounter]);
+	}
+	if (window.devicePixelRatio) {
+		window.devicePixelRatio = 1;
+	} else {
+		console.log("Cannot set devicePixelRatio");
+	}
+}());
+	</script>
+</head>
+<body>
+</body>
+</html>

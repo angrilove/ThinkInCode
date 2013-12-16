@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+</head>
+<body>
+<p><input type="text" value="drag this text"/><a href="http://www.baidu.com" target="_blank">TEST</a>
+<div style="background-color:red;height:100px;width:100px;"
+    ondragenter="handle(event)"
+    ondragover="handle(event)"
+    ondragleave="handle(event)"
+    ondrop="handle(event)"></div>
+</p>
+<script type="text/javascript">
+
+/*
+ * 用于IE的dataTransfer对象 - 数据传输对象
+ */
+(function() {
+function handle(event) {
+    switch (event.type) {
+        case 'dragenter':
+        case 'dragover':
+            event.returnValue = false;  // returnValue特性用处不大
+            break;
+        case 'dragleave':
+        case 'drop':
+            if (window.console)
+                // 在FF中又安全限制 - Security Error
+                // 在IE, GoogleChrome中正常显示
+                // 在Safari中出现 underfind - 说明Safari不支持dataTransfer对象
+                // Opera中不可用
+                console.log(event.type, event.dataTransfer.getData('text'), event.dataTransfer.getData('URL'));
+            else alert(event.type + '=>' +event.dataTransfer.getData('text') + '=>' + event.dataTransfer.getData('URL'));
+            break;
+    }
+}
+
+this.handle = handle;
+});//();
+/*
+ * dataTransfer的dropEffect特性和effectAllowed特性
+ */
+(function() {
+// dropEffect - none, move, copy, link
+
+// effectAllowed - uninitialized, none, copy, link, move, 
+//                 copyLink, copyMove, linkMove, all
+function handle(event) {
+    if (window.console)
+        console.log(event.returnValue, event); // IE, FF中没有event.returnValue特性
+    // else alert(event.returnValue);   // 此处会使IE假死
+    switch (event.type) {
+        case 'dragstart':
+            event.dataTransfer.effectAllowed = 'move';
+            break;
+        case 'dragenter':
+            event.dataTransfer.dropEffect = 'move';
+            break;
+        case 'dragover':
+            //event.returnValue = false;
+            break;
+        case 'dragleave':
+        case 'drop':
+            //event.returnValue = false;
+            event.srcElement.innerHTML = event.dataTransfer.getData('text'); // Safari中没有text参数特性
+            if (this.console)
+                console.log(event.dataTransfer, event.dataTransfer.getData);
+    }
+}
+
+this.handle = handle;
+})();
+</script>
+</body>
+</html>

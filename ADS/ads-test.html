@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ads - test</title>
+	<style type="text/css">
+.error {
+	border: 1px solid red;
+}
+.input {
+	border: 1px solid #995500;
+}
+.textfields {
+	font-size: 12px;
+	color: red;
+}
+.inputfields {
+	font-size: 12px;
+}
+.textinput {
+	font-size: 12px;
+}
+.addclasstest {
+	background-color: red;
+	color: white;
+}
+	</style>
+</head>
+<body>
+	<form action="#" id="formid" name="formname" method="post" onsubmit="return validate();">
+		<fieldset>
+			<legend>用户订单</legend>
+			<p class="textfields">
+				<label for="uid">用户订单号：</label><input type="text" id="uid" name="uid">
+				<label for="uname">用户名：</label><input type="text" id="uname" name="uname">
+				<label for="price">金额：</label><input type="text" id="price" name="price">
+				<label for="quanlity">数量：</label><input type="text" id="quanlity" name="quanlity">
+			</p>
+			<p class="inputfields">
+				<label for="file">file:</label><input type="file" id="file" name="file">
+				<label for="passwd">password:</label><input type="password" name="passwd" id="passwd">
+				<label for="ckbox">checkbox:</label><input type="checkbox" name="ckbox" id="ckbox">
+				<label for="radio">radio:</label><input type="radio" name="radio" id="radio">
+				<label for="select">select:</label><select name="select" id="select">
+					<option value="1">op1</option>
+					<option value="2">op2</option>
+				</select>
+				<hr>
+				<label for="date">date:</label><input type="date" name="date" id="date">
+				<label for="time">time:</label><input type="time" name="time" id="time">
+				<label for="datetime">datetime:</label><input type="datetime" name="datetime" id="datetime">
+				<label for="range">range:</label><input type="range" name="range" id="range">
+				<label for="email">email:</label><input type="email" name="email" id="email">
+				<label for="number">number:</label><input type="number" name="number" id="number">
+				<label for="url">url:</label><input type="url" name="url" id="url">
+			</p>
+			<button type="submit">提交</button><a href="/help.shtml">帮助</a>
+		</fieldset>
+	</form>
+	<p id="testaddevent">这是一段用于测试addEvent的文本</p>
+	<p id="testaddcssrule">addcssrule <input type="button" value="addcssrule" id="addcssruletarget"></p>
+	<p id="testaddclass">addclass<input type="button" value="add class" id="addclasstarget"></p>
+	<p id="ajaxrequesttarget">test ajax request<input type="button" value="ajax request" id="testajaxrequest"></p>
+	<p id="bindthistarget">bind this target<input type="button" value="bind this" id="testbindthis"></p>
+	<script type="text/javascript" src="ADS.js"></script>
+	<script type="text/javascript">
+ADS.addLoadEvent(function() {
+	// this is my code.
+	console.log("document ready.");
+	// test id selector.
+	console.log("test id selector, get %o", ADS.$("uid"));
+	// test combine selector.
+	console.log("test combine selector, #uid get %o, [name=uname] get %o, .textfields get %o, input get %o", $$("#uid"), $$("[name=uname]"), $$(".textfields"), $$("input"));
+	console.log("get select input %o", $$("select"));
+
+	// test addEvent.
+	ADS.addEvent("testaddevent", "click", function(event) {
+		console.log(event);
+	});
+	
+	// addCSSRule
+	ADS.addEvent("addcssruletarget", "click", function(event) {
+		var styles = {
+			"border": "1px red solid",
+			"color": "red"
+		};
+		ADS.addCSSRule("#testaddcssrule", styles);
+	});
+
+	// addClass
+	ADS.addEvent("addclasstarget", "click", function(event) {
+		ADS.addClass("testaddclass", "addclasstest");
+	});
+
+	// test ajax request.
+	var ajaxOptions = {
+		completeListener: function() {
+				var args = Array.prototype.slice(arguments);
+				console.log( "completeListener:this => %o, arg1 => %o, arg2 => %o, arg3 => %o, args => %o", this, args[0], args[1], args[2], args);
+			},
+		allCompleteListener: function() {
+				var args = Array.prototype.slice(arguments);
+				console.log( "allCompleteListener:this => %o, args => %o", this, args);
+			},
+		errorListener: function() {
+				var args = Array.prototype.slice(arguments);
+				console.log( "errorListener:this => %o, args => %o", this, args );
+			},
+		send: {
+				"name": "anshen",
+				"age": 18,
+				"sex": "male",
+				"loves": ["duoduo", "lanlan"]
+			},
+		method: "POST",
+		cache: false
+	};
+	ADS.addEvent("testajaxrequest", "click", function(event) {
+		var xhr = ADS.ajaxRequest("ads-data-test/ajax-request.txt", ajaxOptions);
+		console.log(xhr);
+	});
+	// bind 'this'.
+	var thisobj = {
+		"employee": "yes",
+		"boss": "yes"
+	};
+	var targetfn = function() {
+		console.log(this);
+	}
+	var retfn = ADS.bindFn(thisobj, targetfn);
+	ADS.addEvent("bindthistarget", "click", function(event) {
+		retfn();
+	});
+
+	// 
+}, false);
+	</script>
+</body>
+</html>

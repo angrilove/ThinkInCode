@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>elements dataset</title>
+</head>
+<body>
+	<input type="text" id="dataset1" name="dataset1" value="value1">
+	<script type="text/javascript">
+var ds = document.getElementById("dataset1");
+ds.dataset["attr"] = {"status": "ok", "message": "<html>"};
+ds.dataset["attrs"] = ["send", "close"];
+console.log("%s,%o", ds.dataset, ds.dataset);
+if (typeof (ds.dataset) === "object" && typeof (ds.dataset.slice) === "function") {
+	console.log( "array" );
+} else {
+	console.log( "%a", ds.dataset );
+}
+	</script>
+</body>
+</html>

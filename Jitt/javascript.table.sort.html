@@ -1,0 +1,265 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Table Sort.</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<script type="text/javascript">
+// 对字符串数组进行排序
+(function() {
+/**
+ * 比较字符串
+ * @param {String} m 前一个比较的字符串
+ * @param {String} n 后一个比较的字符串
+ * @return {Integer} 如果m串首字符ASCII码值大于n串首字符ASCII值，将返回1
+ */
+function compareStrings(m, n) {
+    return m.localeCompare(n); // 由大到小的排列顺序
+};
+
+// Test
+var str1 = 'enshen',
+    str2 = 'duo';
+console.log(compareStrings(str1, str2));
+
+// 反转 reverse
+console.log([1, 2.23, 3.4, 6, 9].reverse()); // [9, 6, 3, 2, 1]
+console.log([1, 2, 3, 10, 9].sort(function(m, n) { // [1, 2, 3, 9, 10]
+    return m - n;
+}));
+});//();
+
+(function() {
+
+})();
+</script>
+</head>
+<body>
+<table border="1" id="tblSort">
+<thead>
+    <tr>
+        <th ondblclick="sortTable('tblSort', 0)">Last Name</th>
+        <th ondblclick="sortTable('tblSort', 1)">First Name</th>
+        <th ondblclick="sortTable('tblSort', 2, 'date')">Birthday</th>
+        <th ondblclick="sortTable('tblSort', 3, 'int')">Siblings</th>
+    </tr>
+</thead>
+<tbody>
+    <tr>
+        <td>Smith</td>
+        <td>Macishon</td>
+        <td>7/12/1987</td>
+        <td>2</td>
+    </tr>
+    <tr>
+        <td>Johnson</td>
+        <td>Johon</td>
+        <td>3/4/2012</td>
+        <td>3</td>
+    </tr>
+    <tr>
+        <td>Henderson</td>
+        <td>Betty</td>
+        <td>3/7/2001</td>
+        <td>4</td>
+    </tr>
+    <tr>
+        <td>Williams</td>
+        <td>Nathan</td>
+        <td>9/13/1999</td>
+        <td>5</td>
+    </tr>
+    <tr>
+        <td>Gilliam</td>
+        <td>James</td>
+        <td>10/16/1990</td>
+        <td>1</td>
+    </tr>
+    <tr>
+        <td>Wallker</td>
+        <td>Matthew</td>
+        <td>5/14/2007</td>
+        <td>6</td>
+    </tr>
+</tbody>
+</table>
+<script type="text/javascript">
+/* 高级排序 */
+(function() {
+
+})();
+// ---------------------------------------------------------------------
+/* 对不同的数据类型进行排序 */
+(function() {
+/**
+ * 类型转换函数
+ * @param {Object} value 要转换的值
+ * @param {String} type 要转换成的数据类型，一般的有[int|float|date]
+ */
+function convert(value, type) {
+    switch (type) {
+        case 'int':
+            return parseInt(value);
+        case 'float':
+            return parseFloat(value);
+        case 'date':
+            return new Date(Date.parse(value));
+        default:
+            return value.toString();
+    }
+};
+
+/**
+ * 生成一个用于某列的比较函数
+ * @param {Integer} colNum 列号，从0记
+ * @return {Function} 一个比较函数
+ */
+function generateCompareTRs(colNum, type) {
+    return function compareTRs(m, n) {
+        var v1 = convert(m.cells[colNum].firstChild.nodeValue, type);
+        var v2 = convert(n.cells[colNum].firstChild.nodeValue, type);
+        
+        if (v1 > v2)
+            return 1;
+        else if (v1 < v2)
+            return -1;
+        else return 0;
+    };
+};
+
+/**
+ * sortTable
+ * @param {String} tid      Table ID
+ * @param {Integer} colNum  Column No
+ * @param {String} type     Data Type
+ */
+function sortTable(tid, colNum, type) {
+    var o = document.getElementById(tid);
+        otb = o.tBodies[0];
+        rows = otb.rows,
+        arr = new Array();
+    
+    for (var i = 0; i < rows.length; i++) {
+        arr.push(rows[i]);
+    }
+    if (o.sortColumn === colNum)
+        arr.reverse();
+    else arr.sort(generateCompareTRs(colNum, type));
+    
+    var oFragment = document.createDocumentFragment();
+    console.log(oFragment);
+    for (var i = 0; i < arr.length; i++)
+        oFragment.appendChild(arr[i]);
+    console.log(oFragment);
+    otb.appendChild(oFragment);
+    o.sortColumn = colNum;
+};
+
+window.sortTable = sortTable;
+})();
+// ---------------------------------------------------------------------
+/* 多列排序 */
+(function() {
+// 比较函数生成器
+
+/**
+ * 生成一个用于某列的比较函数
+ * @param {Integer} colNum 列号，从0记
+ * @return {Function} 一个比较函数
+ */
+function generateCompareTRs(colNum) {
+    return function compareTRs(m, n) {
+        var v1 = m.cells[colNum].firstChild.nodeValue;
+        var v2 = n.cells[colNum].firstChild.nodeValue;
+        
+        return v1.localeCompare(v2);
+    };
+};
+
+/* 生成一个比较函数 */
+var compareTRs = generateCompareTRs(1);
+
+/**
+ * sortTable
+ * @param {String} tid 表格id
+ * @param {Integer} colNum 要比较的表格列号
+ */
+function sortTable(tid, colNum) {
+    var o = document.getElementById(tid),
+        otb = o.tBodies[0];
+        rows = otb.rows;
+        arr = new Array();
+    console.log(typeof rows, rows);
+    for (var i = 0; i < rows.length; i++) {
+        arr[i] = rows[i];
+    }
+    /* 判断是翻转还是排序 */
+    if (o.sortColumn !== colNum) 
+        arr.sort(generateCompareTRs(colNum));
+    else arr.reverse();
+    
+    // fragment
+    var oFragment = document.createDocumentFragment();
+    for (var i = 0; i < arr.length; i++) {
+        oFragment.appendChild(arr[i]);
+    }
+    otb.appendChild(oFragment); // 将碎片替换到表格中
+    o.sortColumn = colNum;
+};
+
+window.sortTable = sortTable;
+});//();
+// ---------------------------------------------------------------------
+/* 单列排序 */
+(function() {
+var oTable = document.getElementById('tblSort'), // Table
+    oTBody = oTable.tBodies[0], // TBody
+    colDataRows = oTBody.rows;  // TableRow
+/**
+ * 根据某列比较
+ * @param {Object} m TableRow <tr></tr>
+ * @param {Object} n TableRow <tr></tr>
+ * @param {Integer} colNum 列号
+ * @return {Integer} 
+ */
+function compareTRs(m, n) {
+    var v1 = m.cells[0].firstChild.nodeValue;
+    var v2 = n.cells[0].firstChild.nodeValue;
+    return v1.localeCompare(v2);
+};
+
+/**
+ * 对表格进行排序
+ * @param {String} id Table Id
+ */
+function sortTable(id) {
+    var o = document.getElementById(id),
+        otb = o.tBodies[0],
+        rows = otb.rows,
+        array = new Array();
+    
+    for (var i = 0; i < rows.length; i++) {
+        console.log(rows[i]);
+        array.push(rows[i]); // 加入数组中
+    }
+    /*
+     * 排序
+     * 缺点：无法直接传递列号
+     */
+    array.sort(compareTRs);
+    for (var i = 0; i < array.length; i++) {
+        console.log(array[i]);
+    }
+    
+    var oFragment = document.createDocumentFragment();
+    for (var i = 0; i < array.length; i++) {
+        oFragment.appendChild(array[i]);
+    }
+    
+    otb.appendChild(oFragment);
+};
+
+this.sortTable = sortTable; // 暴露给window
+});//();
+</script>
+</body>
+</html>

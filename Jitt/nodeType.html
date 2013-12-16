@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>node type</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <script type="application/x-javascript">
+    console.log(1, Node.ELEMENT_NODE);
+    console.log(2, Node.ATTRIBUTE_NODE);
+    console.log(3, Node.TEXT_NODE);
+    console.log(4, Node.CDATA_SECTION_NODE);
+    console.log(5, Node.ENTITY_REFERENCE_NODE);
+    console.log(6, Node.ENTITY_NODE);
+    console.log(7, Node.PROCESSING_INSTRUCTION_NODE);
+    console.log(8, Node.COMMENT_NODE);
+    console.log(9, Node.DOCUMENT_NODE);
+    console.log(10, Node.DOCUMENT_TYPE_NODE);
+    console.log(11, Node.DOCUMENT_FRAGMENT_NODE);
+    console.log(12, Node.NOTATION_NODE);
+    var load = function() {
+        console.log(1, document.getElementById("id").attributes);
+    }
+    window.addEventListener("load", load, false);
+
+    </script>
+</head>
+<body>
+    <div id="id" class="base"></div>
+</body>
+</html>

@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<style type="text/css">
+#drag{
+    background-color: red;
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    z-index: 10;
+}
+#target{
+    background-color: yellow;
+    height: 300px;
+    width: 300px;
+    position: absolute;
+    /* float: left; */
+    left: 300px;
+    /* z-index: 10; */
+}
+body{
+    height: 768px;
+    width: 100% - 8px;
+    border: 1px solid red;
+}
+</style>
+<script type="text/javascript" src="./eventutil.js"></script>
+<script type="text/javascript">
+var iDiffX = 0;
+var iDiffY = 0;
+
+function handleMouseMove( event /* event */ ) {
+    // var event = EventUtil.getEvent();
+    var div = document.getElementById('drag');
+    div.style.left = (event.clientX - iDiffX) + 'px';
+    div.style.top = (event.clientY - iDiffY) + 'px';
+}
+function handleMouseUp( event ) {
+    // var event = EventUtil.getEvent();
+    EventUtil.removeEventHandler(document.body, 'mousemove', handleMouseMove);
+    EventUtil.removeEventHandler(document.body, 'mouseup', handleMouseUp);
+    
+    if (isOverDropTarget(event.clientX, event.clientY)) {
+        // alert('dropped');
+        var target = document.getElementById('target');
+        var drag = document.getElementById('drag');
+        drag.style.left = target.offsetLeft + 'px';
+        drag.style.top = target.offsetTop + 'px';
+    }
+}
+function handleMouseDown(event) {
+    // var event = EventUtil.getEvent();
+    var div = document.getElementById('drag');
+    iDiffX = event.clientX - div.offsetLeft;
+    iDiffY = event.clientY - div.offsetTop;
+    
+    EventUtil.addEventHandler(document.body, 'mousemove', handleMouseMove);
+    EventUtil.addEventHandler(document.body, 'mouseup', handleMouseUp);
+}
+/**
+ * 
+ * @param x
+ * @param y
+ * @returns {Boolean} 
+ */
+function isOverDropTarget(x, y) {
+    var target = document.getElementById('target');
+    var x1 = target.offsetLeft;
+    var y1 = target.offsetTop;
+    var x2 = x1 + target.offsetWidth;
+    var y2 = y1 + target.offsetHeight;
+    
+    return (x >= x1 && x <= x2 && y >= y1 && y <= y2);
+}
+</script>
+</head>
+<body>
+<div id="drag" onmousedown="handleMouseDown(event)"></div>
+<div id="target"></div>
+</body>
+</html>

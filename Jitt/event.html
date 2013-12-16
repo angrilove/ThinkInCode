@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+	<script type="text/javascript">
+	function load() {
+		var comment = document.getElementsByTagName("div")[0];
+		var event = document.createEvent("HTMLEvents");
+		event.initEvent("click", true, false);
+		console.log( event, event.target );
+		console.log( comment.dispatchEvent( event ) );
+	}
+	function clk() {
+		alert("gg");
+	}
+	</script>
+</head>
+<body onload="load();">
+	<div onclick="clk()" width="300" height="300"><a href="http://www.baidu.com/" onclick="alert('g');"><span>BAIDU</span></a></div>
+</body>
+</html>

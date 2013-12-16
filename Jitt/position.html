@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+
+<html lang="zh_CN">
+<head>
+	<title></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<style type="text/css">
+#link {
+	width: 500px;
+	height: 500px;
+	border: solid 1px red;
+}
+#link > div {
+	width: 100px;
+	height: 100px;
+	display: inline-block;
+}
+#link > div:nth-child(1) {
+	position: relative;
+	background-color: gray;
+}
+#link > div:nth-child(2) {
+	position: relative;
+	background-color: #0EF;
+}
+#link > div:nth-child(3) {
+	position: relative;
+	background-color: #FAA;
+	float: left;
+	left: 200px;
+	top: 200px;
+}
+#link > div:nth-child(4) {
+	background-color: #AFA;
+	width: 200px;
+	height: 200px;
+}
+	</style>
+</head>
+<body>
+	<div id="link">
+		<div></div><div></div><div></div><div></div>
+	</div>
+</body>
+</html>

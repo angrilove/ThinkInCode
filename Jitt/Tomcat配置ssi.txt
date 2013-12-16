@@ -1,0 +1,36 @@
+在tomcat中配置ssi支持的时候，tomcat 5和tomcat 6是有区别的，先说相同的地方，找到$CATALINA_HOME/conf/web.xml中的下面两段被注释掉的部分，并将取消注释。
+<!--
+    <servlet>
+        <servlet-name>ssi</servlet-name>
+        <servlet-class>
+          org.apache.catalina.ssi.SSIServlet
+        </servlet-class>
+        <init-param>
+          <param-name>buffered</param-name>
+          <param-value>1</param-value>
+        </init-param>
+        <init-param>
+          <param-name>debug</param-name>
+          <param-value>0</param-value>
+        </init-param>
+        <init-param>
+          <param-name>expires</param-name>
+          <param-value>666</param-value>
+        </init-param>
+        <init-param>
+          <param-name>isVirtualWebappRelative</param-name>
+          <param-value>0</param-value>
+        </init-param>
+        <load-on-startup>4</load-on-startup>
+    </servlet>
+-->
+<!--
+    <servlet-mapping>
+        <servlet-name>ssi</servlet-name>
+        <url-pattern>*.shtml</url-pattern>
+    </servlet-mapping>
+-->
+
+然后对于tomcat 5需要将$CATALINA_HOME/server/lib下的servlets-ssi.renametojar文件改名成servlets-ssi.jar，否者会出现java.lang.ClassNotFoundException: org.apache.catalina.ssi.SSIServlet错误。
+
+而对于tomcat 6 需要将$CATALINA_HOME/conf/context.xml中<Context> 结点添加一个属性 privileged="true"变成<Context privileged="true">，如果没有加的话则会出现java.lang.SecurityException: Filter of class org.apache.catalina.ssi.SSIServlet is privileged and cannot be loaded by this web application 错误。

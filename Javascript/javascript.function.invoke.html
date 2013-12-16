@@ -1,0 +1,176 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<script type="text/javascript">
+
+/* javascript的四种调用模式 */ // $from javascript语言精粹$
+/*
+---
+
+1. 方法调用模式
+
+    函数作为对象属性
+...
+*/
+(function() {
+
+var base = {
+    value: 0,
+    increment: function(arg) {
+        this.value += typeof arg === 'number' ? arg : 1;
+    }
+};
+
+base.increment();
+console.log(base.value);    // 1
+
+base.increment(2);      
+console.log(base.value);// 3
+
+});//();
+
+/*
+---
+
+2. 函数调用
+
+...
+*/
+(function() {
+function add( arg1, arg2 ) {
+    return arg1 + arg2;
+};
+var sum = add(3, 4); // 7
+
+// 解决this被绑定到全局对象，而无法使用内部函数的问题
+var base = {
+    value: 3,
+    getValue: function() {
+        return this.value;
+    }
+};
+base.double = function() {
+    var self = this; // 解决方法
+    
+    var _helper = function() {
+        self.value = add(self.value, self.value);
+		console.log( self );
+        console.log( this );
+    };
+    _helper(); // 以函数形式调用_helper
+};
+// 以方法的形式调用double
+base.double();
+console.log(base.getValue()); // 6
+
+});//();
+
+/*
+---
+
+3. 构造器调用模式
+
+...
+*/
+(function() {
+
+var Quo = function( msg ) {
+    this.msg = msg;
+};
+// 给Quo的所有实例提供一个名为getMsg的公共方法
+Quo.prototype.getMsg = function() {
+    return this.msg;
+};
+
+// 构造Quo实例
+var q = new Quo("confused");
+console.log(q.getMsg()); // confused
+});//();
+
+/*
+---
+
+4. apply调用模式
+
+...
+*/
+(function() {
+
+function add(arg1, arg2) {
+    return arg1 + arg2;
+};
+var array = [3 ,4];
+var sum = add.apply(null, array); // 7
+console.log( sum );
+
+// 构造一个包含msg成员的对象
+var base = {
+    msg: 'MSG'
+};
+
+var Quo = function( msg ) {
+    this.msg = msg;
+};
+Quo.prototype.getMsg = function() {
+    return this.msg;
+};
+// base 并没有继承Quo.prototype，但可以在base上调用getMsg方法，
+// 尽管base没有一个名为getMsg的方法
+var msg = Quo.prototype.getMsg.apply(base); // MSG
+console.log( msg );
+});//();
+
+/*
+---
+
+5. call调用模式
+
+...
+*/
+(function() {
+
+function add(arg1, arg2) {
+	console.log(this, typeof this);
+	if (this && typeof this === 'function') {
+		console.log("why?");
+		this();
+	}
+	// this();
+    return arg1 + arg2;
+};
+var array = [3 ,4];
+function fn() {
+	console.log( this );
+	return this;
+};
+add.call(fn, array[0], array[1]);
+var sum = add.call(undefined, array[0], array[1]); // 7
+var sum = add.call(null, array[0], array[1]); // 7
+console.log( sum );
+
+// 构造一个包含msg成员的对象
+var base = {
+    msg: 'MSG'
+};
+
+var Quo = function( msg ) {
+    this.msg = msg;
+};
+Quo.prototype.getMsg = function() {
+	console.log(this);
+    return this.msg;
+};
+// base 并没有继承Quo.prototype，但可以在base上调用getMsg方法，
+// 尽管base没有一个名为getMsg的方法
+var msg = Quo.prototype.getMsg.call(base); // MSG
+console.log( msg );
+console.log( base.hasOwnProperty('getMsg'), base.getMsg );
+console.log( base.getMsg() ); // TypeError, not a function
+})();
+</script>
+</head>
+<body>
+</body>
+</html>

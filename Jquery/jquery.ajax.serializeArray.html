@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Anshen&trade;</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<link rel="stylesheet" type="text/css" href="css.css"></link>
+<script type="text/javascript" src="./jquery-1.7.1.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	var $article = $("#article");
+	$("input[type=button]").click(function( e ) {
+		// $(selector).serializeArray(); serialize as json type.
+		// - @return {Object} json object not a json string.
+		var data = $("form").serializeArray();
+		// $article.append( data );
+		$.each(data, function(i, field) {
+			$article.append(i + "<br/>");
+			$article.append(field.name + ':' + field.value + "<br/>");
+		});
+		
+		// logs
+		console.log("data: %o", data);
+	});
+});
+</script>
+</head>
+<body>
+<span class='title'>Anshen&trade; jQuery Ajax</span>
+<div class="divider"></div>
+<div id="article"></div>
+<div class="divider"></div>
+<form method="get" action="#" enctype="multipart/form-data">
+<div id="div">
+	date:<input type="date" name="date"/><br/>
+	datetime:<input type="datetime" name="datetime"/><br/>
+	hidden:<input type="hidden" name="hidden"/><br/>
+	email:<input type="email" name="email"/><br/>
+	datetime-local:<input type="datetime-local" name="datetime-local"/><br/>
+	month:<input type="month" name="month"/><br/>
+	number:<input type="number" name="number"/><br/>
+	password:<input type="password" name="password"/><br/>
+	time:<input type="time" name="time"/><br/>
+	url:<input type="url" name="url"/><br/>
+	week:<input type="week" name="week"/><br/>
+	<input type="button" name="click" value="点击"/>
+</div>
+</form>
+</body>
+</hTml>

@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<script type="text/javascript">
+/* 量词(quantifier) - 表示特定模式匹配的次数 */
+// ?
+// *
+// + 
+// {n}
+// {n, m}
+// {n, }
+var reg = /./;
+
+
+console.log(reg.test('zhangbiao?'));
+
+/* 贪婪的、惰性的和支配性的量词 */
+// 贪婪(后加) 惰性(后加) 支配性的(后加)
+//  ()       ()?           ()+
+var s = "bbb";
+var re1 = /.*bbb/g; // 贪婪(greedy)
+var re2 = /.*?bbb/g;// 惰性(reluctant)
+var re3 = /.*+bbb/g;// 支配(possesssive)
+
+console.log(re1.test(s));
+console.log(re2.test(s));
+console.log(re3.test(s));
+
+</script>
+</head>
+<body>
+<div>
+
+</div>
+</body>
+</html>

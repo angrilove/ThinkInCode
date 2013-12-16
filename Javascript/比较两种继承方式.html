@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<script type="text/javascript">
+(function () {
+
+/* 继承实现之 伪类方式($from$ javascript语言精粹) 与 混合方式($from$ javascript高级程序设计) 比较 */
+var BaseClass = function (message) {
+    this.message = message;
+    console.log("BaseClass", this);
+};
+BaseClass.prototype.getMessage = function () {
+    return this.message;
+};
+
+/** 混合方式 */
+var ExtendClass = function (message) {
+    // BaseClass.apply(this, Array.prototype.slice(arguments));
+    BaseClass.apply(this, arguments); // 这一行是关键区别
+    console.log("ExtendClass", this);
+};
+ExtendClass.prototype = new BaseClass();    // 这是实现继承的关键
+ExtendClass.prototype.setMessage = function (message) {
+    this.message = message;
+};
+
+/** 伪类方式 */
+var SubClass = function (message) {
+    this.message = message;     // 这也是区别之一，仍旧要定义父类定义过的属性
+    console.log("SubClass", this);
+};
+SubClass.prototype = new BaseClass();
+SubClass.prototype.setMessage = function (message) {
+    this.message = message;
+};
+
+// test logs
+var base = new BaseClass("loveduo");
+    extend = new ExtendClass("forever"),
+    sub = new SubClass("nochange");
+console.log(base.message, base.getMessage());
+console.log(extend.message, extend.getMessage());
+extend.setMessage("iforever");
+console.log(extend.message, extend.getMessage());
+console.log(sub.message, sub.getMessage());
+sub.setMessage("inochange");
+console.log(sub.message, sub.getMessage());
+
+})();
+</script>
+</head>
+<body>
+<div>
+
+</div>
+</body>
+</html>

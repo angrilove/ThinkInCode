@@ -1,0 +1,19 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<script type="text/javascript" src="./jquery-1.7.1.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	// outerHTML
+	console.log( $(":checkbox")[0].innerHTML );
+	console.log( $("checkbox")[0].outerHTML );
+	console.log( $("checkbox")[0].innerText );
+});
+</script>
+</head>
+<body>
+<input type="checkbox" name="name"/>
+<checkbox id="checkbox">innerhtml</checkbox>
+</body>
+</html>

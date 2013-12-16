@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+</head>
+<body>
+<p><div style="background-color:red;height:100px;width:100px;"
+    onmousedown="handleMouseDown(event)"
+    ondragstart="handleDragDropEvent(event)">This is a red square</div></p>
+<form>
+<p><input type="text" value=""/></p>
+</form>
+<script type="text/javascript">
+/* dragDrop 函数，用于设置可拖动对象 */
+(function() {
+/**
+ * 设置dragDrop函数
+ * @param event 
+ */
+function handleMouseDown(event) {
+    if (event.button == 0) {    // 按下鼠标左键，IE:L->1, R->2, M->4; FF:L->0, R-2, M->1
+        event.srcElement.dragDrop(); // IE支持，建议使用currentTarget属性
+    }
+    var p = document.getElementsByTagName('p')[1];
+    p.innerHTML += event.button + ' ';
+}
+
+/**
+ * @param event
+ */
+function handleDragDropEvent(event) {
+    // event.dataTransfer.setData('text', 'This is a blue text');
+    event.dataTransfer.setData('URL', 'http://www.wrox.com');
+}
+
+// 
+this.handleMouseDown = handleMouseDown;
+this.handleDragDropEvent = handleDragDropEvent;
+})();
+</script>
+</body>
+</html>

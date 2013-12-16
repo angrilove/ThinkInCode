@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title>Ext - Ext.Ajax</title>
+
+<style type="text/css">
+html, body {
+	font: 14px/1em "Microsoft YaHei", Arial, "宋体", Consolas;
+}
+</style>
+
+<script type="text/javascript" src="./ext-core-debug.js"></script>
+
+<script type="text/javascript">
+Ext.onReady(function() {
+	Ext.Ajax.request({
+		url: 'ajax_data.json',
+		form: 'form',
+		success: function(response, options) {
+			var res = Ext.decode(response.responseText);
+			console.log( "error" );
+			console.dir( res );
+		},
+		failure: function(response, ajaxOptions) {
+			console.log( response, ajaxOptions );
+		}
+	});
+});
+</script>
+</head>
+<body>
+	<form id="form" name="form" action="ajax_data.json" method="GET">
+		<input type="text" name="name"/>
+		<input type="password" name="passwd"/>
+		<input type="submit" value="Submit"/>
+	</form>
+</body>
+</html>

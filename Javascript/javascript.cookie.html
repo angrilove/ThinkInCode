@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<script type="text/javascript">
+(function() {
+
+// setCookie, getCookie
+var setCookie = this.setCookie = function(key, value, expiredays){
+	var exdate = new Date();
+	// exdate.setDate(exdate.getDate() + expiredays);
+    exdate.setSeconds(exdate.getSeconds + expiredays);
+	document.cookie = key + "=" + escape(value) + ((expiredays == null) ? "" : ";expires=" + exdate.toGMTString());
+}
+
+var getCookie = this.getCookie = function(key){
+	if (document.cookie.length > 0) {
+		var cStart = document.cookie.indexOf(key + '=');
+		if (cStart != -1) {
+			cStart = cStart + key.length + 1;
+			var cEnd = document.cookie.indexOf(';', cStart);
+			if (cEnd == -1) {
+				cEnd = document.cookie.length;
+				return unescape(document.cookie.substring(cStart, cEnd));
+			}
+		}
+	}
+	return '';
+}
+
+// this.setCookie('name', 'anshen', 60);
+
+// logs
+console.log( window );
+console.log( document.cookie );
+console.log( this.getCookie("name") );
+
+})();
+
+</script>
+</head>
+<body>
+</body>
+</html>

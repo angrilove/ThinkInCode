@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>$ selector 选择多个对象？</title>
+</head>
+<body>
+
+<input id="name2" name="name1" type="text" value="aaa"/><br>
+<input id="name1" name="name2" type="text" value="bbb"/><br>
+<input onClick="clickHandler()" type="button" value="test"/>
+<div id="out" style="font-weight:bold;"></div>
+
+<script type="text/javascript" src="./prototype.js"></script>
+<script type="text/javascript">
+function clickHandler() {
+　　alert($("name2").value);
+　　alert($("name1").value);
+}
+
+$("name1", "name2").each(function(ele) {
+    alert(ele.value);
+});
+</script>
+</body>
+</html>

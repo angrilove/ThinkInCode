@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>html 5 - web 2.0</title>
+
+<link rel="stylesheet" type="text/css" href="common.css"/>
+
+<script type="text/javascript">
+var ws = new WEbSocket("ws://localhost:8080/socket");
+
+ws.send( "the_data_of_message" );
+ws.onmessage = function(e) {
+	var msg = e.data;
+}
+</script>
+</head>
+<body>
+</body>
+</html>

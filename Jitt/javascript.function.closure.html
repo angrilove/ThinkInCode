@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<script type="text/javascript">
+/* closure 闭包 */
+/**/
+var base = function() {
+    var _value = 0;
+    
+    return {
+        increment: function( arg ) { // 方法对外部不可见
+            _value += typeof arg === 'number' ? arg : 1;
+        },
+        getValue: function () {
+            return _value;
+        }
+    };
+}();
+console.log(base.getValue());
+base.increment( 1 );
+console.log(base.getValue());
+
+/*-------------------------------*/
+var quo = function ( message ) {
+    return {
+        getMessage: function() { // 对外部不可见
+            return message;
+        }
+    };
+};
+
+// 构造一个quo实例
+var iq = quo("amazed");
+console.log(iq.getMessage());
+
+/*--------------------------------*/
+(function() {
+var fade = this.fade = function(node) {
+    var level = 1;
+    var step = function() {
+        var hex = level.toString(16);
+        node.style.backgroundColor = "#ffff" + hex + hex;
+        if ( level < 15) {
+            level += 1;
+            setTimeout(step, 100);
+        }
+    };
+    // setTimeout(step, 100);
+    step();
+};
+// fade(document.body);
+// window.addEventListener('load', fade(document.body), false);
+})();
+
+/*--------------------------------*/
+var addHandlers = function( nodes ) {
+    var i;
+    for (i = 0; i < nodes.length; i += 1) {
+        nodes[i].onclick = function( e ) {
+            alert(i);
+            console.log(e, this);
+        };
+    }
+};
+
+var addHandlers2 = function( nodes ) {
+    var i;
+    for (i = 0; i < nodes.length; i += 1) {
+        nodes[i].onclick = function( i ) {
+            return function( e ) {
+                alert( e );
+                console.log(e, this);
+            };
+        }( i );
+    }
+};
+
+</script>
+</head>
+<body>
+<ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+</ul>
+<div>
+<script type="text/javascript">
+fade(document.body);
+var nodes = document.getElementsByTagName("li");
+addHandlers( nodes );
+// addHandlers2( nodes );
+</script>
+</div>
+</body>
+</html>

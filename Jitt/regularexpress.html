@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <script type="application/javascript">
+	// ******** Regular Express ********
+	var reg = /(dog)\1/;
+	console.log(reg.test("dogdog"), typeof reg, reg, RegExp.$1);
+	
+	var regexpr = new RegExp("a?");
+	console.log(regexpr.test("abcdabcd"), typeof regexpr, regexpr, RegExp.$1);
+	
+	function load() {
+		var xhr = new XMLHttpRequest(),
+			url = "http://localhost/d.html",
+			ot = document.getElementsByTagName("div")[0];
+		xhr.open("GET", url, true);
+		xhr.send(null);
+		// console.log(xhr, xhr.readyState, xhr.status, xhr.statusTest);
+		if (xhr.readyState == 4 && xhr.status == 200)
+			ot.innerHTML = xhr.responseText;
+		else ot.innerHTML = "BAD REQUEST";
+	}
+    </script>
+</head>
+<body onload="load()">
+<div style="border:1px solid red; height: 768px; width: 960px; text-align: center; margin: 0px auto; vertical-align: bottom;">
+THIS IS TEXT;
+</div>
+<div style="border: 1px solid red; position:absolute; left:50%; top:50%; height:590px; width:1024px; margin-left:-512px; margin-top:-295px;">
+THIS IS JUST TEXT;
+</div>
+</body>
+</html>

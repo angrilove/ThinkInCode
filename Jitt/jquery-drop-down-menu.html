@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8" />
+<title>Do what you do.</title>
+<style type="text/css">
+#menu {
+	padding:0px;
+	margin:0;
+}
+
+#menu li {
+	float:left;
+	list-style:none;
+	border-right: 2px solid white;
+}
+
+#menu li a {
+	display:block;
+	width: 100px;
+	padding:0px;
+	margin:0px;
+	background-color:#FADDB1;
+	text-decoration: none;
+	white-space: nowrap;
+}
+
+#menu li a:hover {
+	background-color: #FBCCB1;
+}
+
+#menu li ul {
+	padding:0;
+	margin:0;
+	visibility: hidden;
+	position:absolute;
+	border-top:2px solid white;
+}
+
+#menu li ul li {
+	float:none;
+	padding:0;
+	margin:0;
+}
+
+#menu li ul li a {
+	width:auto;
+	padding:0;
+	margin:0;
+}
+
+</style>
+</head>
+<body>
+<ul id="menu">
+	<li><a href="">JavaScript</a>
+		<ul>
+			<li><a href="">Drop Down Menu</a></li>
+			<li><a href="">jQuery Plugin</a></li>
+			<li><a href="">Ajax Navigation</a></li>
+		</ul>
+	</li>
+	
+	<li><a href="">Effect</a>
+		<ul>
+			<li><a href="">Slide Effect</a></li>
+			<li><a href="">Fade Effect</a></li>
+			<li><a href="">Opacity Mode</a></li>
+			<li><a href="">Drop Shadow</a></li>
+			<li><a href="">Semitransparent</a></li>
+		</ul>
+	</li>
+	
+	<li><a href="">Navigation</a></li>
+	<li><a href="">HTML/CSS</a></li>
+	<li><a href="">Help</a></li>
+</ul>
+<script type="text/javascript" src="http://ajax.microsoft.com/ajax/jQuery/jquery-1.7.2.js"></script>
+<script type="text/javascript">
+var timer = 0, timeout = 500, menuitem = 0;
+function close_menu() {
+	if (menuitem) {
+		menuitem.css('visibility', 'hidden');
+	}
+}
+
+function set_timer() {
+	timer = window.setTimeout(close_menu, timeout);
+}
+
+function cancel_timer() {
+	if (timer) {
+		window.clearTimeout(timer);
+		timer = null;
+	}
+}
+
+function open_menu() {
+	close_menu();
+	cancel_timer();
+	menuitem = $(this).find('ul').eq(0).css('visibility', 'visible');
+}
+
+$(document).ready(function() {
+	$('#menu > li').bind('mouseover', open_menu);
+	$('#menu > li').bind('mouseout', set_timer);
+	
+	document.onclick = close_menu;
+});
+</script>
+</body>
+</html>

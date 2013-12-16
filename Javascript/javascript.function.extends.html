@@ -1,0 +1,385 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="zh-cn">
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<title></title>
+<script type="text/javascript">
+/* javascript语言精粹 - 继承 */
+
+/* 扩充Object函数 */
+Object.beget = function( obj ) {
+    var Fn = function() {};
+    Fn.prototype = obj;
+    return new Fn();
+};
+/* 扩充Function方法 */
+Function.prototype.method = function( name, fn ) {
+    if (!this.prototype[name] && typeof fn === 'function')
+        this.prototype[name] = fn;
+    return this;
+};
+/* ******************************************************/
+/*
+----
+
+1. 伪类 - 类似于混合方式
+....
+*/
+(function() {
+
+/* 将new作为方法而不是运算符，这和用new调用一个函数相似 - 模拟的 */
+Function.method('new', function() {
+    // 创建一个新对象，它继承自构造器函数的原型对象
+    var self = Object.beget(this.prototype);
+    // 调用构造器函数，绑定-this-到新对象上
+    var other = this.apply(self, arguments);
+    // 如果它的返回值不是一个对象，则返回该新对象
+    return (typeof other === 'object' && other) || self;
+});
+
+/* ******************************************************/
+// 定义构造器，并扩充它的原型
+var Mammal = function (name) {
+    this.name = name;
+};
+Mammal.prototype.getName = function() {
+    return this.name;
+};
+Mammal.prototype.says = function() { // 
+    return this.saying || '';   
+};
+
+// 构造实例
+var mammal = new Mammal('Herb the Mammal');
+var name = mammal.getName(); // 'Herb the Mammal'
+console.log(mammal, name);
+
+// 新的构造器
+var Cat = function(name) {
+    // 注意，与对call法不同的是缺少如下语句
+    // Mammal.call(this, name);
+    this.name = name;
+    this.saying = 'meow';
+};
+Cat.prototype = new Mammal(); // 替换prototype实例
+// 扩充新原型对象
+Cat.prototype.purr = function( n ) {
+    var i, s = '';
+    for (i = 0; i < n; i++) {
+        if (s) 
+            s += '-';
+        s += 'r';
+    }
+    return s;
+};
+Cat.prototype.getName = function() { // override method
+    return this.says() + ' ' + this.name + ' ' + this.says();
+};
+/*
+// test logs
+var cat = new Cat('Henrietta');
+var says = cat.says(); // 'meow'
+var purr = cat.purr(5);// 'r-r-r-r-r'
+var name = cat.getName(); // 'meow Henrietta meow'
+console.log( says );
+console.log( purr );
+console.log( name );
+console.log( cat );*/
+
+/* ******************************************************/
+// 更良好的写法
+// 首先扩充inherits方法
+/*
+ * inherits和method都返回this，
+ *   这样我们可以以级联的方式编程
+ */
+Function.method('inherits', function( Parent ) {
+    this.prototype = new Parent();
+    return this;
+});
+Number.method('integer', function() {
+    return Math[this < 0 ? 'ceil' : 'floor'](this);
+});
+String.method('trim', function() {
+    return this.replace(/^\s+|\s+$/g, '');
+});
+// test logs
+var cat = new Cat('Henrietta');
+var says = cat.says();  // 'meow'
+var purr = cat.purr(5); // 'r-r-r-r-r'
+var name = cat.getName(); // 'meow Henrietta meow'
+console.log( says );
+console.log( purr );
+console.log( name );
+console.log( cat );
+(function() {
+    var Cat = function( name ) {
+        this.name = name;
+        this.saying = 'meow';
+    }.inherits(Mammal).method('purr', function( n ) { // inherits( Parent )
+        var i, s = '';
+        for (i = 0; i < n; i++) {
+            if (s) s += '-';
+            s += 'r';
+        }
+        return s;
+    }).method('getName', function() {
+        return this.says() + ' ' + this.name + ' ' + this.says();
+    });
+    // test logs
+    var cat = new Cat('Henrietta');
+    var says = cat.says(); // 'meow'
+    var purr = cat.purr(5);// 'r-r-r-r-r'
+    var name = cat.getName(); // 'meow Henrietta meow'
+    console.log( says );
+    console.log( purr );
+    console.log( name );
+    console.log( cat );
+})();
+// ----------------------------------- //
+});//();
+
+/*
+---
+
+(1) 对象说明符
+...
+*/
+(function() {
+// 比较以下两种写法
+var base = maker(f, l, m, c, s);
+// 对象说明符可以直观的说明参数，而不必为参数顺序烦恼
+var b = maker({
+    first: f,
+    last: l,
+    state: s,
+    city: c
+});
+
+});//();
+
+/*
+---
+
+2. 原型
+    差异化继承
+...
+*/
+(function() {
+// 构造dog对象
+var mammal = {
+    name: 'mammal name',
+    getName: function() {
+        return this.name;
+    },
+    says: function() {
+        return this.saying || '';
+    }
+};
+// 用Object.beget方法构造出更多的实例
+var cat = Object.beget(mammal);
+cat.name = "Henrietta";
+cat.saying = 'meow';
+cat.purr = function( n ) { // n. 打呼噜
+    var i, s = '';
+    for (i = 0; i < n; i++) {
+        if (s) 
+            s += '-';
+        s += 'r';
+    }
+    return s;
+};
+cat.getName = function() {
+    return this.says() + ' ' + this.name + ' ' + this.says();
+};
+
+// test logs
+console.log(mammal);
+console.log(mammal.getName());
+console.log(cat);
+console.log(cat.getName());
+console.log(cat.purr(6));
+
+/* ******************************************************/
+// 差异化继承
+(function() {
+var block = function() {
+    // 记住当前的作用域，
+    var oldScope = scope;
+    scope = Object.beget(scope);
+    advance('{')
+    parse(scope);
+    advance('}');
+    scope = oldScope;
+};
+// </end>
+})();
+
+});//();
+
+/*
+---
+
+3. 函数化      -       应属于构建类或对象的方法，不属于继承
+
+    这是一种模块模式的应用
+
+核心思想：
+    1. 创建函数(非构造器，小写名称)
+    2. 在函数内部构造对象
+    3. 选择性的定义私有变量和方法
+    4. 给新对象扩充方法，这些方法将拥有特权去访问参数、以及上述定义的变量
+    5. 返回该新对象
+...
+*/
+(function() {
+/* 一个原始的模块模式的创建对象的函数 */
+var mammal = function( base ) {
+    var inner = {}; // 构造内部对象
+    
+    inner.getName = function() { // 给对象添加的方法
+        return base.name;
+    };
+    inner.says = function() {
+        return base.saying || '';
+    };
+    return inner; // 返回构造的对象
+};
+// test logs
+var m = mammal({name: 'Herb'});
+console.log( m );
+console.log( m.name, m.saying ); // 没有定义
+console.log( m.getName(), m.says() );
+
+/* 扩充原始对象，或称为继承原始对象 */
+var cat = function( base ) {
+    base.saying = base.saying || 'meow';
+    
+    var inner = mammal( base ); // 从外部创建一个新的内部对象，这是继承的关键
+    inner.purr = function( n ) { // 扩充方法
+        var i, s = '';
+        for (i = 0; i < n; i++) {
+            if ( s )
+                s += '-';
+            s += 'r';
+        }
+        return s;
+    };
+    inner.getName = function() { // 覆盖原始(父类)方法
+        return inner.says() + ' ' + base.name + ' ' + inner.says();
+    };
+    /* 返回构造的对象 */
+    return inner;
+};
+// test logs
+var c = cat({name: 'Henrietta'});
+console.log(c, c.name, c.saying); // 没有定义
+console.log(c, c.getName(), c.says());
+console.log(c.purr(6));
+
+/* 处理父类方法的方法 */
+Object.method('superior', function( methodname ) {
+    var self = this,
+        method = self[methodname];
+    return function() {
+        return method.apply(self, arguments); // 
+    };
+});
+// coolcat
+var coolcat = function( base ) {
+    var inner = cat( base ); // 构造本地的父类的副本，而非引用
+        super_get_name = inner.superior('getName');
+    inner.getName = function( n ) {  // override super method
+        return 'like ' + super_get_name() + ' baby';
+    };
+    /* return inner obj */
+    return inner;
+};
+// test logs
+var cc = coolcat({name: 'Bix'});
+    name = cc.getName(); // 'like meow Bix meow baby'
+console.log( cc, name, cc.says() );
+
+// end
+});//();
+
+/*
+---
+
+(2) 部件
+...
+*/
+(function() {
+
+var eventuality = function( src ) {
+    var registry = {};
+    
+    /* 注册 */
+    src.on = function(type, method, parameters) {
+        var handler = {
+            method: method,
+            parameters: parameters
+        };
+        if (registry.hasOwnProperty(type))
+            registry[type].push(handler);
+        else registry[type] = [handler];
+        /* return */
+        return this;
+    };
+    /* 触发 */
+    src.fire = function( event ) {
+        var i,
+            fn,
+            array,
+            handler,
+            type = typeof event === 'string' ? event : event.type;
+        // <if>
+        if ( registry.hasOwnProperty(type)) {
+            array = registry[type];
+            for (i = 0; i < array.length; i++) {
+                handler = array[i];
+                //
+                fn = handler.method;
+                if (typeof fn === 'string') // 如果一个方法是字符串形式的名字，那么寻找该函数
+                    fn = this[fn];
+                // 调用处理程序，如果该条目包含参数，则传递，否则传递事件对象
+                fn.apply(this, handler.parameters || [event]);
+            }
+        }
+        // <endif>
+        /* return */
+        return this;
+    };
+    
+    /* return src */
+    return src;
+};
+// test logs
+var t = {type: 'say', method: function() {}, parameters: []};
+eventuality( t ).on("say", function() {
+    console.log('this is just test', this);
+}, t.parameters).fire( "say" );
+
+//var target = document.getElementsByTagName('input')[0];
+//console.log( target );
+/* ready 方法 用于在DOM完成之后执行 */
+var ready = function() {
+    // 处理方法
+    var target = document.getElementsByTagName('input')[0];
+    eventuality( target ).on('click', function() {
+        alert('click');
+        console.log(arguments);
+    }, ['click', 'target', 'once']).fire('click').on('say', function() {
+        alert('say');
+        console.log(arguments);
+    }, ['say', 'target2', 'twice']).fire('say').fire('click');
+};
+
+window.addEventListener('load', ready, false);
+})();
+</script>
+</head>
+<body>
+<input type="button" name="button" value="点击看看"/>
+</body>
+</html>

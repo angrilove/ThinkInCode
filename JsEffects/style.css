@@ -1,0 +1,9 @@
+@charset "utf-8";
+
+.pageContent1, .pageContent {
+    visibility: visible;
+}
+
+#printBox {
+    visibility: hidden;
+}

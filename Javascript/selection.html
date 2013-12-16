@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8" />
+<title>input，textarea选择文本操作</title>
+<script type="text/javascript" src="http://ajax.microsoft.com/ajax/jQuery/jquery-1.7.2.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$('input').select(function(e) {
+		alert( getSelectedText(this) );
+	});
+});
+
+/**
+ * 参考：http://blog.csdn.net/jeamking/article/details/5822990
+ */
+function setTextSelected(node, startIndex, endIndex) {
+	if (node.setSelectionRange) {
+		node.setSelectionRange(startIndex, endIndex);
+	} else if (node.createTextRange) { // ie的方式
+		var range = node.createTextRange();
+		range.collapse(true);
+		range.moveStart('character', startIndex);
+		range.moveEnd('character', endIndex - startIndex - 1);
+		range.select();
+	}
+	node.focus();
+}
+
+function getSelectedText(node) {
+	if (document.selection) { // ie的方式
+		return document.selection.createRange().text;
+	} else {
+		return node.value.substring(node.selectionStart, node.selectionEnd);
+	}
+}
+
+
+/**
+ * 参考：http://tanghuimin0713.blog.51cto.com/4159848/1079472
+ */
+// 获取光标结束点位置
+function getCursorEndPosition(node) {
+	var end = 0;
+	if (document.selection) { // ie
+		node.focus();
+		var range = document.selection.createRange();
+		var newNode = range.duplicate(); // 复制
+		console.log( newNode );
+		newNode.moveStart('charater', -node.value.length);
+		newNode.setEndPoint('EndToEnd', range);
+		end = newNode.text.length;
+	} else if (node.selectionEnd) { // other.
+		end = node.selectionEnd();
+	}
+	return end;
+}
+
+function getCursorStartPosition(node) {
+	var start = 0;
+	if (document.selection) { // ie,但是解析会有问题
+		node.focus();
+		var range = document.selection.createRange();
+		/*
+		var ctr = document.body.createTextRange();
+		ctr.moveToElementText(node);
+		ctr.collapse(true);
+		*/
+		ctr.setEndPoint('EndToStart', range);
+		start = ctr.text.length;
+	} else if (node.selectionStart) {
+		start = node.selectionStart;
+	}
+	return start;
+}
+
+function setCursorPosition(node, pos) {
+	node.focus();
+	if (node.createTextRange) { // ie
+		var range = node.createTextRange();
+		range.collapse(true);
+		range.moveEnd('character' pos);
+		range.moveStart('character', pos);
+		range.select();
+	} else if (node.setSelectionRange) {
+		node.setSelectionRange(pos, pos);
+	}
+}
+
+</script>
+</head>
+<body>
+	<div>
+		<input type="text" size="120" />
+	</div>
+</body>
+</html>

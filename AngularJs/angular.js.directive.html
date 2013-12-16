@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Angular Js - mvvm</title>
+</head>
+<body ng-app="app" ng-controller="MainCtrl">
+    <span>Insert your name:</span>
+    <input type="text" focus ng-model="user.name">
+    <h3>Echo:{{user.name}}</h3>
+
+<script type="text/javascript" src="./angular.js"></script>
+<script type="text/javascript">
+var app = angular.module('app', {});
+
+console.log( app );
+app.controller('MainCtrl', function($scope) {
+    $scope.developers = [];
+});
+
+app.directive('focus', function() {
+    return {
+        link: function(scope, element, attrs) {
+            element[0].focus();
+            console.log( "focus it." );
+        }
+    };
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+﻿
+<style type="text/css">
+.error{
+    color: red;
+}
+</style>
+
+<script type="text/javascript" src="./ext-core-debug.js"></script>
+<script type="text/javascript">
+Ext.onReady(function() {
+
+// Ext.get( variable ); 可以接受如下参数
+// 元素id，Ext.Element元素，HTMLElement元素
+
+var el = Ext.get("vid");
+
+el.addClass('error');
+console.log(el);
+console.dir(el);
+});
+</script>
+<div id="vid">Just Test.</div>

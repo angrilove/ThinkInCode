@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<style type="text/css">
+body {
+    width: 99%;
+    height: 768px;
+    border: 1px solid red;
+}
+div {
+    background-color: yellow;
+    width: 300px;
+    height: 300px;
+    position: absolute;
+}
+</style>
+<script type="text/javascript" src="./eventutil.js"></script>
+<script type="text/javascript">
+EventUtil.addEventHandler(window, 'load', function() {
+    var o = document.getElementsByTagName('div')[0];
+    
+    EventUtil.addEventHandler(o, 'mouseover', handleEvent);
+    EventUtil.addEventHandler(o, 'mouseout', handleEvent);
+    EventUtil.addEventHandler(o, 'mousedown', handleEvent);
+    EventUtil.addEventHandler(o, 'mouseup', handleEvent);
+    
+    EventUtil.addEventHandler(o, 'mousemove', handleEvent);
+    
+    EventUtil.addEventHandler(o, 'click', handleEvent);
+    EventUtil.addEventHandler(o, 'dblclick', handleEvent);
+});
+
+function handleEvent() {
+    var event = EventUtil.getEvent();
+    console.log(event.type, 'target is', event.target.tagName);
+    if (event.relatedTarget)
+        console.log('relatedTarget is', event.relatedTarget.tagName);
+};
+</script>
+</head>
+<body>
+<div></div>
+</body>
+</html>

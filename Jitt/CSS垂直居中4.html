@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<title>CSS五种垂直局中方法 - 4</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<!--
+这个方法使用了一个 position:absolute，有固定宽度和高度的 div。这个 div 被设置为 top:0; bottom:0;。但是因为它有固定高度，其实并不能和上下都间距为 0，因此 margin:auto; 会使它居中。使用 margin:auto;使块级元素垂直居中是很简单的。
+
+<div id="content">
+	Content here</div>
+
+#content {
+	position:absolute;
+	top:0;
+	bottom:0;
+	left:0;
+	right:0;
+	margin:auto;
+	height:240px;
+	width:70%;
+}
+
+优点：
+简单
+
+缺点：
+IE(IE8 beta)中无效
+无足够空间时，content 被截断，但是不会有滚动条出现
+-->
+<style type="text/css">
+#content { position: absolute; top: 0px; bottom: 0px; left: 0px; right: 0px; margin: auto; height: 240px; width: 70%;}
+</style>
+<script type="text/javascript" src="jquery-1.7.1.js"></script>
+<script type="text/javascript">
+</script>
+</head>
+<body>
+<div id="content">http://10.232.1.5</div>
+</body>
+</html>

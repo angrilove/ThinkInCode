@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Anshen&trade;</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<link rel="stylesheet" type="text/css" href="css.css"></link>
+<script type="text/javascript" src="./jquery-1.7.1.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	
+	$(":button").click(function( e ) {
+		var $form = $('form[name=iform]');
+		console.log($form[0].action);
+		console.log($form[0].getAttribute("action"));
+		console.log($form.attr("action"));
+		console.log($form[0].ajax);
+		
+		console.log('%o', $form.valid());  // jquery has no this function/method.
+		return false;
+	});
+});
+</script>
+</head>
+<body>
+	<form name="iform" action="/action" method="POST" enctype="multipart/form-data">
+		<input type="hidden" name="ajax" value="1"/>
+		<p>
+		<input type="file" name="file"/>
+		</p>
+		<input type="button" name="submit" value="提交"/>
+        <button name="upload">上传...</button>
+	</form>
+</body>
+</hTml>

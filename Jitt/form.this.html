@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8" />
+<title>input，textarea选择文本操作</title>
+<!-- script type="text/javascript" src="http://ajax.microsoft.com/ajax/jQuery/jquery-1.7.2.js"></script -->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript">
+function validateForm(form) {
+    console.log( $(this), this, $(form), form );
+    return false;
+}
+function clickme(args) {
+    console.log(this, args);
+    //return false;
+}
+function onClick(args) {
+    console.log(this, args);
+    return false;
+}
+</script>
+</head>
+<body>
+    <form action="get.php" onsubmit="return validateForm(this);">
+        <button type="submit">Submit</button>
+    </form>
+    <a href="javascript:clickme(this);">Click Me</a>
+    <a href="javascript:void(0);" onclick="onClick(this);">On Click Me</a>
+</body>
+</html>

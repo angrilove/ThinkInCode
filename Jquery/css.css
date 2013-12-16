@@ -1,0 +1,4 @@
+html{font-weight:200;font-family: courier new, monospace, '新宋体';}
+body{font-weight:200;font-family: courier new, monospace, '新宋体'}
+.divider{border-top:1px solid red;border-left:0px;border-right:0px;border-bottom:0px;margin:0px;padding:0px;float:left;width:100%;height:0px;}
+span.title{font-size:24pt;font-weight:bold;font-family:monospace;}

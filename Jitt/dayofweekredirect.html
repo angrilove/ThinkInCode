@@ -1,0 +1,36 @@
+﻿<script language="javascript">
+
+function initArray() {
+    this.length = initArray.arguments.length;
+    for (var i = 0; i < this.length; i++)
+        this[i+1] = initArray.arguments[i];
+}
+
+var DOWArray = new initArray("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
+var today = new Date();
+
+var n = initArray("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
+
+console.log( initArray );
+console.log( n );
+var day = DOWArray[today.getDay()+1];
+// window.location = day + ".html";
+/*
+console.log(day); // 
+console.log(DOWArray);
+console.log(today);
+*/
+function messageWindow(title, msg) {
+  var width="300", height="125";
+  var left = (screen.width/2) - width/2;
+  var top = (screen.height/2) - height/2;
+  var styleStr = 'toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbar=no,resizable=no,copyhistory=yes,width='+width+',height='+height+',left='+left+',top='+top+',screenX='+left+',screenY='+top;
+  var msgWindow = window.open("","msgWindow", styleStr);
+  var head = '<head><title>'+title+'</title></head>';
+  var body = '<body><center>'+msg+'<br><p><form><input type="button" value="   Done   " onClick="self.close()"></form></body>';
+  var html = "<!DOCTYPE html><html>"+head+body+"</html>";
+  msgWindow.document.write( html );
+}
+
+messageWindow('New Title', 'New Window Content!');
+</script>

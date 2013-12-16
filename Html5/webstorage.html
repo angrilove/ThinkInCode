@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<title>html 5 - web 2.0</title>
+
+<link rel="stylesheet" type="text/css" href="common.css">
+
+</head>
+<body>
+<script type="text/javascript">
+// sessionStorage
+sessionStorage.setItem("key", "sessionvalue");
+var session = sessionStorage.getItem("key");
+
+// localStorage
+localStorage.setItem("key", "localvalue");
+var local = localStorage.getItem("key");
+
+console.log( session, local );
+
+if ( window.JSON && window.JSON.parse ) {
+	console.log( JSON, JSON.parse );
+}
+
+if ( window.parse ) {
+	console.log( parse );
+}
+</script>
+</body>
+</html>

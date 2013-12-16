@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<script type="text/javascript" src="./jquery-1.7.1.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	var filepath = './pages/images/no_pic.jpg';
+	var type = filepath.slice(filepath.lastIndexOf('.'), filepath.length);
+	console.log(type);
+	console.log(filepath.sub());
+	console.log(filepath.blink());
+	console.log(filepath.constructor);
+	console.log(filepath.valueOf());
+	console.log(filepath.size);
+	
+	var $data = $("input[type='checkbox'][name='name.dd']");
+	console.log($data);
+});
+</script>
+</head>
+<body>
+<input type="checkbox" name="name.dd" checked="checked"/>
+<input type="checkbox" name="name.dd"/>
+<input type="checkbox" name="name1"/>
+</body>
+</html>

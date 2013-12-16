@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+</head>
+<body>
+<div></div>
+<script type="text/javascript">
+const msg = "THIS IS CONST STRING.";
+console.log(msg);
+msg = "s"; // 试图改变时，不会报错
+console.log(msg);
+
+// 获取函数(getter)和设置函数(setter)
+function BaseClass() {
+    this.__color__ = "red";
+}
+
+BaseClass.prototype.color getter = function() {
+    return this.__color__;
+};
+BaseClass.prototype.color setter = function(value) {
+    this.__color__ = value;
+    console.log("Color changed to", value);
+};
+
+var o = new BaseClass();
+console.log(o.color);   // red
+o.color = "blue";       // Color changed to blue
+</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>function arguments callee</title>
+</head>
+<body>
+	<script type="text/javascript">
+function funcall () {
+	console.log("good");
+	console.log( arguments.callee );
+	console.log( arguments.caller );
+	console.log(arguments);
+	for (var p in arguments) {
+		console.log( p, arguments[p] );
+	}
+}
+
+funcall();
+
+function Classfn () {
+
+	this.fn = function () {
+		console.log( arguments.callee );
+	};
+}
+
+new Classfn().fn();
+
+var ok = {
+	fun: function () {
+		console.log( arguments.callee );
+	}
+};
+ok.fun();
+
+function fun1 () {
+	console.log("fun1");
+}
+fun1.fun2 = function () {
+	console.log( arguments.callee );
+};
+fun1.fun2();
+	</script>
+</body>
+</html>

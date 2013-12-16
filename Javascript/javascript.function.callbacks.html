@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<script type="text/javascript">
+/* callbacks 回调 */
+// normal 
+request = prepare_the_request();
+response = send_request_synchronously( request );
+display( reponse );
+
+// use callback 
+request = prepare_the_request();
+send_request_asynchronously(request, function( response ) {
+    display( response );
+});
+</script>
+</head>
+<body>
+<div>
+
+</div>
+</body>
+</html>

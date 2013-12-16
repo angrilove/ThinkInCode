@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<script type="text/javascript" src="./javascript.custom.global.js"></script>
+<script type="text/javascript">
+/* JavaScript Array */
+
+// 删除
+(function() {
+
+var numbers = new Array(1, 2, 3, 4);
+console.log( '%o', numbers );
+delete numbers[2];
+numbers['five'] = 5;
+console.log( numbers, numbers.length, numbers[0] ); // 产生空洞(用undefined填充)
+
+// splice方法可以改善这种不合现象
+numbers.splice('five', 1);
+console.log( numbers );
+console.log( numbers.length );
+Array.rename('splice', 'del');
+numbers.del(2, 1);
+console.log( numbers );
+
+/*
+ * 当 element 是下标时，移除相应下标元素
+ * 当 element 是键时，移除相应键值
+ */
+Array.method('remove', function( key ) {
+    if ( typeof key === 'number' )
+        this.splice(key, 1);
+    else if (typeof key === 'string') {
+        for (var i = 0; i < this.length; i++) // 搜寻key的位置
+            // if ( key )
+    }
+    return this;
+});
+})();
+</script>
+</head>
+<body>
+<div>
+
+</div>
+</body>
+</html>

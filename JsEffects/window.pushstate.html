@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>The history pushState method</title>
+</head>
+<body>
+    <h1>pushstate</h1>
+    <button type="button" onclick="ck();">change</button>
+    <script type="text/javascript">
+function ck() {
+    console.log(window.history.pushState);
+    window.history.pushState(null, null, "http://localhost/ok.html");
+}
+    </script>
+</body>
+</html>

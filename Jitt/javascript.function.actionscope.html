@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<style type="text/css"></style>
+<script type="text/javascript">
+/* 作用域(Action Scope) */ // $javascript语言精粹 - 函数 - 作用域$
+
+(function() {
+
+var foo = function() {
+    var a = 3, b = 5;
+    console.log('a', a);
+    console.log('b', b);
+    // console.log('c', c);
+    var bar = function() {
+        var b = 7, c = 11;
+        a += b + c;
+        
+        console.log('a', a);
+        console.log('b', b);
+        console.log('c', c);
+    };
+    
+    bar();
+    
+    console.log('a', a);
+    console.log('b', b);
+    console.log('c', c);
+    var c = 0;
+};
+
+foo();
+
+})();
+</script>
+</head>
+<body>
+
+</body>
+</html>

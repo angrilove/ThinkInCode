@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+
+
+<style type="text/css">
+.error{
+    color: red;
+}
+</style>
+
+<script type="text/javascript" src="./ext-core-debug.js"></script>
+<script type="text/javascript">
+/* 享元模式(Flyweight design pattern)*/
+
+Ext.onReady(function() {
+var el = Ext.get("vid");
+
+el.addClass('error');
+
+// ------
+Ext.fly('vid').removeClass('error');
+
+// Use Flyweight
+var foo = Ext.fly('foo');
+Ext.fly('bar').frame();
+foo.addClass('error'); // foo 引用已经指向bar元素，这就是享元(Flyweight - 共享的)
+});
+</script>
+<div id="vid">Just Test 1.</div><br/>
+<div id="foo">Just Test 2.</div>
+<div id="bar">Just Test 3.</div>

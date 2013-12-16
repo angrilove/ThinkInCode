@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>锚点滚动</title>
+    <style type="text/css">
+#container {
+    width: 100%;
+}
+section.section {
+    width: 100%;
+    height: 350px;
+    background-color: yellow;
+}
+section.last {
+    background-color: red;
+}
+
+#ads {
+    height: 500px;
+    background-color: green;
+}
+    </style>
+</head>
+<body>
+<div id="container">
+    <ul>
+        <li><a href="">Section1</a></li>
+        <li><a href="">Section2</a></li>
+        <li><a id="linkLastSection" href="#lastSection">Section3</a></li>
+    </ul>
+
+    <div id="article">
+        <section class="section"></section>
+        <section class="section"></section>
+        <section class="section"></section>
+        <section class="section"></section>
+        <section class="section last"><a id="lastSection" href="#top" name="lastSection">Section3</a></section>
+    </div>
+    <div id="ads"></div>
+</div>
+<script type="text/javascript">
+var doc = document;
+doc.getElementById("linkLastSection").onclick = function(event) {
+    event = window.event || event;
+    //event.preventDefault();
+    event.returnValue = false;
+    var offsetTop = doc.getElementById("lastSection").offsetTop;
+    var heightDistance = offsetTop - doc.getElementById("linkLastSection").offsetTop;
+    Scrollx(window.pageYOffset, offsetTop);
+};
+
+var isFirstEnter = true;
+var Xoffset10 , addXoffset;
+function Scrollx(oldXoffset, newXoffset) {
+ if (isFirstEnter)
+ {
+     Xoffset10 = Math.round((newXoffset - oldXoffset) / 100);
+     addXoffset = oldXoffset;
+     isFirstEnter = false;
+ }
+ addXoffset+=Xoffset10;
+ if ((oldXoffset <= newXoffset) == (addXoffset < newXoffset))
+ {
+     window.scrollTo(0, addXoffset);
+     window.setTimeout(function () { Scrollx(oldXoffset, newXoffset) }, 1)
+ }
+ else
+ {
+     window.scrollTo(0, newXoffset);
+     isFirstEnter = true;
+ }
+}
+</script>
+</body>
+</html>

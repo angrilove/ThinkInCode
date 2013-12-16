@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<script type="text/javascript">
+/* JavaScript Function 套用 */
+/* 函数也是值，所以 */
+(function() {
+
+Function.prototype.method = function(methodname, fn) {
+    if (!this.prototype[methodname] && typeof fn === 'function')
+        this.prototype[methodname] = fn;
+    return this;
+};
+// console.log(Function);
+// console.log(Function.method()); // Function十分之特殊
+Function.method('curry', function() {
+    var slice = Array.prototype.slice,
+        args = slice.apply(arguments),
+        self = this;
+    return self.apply(null, args.concat(slice.apply(arguments)));
+});
+
+/* ********************************************/
+var fc = function() {
+    var slice = Array.prototype.slice,
+        args = slice.apply(arguments);
+    console.log(slice);
+    console.log(args);
+    console.log(arguments);
+    console.log(slice.apply(arguments).concat(slice.apply(arguments)));
+    
+};
+fc('1', '2', '3', 4);
+
+/* ********************************************/
+// <LocalTestFunction>
+var Fn = function() {
+    // [native code]
+};
+Fn.prototype.md = function(mdname, fn) {
+    if (!this.prototype[mdname] && typeof fn === 'function')
+        this.prototype[mdname] = fn;
+    return this;
+};
+//console.log(Fn);
+//console.log(Fn.md);
+// Fn.md(); // error
+var fn = new Fn();
+// fn.md(); // error 
+// <EndLocalTestFunction>
+
+})();
+</script>
+</head>
+<body>
+<div>
+
+</div>
+</body>
+</html>

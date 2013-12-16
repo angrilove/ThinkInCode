@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gbk">
+<title></title>
+<script type="text/javascript" src="jquery-1.7.1.js">
+<script type="text/javascript">
+<!--
+	/**
+	 * jQuery( callback )
+	 */
+	 $(document).ready(function() {
+		$(function() {
+			alert("I'm ready now!");
+		});
+	 });
+//-->
+</script>
+</head>
+<body>
+<script >
+	$.each($.browser, function(i, val) {
+		$("<div>" + i + ":<span>" + val + "</span></div>").appendTo(document.body);
+	});
+</script>
+</body>
+</html>

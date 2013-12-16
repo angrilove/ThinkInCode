@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<script type="text/javascript">
+// use javascript get key code.
+(function() {
+
+function getKeyCode(event) {
+    try {
+        console.log(event.type, event.keyCode, event, this);
+    } catch (e) {
+        alert(event); alert(event.keyCode); alert(this);
+    }
+};
+
+function show() {
+    return function() {
+        console.log('g');
+    }();
+};
+
+window.addEventListener('keydown', getKeyCode, false);
+window.addEventListener('keypress', getKeyCode, false);
+window.addEventListener('keyup', getKeyCode, false);
+// 没有 keypause 方法
+// console.log(event);
+})();
+</script>
+</head>
+<body>
+<div>
+</div>
+</body>
+</html>

@@ -1,0 +1,17 @@
+CACHE MANIFEST
+#离线应用程序
+version v0.0.1.000001
+CACHE:
+index.html
+common.js
+
+NETWORK:
+http://www.la.com/ls
+online.aspx
+*
+FALLBACK:
+online.js locale.js
+CACHE:
+function.js
+prototype.js
+do.html

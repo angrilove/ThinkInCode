@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<style type="text/css"></style>
+<script type="text/javascript">
+
+// performance []性能
+(function() {
+
+// define the class named StringBuffer
+function StringBuffer() {
+    this._string = new Array();
+};
+StringBuffer.prototype.append = function( string ) {
+    this._string.push(string);
+};
+StringBuffer.prototype.toString = function() {
+    return this._string.join("");
+};
+
+var buffer = new StringBuffer();
+buffer.append("hello");
+buffer.append(" world");
+var result = buffer.toString();
+console.log(result);
+
+// test performance
+var d = new Date();
+var str = "";
+for (var i = 0; i < 1000000; i++) {
+    str += "text";
+}
+var date = new Date();
+console.log(date.getTime() - d.getTime(), "milliseconds");
+
+d = new Date();
+var b = new StringBuffer();
+for (var i = 0; i < 1000000; i++) {
+    b.append("text");
+}
+var result = b.toString();
+date = new Date();
+console.log(date.getTime() - d.getTime(), "milliseconds");
+
+})();
+</script>
+</head>
+<body>
+<div>
+
+</div>
+</body>
+</html>

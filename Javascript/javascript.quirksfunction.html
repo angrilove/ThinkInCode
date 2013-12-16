@@ -1,0 +1,154 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<script type="text/javascript">
+/* javascript quirks function */
+// 1. ------------------------------------
+(function() {
+function fn() {
+    console.log('OLD');
+};
+
+var tfn = fn;
+
+function fn() {
+    tfn();
+    consolse.log('NEW');
+};
+
+fn();
+});//();
+
+// 2. ------------------------------------
+(function() {
+var fn = function() {
+    console.log('OLD');
+};
+
+var tfn = fn;
+
+var fn = function() {
+    tfn();
+    console.log('NEW');
+};
+
+fn();
+});//();
+
+// 3. ------------------------------------
+(function() {
+var fn = function() {
+    console.log('OLD');
+};
+
+var tfn = fn;
+
+function fn() {
+    tfn();
+    console.log('NEW');
+};
+
+fn();   // OLD
+})();
+
+// 4. ------------------------------------
+(function() {
+function fn() {
+    console.log('OLD');
+};
+
+var tfn = fn;
+
+var fn = function() {
+    tfn();
+    console.log('NEW');
+};
+
+fn();
+});//();
+
+// 5. ------------------------------------
+(function() {
+function fn() {
+    console.log('OLD');
+};
+
+var tfn = fn;
+
+function fn() {
+    //tfn();
+    console.log('NEW');
+};
+
+tfn();          // NEW
+console.log();
+fn();           // NEW
+
+});//();
+
+// 6. ------------------------------------
+(function() {
+var fn = function() {
+    console.log('OLD');
+};
+
+var tfn = fn;
+
+var fn = function() {
+    tfn();
+    console.log('NEW');
+};
+
+tfn();          // OLD
+console.log();
+fn();           // OLD, NEW
+
+});//();
+
+// 7. ------------------------------------
+(function() {
+function fn() {
+    console.log('OLD');
+};
+
+var tfn = fn;
+
+var fn = function() {
+    tfn();
+    console.log('NEW');
+};
+
+tfn();          // OLD
+console.log();
+fn();           // OLD, NEW
+
+});//();
+
+// 8. ------------------------------------
+(function() {
+var fn = function() {
+    console.log('OLD');
+};
+
+var tfn = fn;
+
+function fn() {
+    tfn();
+    console.log('NEW');
+};
+
+tfn();          // OLD
+console.log();
+fn();           // OLD
+
+});//();
+</script>
+</head>
+<body>
+<div>
+
+</div>
+</body>
+</html>

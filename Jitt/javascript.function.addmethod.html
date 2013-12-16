@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<style type="text/css"></style>
+<script type="text/javascript">
+
+/* javascript允许我们给基本类型增加方法 */
+
+Function.prototype.method = function(name, fn) {
+    if (!this.prototype[name]) this.prototype[name] = fn;
+    return this;
+};
+
+Number.method('integer', function() {
+    return Math[this < 0 ? 'ceil' : 'floor'](this);
+});
+
+String.method('trim', function() {
+    return this.replace(/^\s+|\s+$/g, '');
+});
+
+/* test logs */
+console.log( ( -10 / 3).integer() ); // -3
+console.log( '"' + " neate next   ".trim() + '"');
+</script>
+</head>
+<body>
+<div>
+
+</div>
+</body>
+</html>

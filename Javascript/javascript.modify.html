@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<style type="text/css"></style>
+<script type="text/javascript">
+
+(function() {
+
+console.log(Number.hasOwnProperty("toHexString"));
+Number.prototype.toHexString = function() {
+    return this.toString(16);
+};
+/*
+Nubmer.toHexString = function() {
+    return this.toString(16);
+};
+*/
+console.log(Number.hasOwnProperty("toHexString")); // false;
+var num = 15;
+console.log(num.hasOwnProperty("toHexString"));
+console.log(num.toHexString());
+
+})();
+</script>
+</head>
+<body>
+<div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Just Think And Do It.</title>
+<script type="text/javascript" src="http://ajax.microsoft.com/ajax/jQuery/jquery-1.7.2.js"></script>
+</head>
+<body>
+    <a href="http://www.baidu.com/">baidu.com/</a>
+    <script type="text/javascript">
+    var json = "{'iconUrl':'http://localhost:8080/JXWCoal/pages/iphoneLoginStyle/images/images-small/_00.gif', 'iconHoverUrl': 'http://localhost:8080/JXWCoal/pages/iphoneLoginStyle/images/images-small/_001.gif', 'iconClickUrl': 'http://localhost:8080/JXWCoal/pages/iphoneLoginStyle/images/images-small/_002.gif'}";
+    console.log( json );
+    console.log( eval('(' + json + ')') );
+    // 为何无法转变成JSON格式？
+    console.log( $.parseJSON(json) );
+    </script>
+</body>
+</html>

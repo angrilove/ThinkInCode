@@ -1,0 +1,375 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<script type="text/javascript">
+
+// --- javascript extends ...//
+/*
+---
+1. 对象冒充
+
+特点：
+    ^^
+注意：
+    ^^
+缺点：
+    1)必须使用构造函数方式
+    2)多重继承时，父类有同名属性或方法将会采用高优先级继承方式。如下的例子，将会继承SuperClass的属性和方法，抛弃BaseClass的属性和方法，这是由于SuperClass继承代码处在后面具有较高优先级
+    3)无法使用instanceof关键字
+...
+*/
+(function() {
+
+// base class
+function BaseClass( name ) {
+    // public property
+    this.name = name;
+    
+    // public method
+    this.getName = function() {
+        console.log(this.name, this);
+    };
+};
+
+// super class
+function SuperClass( message ) {
+    // public property
+    this.message = message;
+    
+    // public method
+    this.getMessage = function() {
+        console.log(this.message, this);
+    };
+};
+
+// extend class, only one super class
+function ExtendClass( name, age) {
+    // extends the properties and methods from base class
+    this.newMethod = BaseClass; // reference base class
+    this.newMethod(name);   // catched the properties and methods
+    delete this.newMethod;  // delete the reference attribute
+    
+    // sub class properties and methods
+    this.age = age;
+    this.getAge = function() {
+        console.log(this.age, this);
+		return this.age;
+    };
+};
+
+// extend classes, double super classes
+function SubClass( name, message, age) {
+    // extend the properties and methods from BaseClass
+    this.newMethod = BaseClass;
+    this.newMethod(name);
+    delete this.newMethod;
+    
+    // extend the properties and methods from SuperClass
+    this.newMethod = SuperClass;
+    this.newMethod(message);
+    delete this.newMethod;
+    
+    // sub class properties and methods
+    this.age = age;
+    this.getAge = function() {
+        console.log(this.age, this);
+    };
+};
+
+// test logs
+var b = new BaseClass("anshen"), // must be used new 
+    sup = new SuperClass("Object masquerading."),
+    e = new ExtendClass("loton", 14),
+    sub = new SubClass("duo", "love duo", 22);
+b.getName();        // anshen
+sup.getMessage();   // Object masquerading.
+e.getName();        // loton
+e.getAge();         // 14
+sub.getName();      // duo
+sub.getMessage();   // love duo
+sub.getAge();       // 22
+
+// instanceof
+console.log(e instanceof BaseClass);    // false,but it should be true
+console.log(e instanceof SuperClass);   // false,but it should be true
+console.log(sub instanceof BaseClass);  // false,but it should be true
+console.log(sub instanceof SuperClass); // false,but it should be true
+
+})();
+
+/*
+---
+2. call方法实现继承
+
+说明：
+    call方法实现继承，实际是对对象冒充法的一个扩充，使之更易用。call方法在javascript第三版中得到了支持。call和apply是Function对象的方法
+
+...
+*/
+(function() {
+
+// <use call method>
+// fn.call(this, arg1, arg2, ..argN) arg[N] can be any object
+function sayMessage( prefix, suffix ) {
+    console.log(prefix + this.message + suffix);
+};
+
+var obj = new Object();
+obj.message = "msg";
+
+sayMessage.call(obj, "The message is ", ",a very nice message indeed."); // invoke and show the message
+// </use call method>
+
+// base class
+function BaseClass( name ) {
+    this.name = name;
+    
+    this.getName = function() {
+        console.log(this.name, this);
+    };
+};
+
+// super(or called base) class
+function SuperClass( message ) {
+    this.message = message;
+    
+    this.getMessage = function() {
+        console.log(this.message, this);
+    };
+};
+
+// extend class, extends only one base class
+function ExtendClass( name, age ) {
+    // this.newMethod = BaseClass;
+    // this.newMethod(name);
+    // delete this.newMethod;
+    /*
+     replaced call method, called base class
+     */
+     BaseClass.call(this, name);
+     
+     // sub class properties and methods
+     this.age = age;
+     this.getAge = function() {
+        console.log(this.age, this);
+     };
+};
+
+// extend class, extends double base classes
+function SubClass( name, message, age) {
+    // extends properties and methods from base class
+    BaseClass.call(this, name);
+    // extends properties and methods from super class
+    SuperClass.call(this, message);
+    
+    // sub class property and method
+    this.age = age;
+    this.getAge = function() {
+        console.log(this.age, this);
+    };
+};
+
+// test logs
+// test logs
+var b = new BaseClass("anshen"), // must be used new 
+    sup = new SuperClass("Object masquerading."),
+    e = new ExtendClass("loton", 14),
+    sub = new SubClass("duo", "love duo", 22);
+b.getName();        // anshen
+sup.getMessage();   // Object masquerading.
+e.getName();        // loton
+e.getAge();         // 14
+sub.getName();      // duo
+sub.getMessage();   // love duo
+sub.getAge();       // 22
+
+});//();
+
+/*
+---
+3. apply方法实现继承
+
+说明：
+    apply方法实现继承，实际上是对对象冒充法的一个优良扩充，使之更易用。apply方法在javascript第三版中得到了支持。call和apply是对象Function的方法
+...
+*/
+(function() {
+
+// <use apply method>
+// fn.apply(this, array) the second argument must Array or Object.
+function sayMessage( prefix, suffix ) {
+    console.log(prefix + this.message + suffix);
+};
+
+var obj = new Object();
+obj.message = "love duo";
+
+sayMessage.apply(obj, new Array("The message is ", ",a very nice message indeed."));
+// </use apply method>
+
+// base class
+function BaseClass( name ) {
+    this.name = name;
+    
+    this.getName = function() {
+        console.log(this.name, this);
+    };
+};
+
+// super(or called base) class
+function SuperClass( message ) {
+    this.message = message;
+    
+    this.getMessage = function() {
+        console.log(this.message, this);
+    };
+};
+
+// extend class, extends only one base class
+function ExtendClass( name, age ) {
+    // replaced apply method, called base class
+    // BaseClass.apply(this, new Array(name));
+    // we can use it like this
+    BaseClass.apply(this, arguments);
+    // console.log(arguments); // 奇怪的是，arguments 在method中无法引用this.arguments
+     
+    // sub class properties and methods
+    this.age = age;
+    this.getAge = function() {
+       console.log(this.age, this);
+    };
+};
+
+// extend class, extends double base classes
+function SubClass( name, message, age) {
+    // extends properties and methods from base class
+    BaseClass.apply(this, new Array(name));
+    // extends properties and methods from super class
+    SuperClass.apply(this, new Array(message));
+    
+    // sub class property and method
+    this.age = age;
+    this.getAge = function() {
+        console.log(this.age, this);
+    };
+};
+
+// test logs
+var b = new BaseClass("anshen"), // must be used new 
+    sup = new SuperClass("Object masquerading."),
+    e = new ExtendClass("loton", 14),
+    sub = new SubClass("duo", "love duo", 22);
+b.getName();        // anshen
+sup.getMessage();   // Object masquerading.
+e.getName();        // loton
+e.getAge();         // 14
+sub.getName();      // duo
+sub.getMessage();   // love duo
+sub.getAge();       // 22
+    
+});//();
+
+/*
+---
+4. 原型链(prototype chaining)
+
+说明：
+    
+缺点：
+    1)不支持多重继承
+    2)无法使用带参数的构造器
+...
+*/
+(function() {
+
+// base class
+function BaseClass() {}; // constructor function
+BaseClass.prototype.message = "love duo";
+BaseClass.prototype.getMessage = function() {
+    console.log(this.message, this);
+};
+
+// extend class
+function ExtendClass() {};
+ExtendClass.prototype = new BaseClass(); // and chaining the properties/methods, but cannot transfer the arguments
+// the ExtendClass particular properties and methods
+ExtendClass.prototype.type = "";
+ExtendClass.prototype.getType = function() {
+    console.log(this.type, this); // 'this' will be reference base class forever
+};
+
+// test logs
+var base = new BaseClass(),
+    extend = new ExtendClass();
+base.message = "base message";
+extend.message = "extend message";
+extend.type = "new-type";
+// ---
+base.getMessage();      // base message
+extend.getMessage();    // extend message
+extend.getType();       // new-type
+
+// instanceof 在对象冒充使用是不恰当的。
+// 对于原型链方式，子类的所有实例，instanceof为BaseClass和ExtendClass都将返回true
+console.log(base instanceof BaseClass);     // true
+console.log(base instanceof ExtendClass);   // false
+console.log(extend instanceof BaseClass);   // true
+console.log(extend instanceof ExtendClass); // true
+
+});//();
+
+// 创建类的最好方式是用构造函数定义属性，用原型定义方法。这种方式同样适用于继承机制。
+// 用对象冒充继承构造函数的属性，用原型链继承prototype对象的方法。
+/*
+---
+5. 混合方式
+
+优点：
+    1)instanceof运算符可照常使用，摒除了对象冒充instanceof无法使用缺陷
+    2)
+
+缺点：
+    1)不支持多重继承
+...
+*/
+(function() {
+
+// base class
+function BaseClass( name ) {
+    this.name = name; // define properties
+};
+// define methods
+BaseClass.prototype.getName = function() {
+    console.log(this.name, this);
+};
+
+// extend(or we called sub) class
+function ExtendClass( name, age ) {
+    BaseClass.call(this, name);
+    this.age = age; // define your particular properties
+};
+ExtendClass.prototype = new BaseClass(); // extend class from BaseClass
+ExtendClass.prototype.getAge = function() {   // define your particular methods
+    console.log(this.age, this);
+};
+
+// test logs
+var base = new BaseClass("anshen");
+    extend = new ExtendClass("loton", 22);
+base.getName();     // anshen
+extend.getName();   // loton
+extend.getAge();    // 22
+// instanceof 
+console.log(base instanceof BaseClass);     // true
+console.log(base instanceof ExtendClass);   // false
+console.log(extend instanceof BaseClass);   // true
+console.log(extend instanceof ExtendClass); // true
+
+});//();
+</script>
+</head>
+<body>
+</body>
+</html>

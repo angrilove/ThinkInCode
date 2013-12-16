@@ -1,0 +1,8 @@
+﻿{
+	"statuCode": 200,
+	"message": "This is data used for json.",
+	"navTabId": "navTabId_001",
+	"forward": "closeCurrent",
+	"forwardUrl": "http://www.ls.com/",
+	"success": false
+}

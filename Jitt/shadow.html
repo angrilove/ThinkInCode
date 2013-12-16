@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<title></title>
+<script type="text/javascript" src="./jquery-1.7.1.js"></script>
+<script type="text/javascript">
+$(function() {
+	$(":button[name='showWindows']").click(showWindows);
+    var windowStatus=false;  
+    //由于得到CSS像数值时带的单位"px"为字符串,故要转换  
+    function getPxNumber( px ) {  
+        pxpx=px.replace("px", "");  
+        return Number(px);  
+    }  
+    function showWindows() {  
+          
+        var lockWindows=document.getElementById("shadow");  
+        var loginframe=document.getElementById("login");  
+        //得到页面的可见区的宽和高  
+        var windowWidth=(document.layers)?window.innerWidth:document.body.clientWidth;  
+        var windowHeight=(document.layers)?window.innerHeight:window.document.body.clientHeight;  
+        lockWindows.style.width=windowWidth;  
+        lockWindows.style.height=windowHeight;  
+        //将窗体置中  
+        loginframe.style.left=parseInt((windowWidth-getPxNumber(loginframe.style.width)+document.body.scrollLeft)/2)+document.body.scrollLeft;  
+        loginframe.style.top=parseInt((windowHeight-getPxNumber(loginframe.style.height))/2)+document.body.scrollTop;  
+        lockWindows.style.display="block";  
+        loginframe.style.display="block";  
+        windowStatus=true;  
+    }  
+    function closeWindows() {  
+        var lockWindows=document.getElementById("breakDiv");  
+        var loginframe=document.getElementById("login");  
+        lockWindows.style.display="none";  
+        loginframe.style.display="none";  
+        windowStatus=false;  
+    }  
+      
+    window.onresize = function() {  
+        if(windowStatus)  
+           showWindows();  
+    };  
+      
+    //当上传成功后关闭窗体  
+    function uploadFile() {  
+        closeWindows();  //关闭窗体显示传回信息  
+    } 
+	
+});
+</script>
+</head>
+<body>
+<div id="shadow" style="filter:alpha(opacity=40);position:absolute;top:0px;left:0px;color:#000;"></div>
+	<div id="login" style="position:absolute; z-index:10; width:271px; height:122px; text-align:center; border:#00C solid 1px; display:none; background-color:#FFF;">  
+	<div id="title" style="font-family:'微软雅黑', '宋体'; font-size:18px; background-color:#03F; color:#FFF; width:271px; height:25px;">  
+	<div style="float:left; width:200px; font-family:Verdana, Geneva, sans-serif; font-weight:bold; ">文件上传</div>  
+	<input type="button" style="color:#C00; border:solid 1px #9C0; float:right; width:30px; background-color:#03F;" onclick="closeWindows();" value="X" /></div>  
+	<div id="form" style="width:230px; padding-top:20px; margin-top:20px; margin:0 auto;">
+    <form action="http://localhost:8080/Ajax/uploadImage.jsp" method="post" enctype="multipart/form-data" target="uploadInfo">  
+        <input type="file" name="uploadFile" /><br /><br />  
+        <input type="submit" value="上传"/>        
+        <input type="button" value="取消" onclick="closeWindows();" />  
+    </form>  
+    </div>  
+</div>
+
+<input type="button" name="showWindows" value="点击"/>
+</body>
+</html>

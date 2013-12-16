@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="GB2312" />
+<title>Do what you do.</title>
+<script type="text/javascript" src="http://ajax.microsoft.com/ajax/jQuery/jquery-1.7.2.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$.ajax({
+		type: "GET",
+		async: false,
+		url: "http://localhost/ajax/ajax.request.php",
+		data: {id: 10, name: "anshen", age: 13},
+		cache: false,
+		dataType: "jsonp",
+		jsonp: "callback",
+		jsonpCallback: "jsonpCallback",
+		success: function( json ) {
+			console.log( json );
+		},
+		error: function() {
+			console.log( "error" );
+		}
+	});
+	
+});
+function jsonpCallback( data ) {
+	try { console.log('响应', data);} catch(e) {}
+}
+
+!function($) {
+	console.log($);
+}(this);
+</script>
+<script type="text/javascript" src="autoloading.js"></script>
+</head>
+<body>
+	<input type="text" name="input" />
+	<input type="button" name="button" />
+</body>
+</html>

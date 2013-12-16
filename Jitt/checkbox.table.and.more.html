@@ -1,0 +1,115 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+	<style type="text/css">
+	html, body { font-size: 12px; }
+	table { border-collapse: collapse;}
+	table.list, th, tr, td{ border: solid red 1px; }
+	</style>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.js"></script>
+	<script type="text/javascript">
+	(function($) {
+		// Plugin - checkboxCtrlShown
+		$.fn.checkboxCtrlShown = function( context ) {
+			return this.each(function() {
+				var $this = $(this);
+				$this.click(function() {
+					var $p = (context instanceof jQuery) ? context : (context ? $(document) : $(context)),
+						group = $this.attr("group"),
+						$checkbox = $(":checkbox[name='"+group+"']:visible", $p);
+					if (group) {
+						if ($this.is(":checkbox")) 
+							$checkbox.attr("checked", $this.prop("checked"));
+						else if ($this.attr("selectType") && $this.attr("selectType") == "invert")
+							$checkbox.each(function() { $(this).attr("checked", !$(this).prop("checked")); });
+						else $checkbox.attr("checked", true);
+					}
+				});
+			});
+			
+		}
+	})(jQuery);
+	
+	$(document).ready(function($) {
+		var $p = $(document);
+		console.log( $(":button.checkboxCtrlShown, :checkbox.checkboxCtrlShown", $p) );
+		$(":button.checkboxCtrlShown, :checkbox.checkboxCtrlShown", $p).checkboxCtrlShown($p);
+		
+		$(":text.tableFilter").keyup(function() {
+			var id = $(this).attr("filter");
+			if ($(this).is(":text") && id) {
+				$("#"+id+" tbody tr").hide().filter(":contains('"+$(this).val().trim()+"')").show();
+			}
+		});
+		
+		$(":button.add").click(function() {
+			var fragment = document.createDocumentFragment();
+			var $table = $("#table");
+			var $tr = $("#table").find("tr:last").clone();
+			$tr.find("td").html("&nbsp;");
+			console.log( $tr );
+			$table.append($tr);
+			fragment.appendChild($table.get(0));
+			$(fragment).appendTo("body");
+		});
+	});
+	
+	</script>
+</head>
+<body>
+<table class="list" width="100%" id="table">
+	<thead>
+		<th><input type="text" class="tableFilter" filter="table" /><input type="checkbox" class="checkboxCtrlShown" group="mineIdsCards" />选择<button class="checkboxCtrlShown" group="mineIdsCards" selectType="invert">反选</button><button class="checkboxCtrlShown" group="mineIdsCards" selectType="all">全选</button><button class="add">增加行</button></th>
+		<th>炭生产许可证编号</th>
+		<th>矿井名称</th>
+	</thead>
+	<tbody>
+		<tr>
+			<td>
+				<input type="checkbox" name="mineIdsCards" value="goooooooooooooogle" />
+			</td>
+			<td>阿斯顿发斯蒂芬撒地方阿斯蒂芬</td>
+			<td>又忐忑</td>
+		</tr>
+		<tr>
+			<td>
+				<input type="checkbox" name="mineIdsCards" value="goooooooooooooogle" />
+			</td>
+			<td>阿斯蒂芬</td>
+			<td>认同与推广和脚后跟</td>
+		</tr>
+		<tr>
+			<td>
+				<input type="checkbox" name="mineIdsCards" value="goooooooooooooogle" />
+			</td>
+			<td>荣誉蓝蓝路的</td>
+			<td>浪费空间阿斯兰看到</td>
+		</tr>
+		<tr>
+			<td>
+				<input type="checkbox" name="mineIdsCards" value="goooooooooooooogle" />
+			</td>
+			<td>偶尔玩头安神定魄佛</td>
+			<td>地方按时打发了斯蒂芬</td>
+		</tr>
+		<tr>
+			<td>
+				<input type="checkbox" name="mineIdsCards" value="goooooooooooooogle" />
+			</td>
+			<td>地方了沿途风光的广泛</td>
+			<td>的立刻提供喝凉水都烦死了开发</td>
+		</tr>
+		<tr>
+			<td>
+				<input type="checkbox" name="mineIdsCards" value="goooooooooooooogle" />
+			</td>
+			<td>圣地让他误会面临发生看到</td>
+			<td>拉斯科发上来干啥</td>
+		</tr>
+	</tbody>
+</table>
+</body>
+</html>

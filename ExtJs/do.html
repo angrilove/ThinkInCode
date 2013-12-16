@@ -1,0 +1,11 @@
+﻿<!DOCTYPE html>
+
+<script type="text/javascript">
+function show() {
+	console.log( this.name );
+}
+
+show.apply( {name: "anshen"} );
+
+console.log( show.apply );
+</script>

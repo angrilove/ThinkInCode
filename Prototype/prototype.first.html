@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Anshen&trade;</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<script type="text/javascript" src="./prototype.js"></script>
+</head>
+<body>
+<div id="container">
+<h1><span id="title">Release notes</span></h1>
+</div>
+<script type="text/javascript">
+String.prototype.capitalize = String.prototype.capitalize.wrap(
+	function(proceed, eachWord) {
+		if (eachWord && this.include(" ")) {
+			// capitalize each word in the string
+			return this.split(" ").invoke("capitalize").join(" ");
+		} else {
+			// proceed using the original function
+			return proceed;
+		}
+	}
+);
+
+// logs
+// console.log("hello world".capitalize());
+// console.log("hello world".capitalize(true));
+// ******** $A ********
+(function() {
+	new Ajax.Request("../Ajax/Services/d.html",{
+		method: "GET",
+		onSuccess: function(transport) {
+			var response = transport.responseText || "No response text.";
+			alert(response);
+		},
+		onFailure: function() {
+			alert("Something went wrong...");
+		}
+	});
+})();
+
+</script>
+</body>
+</hTml>

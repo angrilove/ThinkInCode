@@ -1,0 +1,6 @@
+﻿{
+	name: "anshen",
+	age: 22,
+	address: "Tian tong road#5F4, Hefei, Anhui China",
+	lovely: 'read and write'
+}

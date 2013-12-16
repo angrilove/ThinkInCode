@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+
+<script type="text/javascript" src="./ext-core-debug.js"></script>
+<script type="text/javascript">
+Ext.onReady(function() {
+    // 动画 animat
+    Ext.fly('el').slideOut('r', {
+        callback: function() {
+            console.log('slideOut..');
+            Ext.fly('el').slideIn('r', {
+                callback: function() {
+                    Ext.fly('el').slideOut('r');
+                },
+                easing: 'easeOut',
+                duration: .5,
+                remove: false,
+                useDisplay: false
+            });
+        }
+    });
+    
+    Ext.fly('puff').puff();
+    
+});
+</script>
+<div id="el">Just Test..</div>
+<div id="puff">Puffffffffffffffff</div>

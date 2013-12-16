@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Replace Template</title>
+</head>
+<body ng-app="app">
+    <hello>That's ok.It will be replaced.</hello>
+    <pie-chart>The browser can not reader it.</pie-chart>
+    <charts>This is chart list.</charts>
+
+<script type="text/javascript" src="./angular.js"></script>
+<script type="text/javascript">
+var app = angular.module("app", {});
+
+app.directive("hello", function() {
+    return {
+        restrict: "E",
+        replace: true,
+        template: "<div>Hello readers, thank you for coming.</div>"
+    };
+});
+
+app.directive("pieChart", function() {
+    return {
+        restrict: "E",
+        replace: false,
+        template: "<div>pie chart showing.</div>"
+    };
+});
+</script>
+</body>
+</html>

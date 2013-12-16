@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<style type="text/css">
+div {
+    background-color: yellow;
+    width: 300px;
+    height: 300px;
+    position: absolute;
+}
+body {
+    width: 99%;
+    height: 768px;
+    border: 1px solid red;
+}
+</style>
+</head>
+<body>
+<div onclick="fn(event)"
+    ondblclick="fn(event)"
+    onmousedown="fn(event)"
+    onmouseout="fn(event)"
+    onmouseover="fn(event)"
+    onmousemove="fn(event)"
+    onmouseup="fn(event)"></div>
+<script type="text/javascript">
+/* 鼠标事件 mouse event */
+function fn(event) {
+    console.log(event.type);
+}
+var div = document.getElementsByTagName('div')[0];
+/*
+div.addEventListener('click', fn);
+div.addEventListener('dblclick', fn);
+div.addEventListener('mousedown', fn);
+div.addEventListener('mouseout', fn);
+div.addEventListener('mouseover', fn);
+div.addEventListener('mouseup', fn);
+div.addEventListener('mousemove', fn);
+*/
+</script>
+</body>
+</html>

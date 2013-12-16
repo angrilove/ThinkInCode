@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>ADS</title>
+<script type="text/javascript" src="ADS.js"></script>
+<script type="text/javascript">
+</script>
+</head>
+<body>
+	<img src="http://www.baidu.com/img/shouye_b5486898c692066bd2cbaeda86d74448.gif" alt="image" id="img">
+	<input type="text" name="username" id="username">
+<script type="text/javascript">
+
+var img = null;
+img = document.getElementById("img");
+img.onload = function() {
+	//console.log("image onload...");
+};
+img.onunload = function() {
+	alert("image onunload...");
+}
+img.onerror = function() {
+	alert("image onerror...");
+}
+img.onabort = function() {
+	alert("image onabort...");
+}
+
+img.onmouseover = function() {
+	//console.log("image onmouseover...");
+}
+img.onmousemove = function() {
+	//console.log("image onmousemove...");
+}
+
+img.onclick = function() {
+	console.log("image onclick...");
+}
+
+document.onkeydown = function() {
+	//console.log("document onkeydown...");
+}
+document.onkeyup = function() {
+	//console.log("document onkeyup...");
+}
+document.onkeypress = function() {
+	//console.log("document onkeypress...");
+}
+
+window.onkeydown = function() {
+	//console.log("window onkeydown...");
+}
+/* // 此处会出现错误
+window.onunload = function() {
+	alert("window onunload...");
+}*/
+
+window.onresize = function() {
+	//console.log("window onresize...");
+}
+window.onscroll = function() {
+	//console.log("window onscroll...");
+}
+window.onmousemove = function() {
+	//console.log("window onmousemove...");
+}
+
+var input = document.getElementById("username");
+input.focus();
+input.onfocus = function() {
+	console.log("input onfocus...");
+}
+input.onblur  = function() {
+	console.log("input onblur...");
+	input.value = "input";
+}
+input.onchange = function() {
+	console.log("input onchange...");
+}
+
+</script>
+</body>
+</html>

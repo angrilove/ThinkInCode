@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>ADS</title>
+<link rel="stylesheet" type="text/css" href="core.css" media="screen, print">
+
+<script type="text/javascript" src="ADS.js"></script>
+</head>
+<body>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js"></script>
+<script type="text/javascript">
+var xhr = new XMLHttpRequest();
+xhr.onreadystatechange = function() {
+	console.log("__onreadystatechange__", this);
+	switch(xhr.readyState) {
+	case 0:
+		console.log("Uninitialized!");
+		break;
+	case 1:
+		console.log("Loading!");
+		break;
+	case 2:
+		console.log("Loaded!");
+		break;
+	case 3:
+		console.log("Interative!");
+		break;
+	case 4:
+		console.log("Complete!!");
+		console.log(xhr, xhr.status, xhr.statusText);
+		console.log(xhr.getAllResponseHeaders());
+		console.log(this.getResponseHeader("Server"));
+		break;
+	}
+}
+xhr.open("GET", "core.css?id=2", true, "anshen", "123456");
+xhr.setRequestHeader("My-Special-Ajax", "My-Ajax");
+xhr.setRequestHeader("Anchor", "Anshen");
+xhr.send(null);
+
+$.get("http://anshen:123456@localhost/ThinkInCode/ADS/core.css?name=age", function(res) {
+	console.log(res);
+	console.log(this);
+});
+
+// xhr.abort();
+// 
+</script>
+</body>
+</html>

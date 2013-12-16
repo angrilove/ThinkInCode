@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<style type="text/css"></style>
+<script type="text/javascript">
+/* recursion 递归 */ // $javascript语言精粹 - 函数 - 递归$
+/*
+---
+
+1. 汉诺塔(hanoi)递归问题
+
+...
+*/
+(function() {
+var d = new Date();
+var hanoi = function(disc, src, aux, dst) {
+    if (disc > 0) {
+        hanoi(disc - 1, src, dst, aux);
+        console.log('Move disc ' + disc + ' from ' + src +' to ' + dst);
+        hanoi(disc -1, aux, src, dst);
+    }
+};
+
+hanoi(3, 'Src', 'Aux', 'Dst');
+var date = new Date();
+console.log(date.getTime() - d.getTime(), "milliseconds");
+});//();
+
+/*
+---
+
+2. 遍历DOM树
+...
+*/
+(function() {
+
+var walk_the_dom = function walk(node, fn) {
+    fn(node);
+    node = node.firstChild;
+    while (node) {
+        walk(node, fn);
+        node = node.nextSibling;
+    }
+};
+
+// 
+var getElementsByAttribute = function(attr, value) {
+    var results = [];
+    
+    walk_the_dom(document.body, function(node) {
+        var actual = node.nodeType === 1 && node.getAttribute(attr);
+        if (typeof actual === 'string' && (actual === value || typeof value !== 'string')) 
+            results.push(node);
+    });
+    return results;
+};
+
+// test logs
+console.log(getElementsByAttribute("id", "id"));
+})();
+</script>
+</head>
+<body>
+<div id="id">
+    <div name="good"></div>
+</div>
+<div></div>
+</body>
+</html>

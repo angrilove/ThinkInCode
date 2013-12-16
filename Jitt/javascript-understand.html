@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gbk">
+<title></title>
+<script type="text/javascript">
+<!--
+	// 1.
+	if (!("a" in window)) {
+		var a = 1;
+	}
+	console.log('1.' + a);
+	// ---RESULT---
+	// 1
+	// ---SUCCESS: undefined
+	
+	// 2.
+	var b = 1,
+		c = function b(x) {
+			x && b(--x);
+		};
+	console.log('2.' + b);
+	// ---RESULT---
+	// 1
+	
+	// 3.
+	function d(x) {
+		return x * 2;
+	}
+	var d;
+	console.log(d);
+	// ---RESULT---
+	// undefined
+	
+	// 4.
+	function e(arg1, arg2, arg3) {
+		arguments[2] = 10;
+		console.log('4.' + arg3);
+	}
+	e(1, 2, 3);
+	// ---RESULT---
+	// 3
+	
+	// 5.
+	function f() {
+		alert(this);
+	}
+	f.call(null);
+	// ---RESULT---
+	// undefined
+	
+//-->
+</script>
+</head>
+<body>
+</body>
+</html>
